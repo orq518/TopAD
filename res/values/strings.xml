@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">TopAD</string>
+    <string name="loading_tips">正在加载...</string>
+    <string name="no_connection">无网络连接，请检查网络</string>
+    <string name="connect_error">服务器连接错误</string>
+    <string name="connect_timeout">请求超时，请重试</string>
+    <string name="service_busy">系统繁忙，请稍后重试</string>
+    <!--下拉刷新view-->
+    <string name="my_listview_header_hint_normal">下拉可以刷新</string>
+    <string name="my_listview_header_hint_ready">松开立即刷新</string>
+    <string name="my_listview_header_hint_loading">正在载入...</string>
+    <string name="my_listview_header_last_time">上次更新：</string>
+    <string name="my_listview_footer_hint_normal">点击或上拉载入更多...</string>
+    <string name="my_listview_footer_hint_ready">释放立即载入</string>
+<!-- TODO: Remove or change this placeholder text -->
+
+
+</resources>

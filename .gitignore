@@ -1,0 +1,14 @@
+/gradle
+# Created by .ignore support plugin (hsz.mobi)
+MVPSample-master.iml
+.settings
+ucf_wallet_app.git.iml
+.idea
+.gradle
+build
+.classpath
+local.properties
+*.iml
+*.iml
+build.gradle.rej
+*.apk

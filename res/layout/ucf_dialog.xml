@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 公用dialog -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="320dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:scrollbars="vertical"
+    android:background="@drawable/dialog_bg">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="54dp">
+
+        <TextView
+            android:id="@+id/mTitle"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:text="提示"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/textsize_18"/>
+
+        <ImageView
+            android:id="@+id/mExit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:layout_marginRight="18dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/dialog_cancel" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:background="@color/gray_bg"/>
+
+    <TextView
+        android:id="@+id/mContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="内容"
+        android:layout_marginTop="17dp"
+        android:layout_marginBottom="17dp"
+        android:layout_marginLeft="@dimen/dimen_35"
+        android:layout_marginRight="@dimen/dimen_35"
+        android:textColor="@color/tip_text_color"
+        android:textSize="@dimen/textsize_16"/>
+
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:background="@color/gray_bg"/>
+
+    <LinearLayout
+        android:id="@+id/mBtLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dimen_20"
+        android:paddingRight="@dimen/dimen_20"
+        android:layout_marginTop="@dimen/dimen_20"
+        android:layout_marginBottom="@dimen/dimen_20"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/mConfirmBtn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/ucf_btn_red_borad_style"
+            android:layout_weight="1"
+            android:layout_marginRight="@dimen/dimen_5"
+            android:text="取消"/>
+
+
+        <Button
+            android:id="@+id/mCancelBtn"
+            style="@style/ucf_btn_red_style"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_5"
+            android:layout_weight="1"
+            android:text="确定"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/mIKnow"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="我知道了"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginLeft="@dimen/dimen_20"
+        android:layout_marginRight="@dimen/dimen_20"
+        style="@style/ucf_btn_red_style"/>
+</LinearLayout>

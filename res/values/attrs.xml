@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <declare-styleable name="TabWidget">
+        <attr name="bottom_labels" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="slideswitch">
+        <attr name="themeColor" format="color" />
+        <attr name="isOpen" format="boolean" />
+        <attr name="shape">
+            <enum name="rect" value="1" />
+            <enum name="circle" value="2" />
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="BreathingLightView">
+        <attr name="minRadius" format="dimension"/>
+        <attr name="maxRadius" format="dimension"/>
+        <attr name="ringWidth" format="dimension"/>
+        <attr name="expandTime" format="integer"/>
+        <attr name="shrinkTime" format="integer"/>
+        <attr name="innerColor" format="color"/>
+        <attr name="annuleColor" format="color"/>
+        <attr name="bgColor" format="color"/>
+    </declare-styleable>
+    <declare-styleable name="SlideHorizontalScrollView">
+        <attr name="validDistance" format="dimension"/>
+    </declare-styleable>
+    <declare-styleable name="CircleProgress">
+        <attr name="color1" format="reference|color"/>
+        <attr name="color2" format="reference|color"/>
+        <attr name="color3" format="reference|color"/>
+    </declare-styleable>
+</resources>

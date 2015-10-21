@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/dimen_15"
+    android:background="@drawable/common_item"
+    >
+
+    <TextView
+        android:id="@+id/tv_item_key"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="手机号码"
+        android:textSize="@dimen/main_text_size"
+        android:textColor="@color/black"
+        android:layout_alignParentLeft="true"
+
+        />
+
+
+    <ImageView
+        android:id="@+id/iv_item_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/arrow"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="@dimen/dimen_5"
+        />
+
+    <TextView
+        android:id="@+id/tv_item_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1234234324"
+        android:textSize="@dimen/main_text_size"
+        android:layout_centerVertical="true"
+        android:textColor="@color/hint_text_color"
+        android:layout_toLeftOf="@+id/iv_item_arrow"
+        android:layout_toRightOf="@+id/tv_item_key"
+        android:gravity="right|center_vertical"
+        />
+
+</RelativeLayout>
+

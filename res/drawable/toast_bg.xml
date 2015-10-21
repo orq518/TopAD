@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+
+
+    <!-- 中间的背景色 -->
+    <solid android:color="@color/toast_bg" />
+    <!-- 设置四个角的角度 -->
+    <corners
+        android:topRightRadius="@dimen/btn_radis"
+        android:topLeftRadius="@dimen/btn_radis"
+        android:bottomLeftRadius="@dimen/btn_radis"
+        android:bottomRightRadius="@dimen/btn_radis" />
+
+</shape>

@@ -1,0 +1,53 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">15dp</dimen>
+    <dimen name="activity_vertical_margin">15dp</dimen>
+
+    <dimen name="dimen_1">1dp</dimen>
+    <dimen name="dimen_2">2dp</dimen>
+    <dimen name="dimen_3">3dp</dimen>
+    <dimen name="dimen_5">5dp</dimen>
+    <dimen name="dimen_6">6dp</dimen>
+    <dimen name="dimen_7">7dp</dimen>
+    <dimen name="dimen_10">10dp</dimen>
+    <dimen name="dimen_15">15dp</dimen>
+    <dimen name="dimen_20">20dp</dimen>
+    <dimen name="dimen_25">25dp</dimen>
+    <dimen name="dimen_26">26dp</dimen>
+    <dimen name="dimen_30">30dp</dimen>
+    <dimen name="dimen_35">35dp</dimen>
+    <dimen name="dimen_40">40dp</dimen>
+    <dimen name="dimen_45">45dp</dimen>
+    <dimen name="dimen_49">49dp</dimen>
+    <dimen name="dimen_50">50dp</dimen>
+    <dimen name="dimen_55">55dp</dimen>
+    <dimen name="dimen_60">60dp</dimen>
+    <dimen name="dimen_65">65dp</dimen>
+    <dimen name="dimen_70">70dp</dimen>
+    <dimen name="dimen_80">80dp</dimen>
+
+    <dimen name="dimen_100px">44.44dp</dimen>
+    <dimen name="dimen_120px">53.28dp</dimen>
+    <dimen name="dimen_30px">13.33dp</dimen>
+    <dimen name="editor_height">43dp</dimen>
+    <dimen name="title_height">45dp</dimen>
+    <dimen name="common_btn_height">43dp</dimen>
+    <dimen name="textsize_14">14sp</dimen>
+    <dimen name="textsize_15">15sp</dimen>
+    <dimen name="textsize_16">16sp</dimen>
+    <dimen name="textsize_18">18sp</dimen>
+    <dimen name="btn_radis">5dp</dimen>
+    <dimen name="spacing_medium">8dp</dimen>
+
+    <!--  正文字体大小 -->
+    <dimen name="main_text_size">15sp</dimen>
+    <!--  提示字体大小 -->
+    <dimen name="hint_text_size">13sp</dimen>
+    <!--  button字体大小 -->
+    <dimen name="button_text_size">19sp</dimen>
+
+    <dimen name="key_height">50.0dip</dimen>
+
+    <dimen name="default_circle_view_size">200dp</dimen>
+</resources>

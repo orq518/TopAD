@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/update_dialog_bg"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/dv_tv_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="这里是标题"
+        android:textColor="@color/main_text_color"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:id="@+id/dv_lin_message"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/fuxk_base_divide_line_color" />
+
+        <TextView
+            android:id="@+id/dv_tv_message"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="-"
+            android:textColor="@color/main_text_color"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/dv_lin_bottom"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:paddingBottom="20dp"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/dv_btn_cancel"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1.0"
+            android:textSize="16sp"
+            android:background="@drawable/btn_gray"
+            android:text="取消"
+            android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/dv_btn_ok"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1.0"
+            android:textSize="16sp"
+            android:background="@drawable/btn_red"
+            android:textColor="@color/white"
+            android:text="确定" />
+    </LinearLayout>
+
+</LinearLayout>
