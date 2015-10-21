@@ -11,7 +11,7 @@ import android.view.Window;
 import com.topad.util.ActivityCollector;
 
 /**
- * orq--kb
+ * orq--kb2
  */
 public abstract class BaseActivity extends FragmentActivity implements OnClickListener {
 
