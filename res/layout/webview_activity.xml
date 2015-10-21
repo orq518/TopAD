@@ -19,10 +19,5 @@
 
     </RelativeLayout>
 
-    <com.topad.view.customviews.CardVolumeView
-        android:id="@+id/card_volume_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone"/>
 
 </FrameLayout>

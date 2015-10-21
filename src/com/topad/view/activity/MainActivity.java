@@ -52,7 +52,9 @@ public class MainActivity extends BaseActivity implements
     private WalletFragment mHomeFragment3;
     private FragmentManager mFragmentManager;
 
-    /** 设置系统bar **/
+    /**
+     * 设置系统bar
+     **/
     private SystemBarTintManager mTintManager;
 
     public static void LaunchSelf(Context context) {
@@ -97,11 +99,6 @@ public class MainActivity extends BaseActivity implements
     }
 
     @Override
-    public void initPresenter() {
-
-    }
-
-    @Override
     public void initData() {
 
     }
@@ -113,7 +110,7 @@ public class MainActivity extends BaseActivity implements
     protected void onResume() {
         super.onResume();
         LogUtil.d("mIndex:" + mIndex);
-        onTabSelected(mIndex,mTabWidget.ONRESUME);
+        onTabSelected(mIndex, mTabWidget.ONRESUME);
         mTabWidget.setTabsDisplay(this, mIndex);
 //        mTabWidget.setIndicateDisplay(this, 3, true);
         if (mFragmentManager != null && mFragmentManager.getFragments() != null && mFragmentManager.getFragments().size() > 0) {
@@ -127,7 +124,7 @@ public class MainActivity extends BaseActivity implements
     }
 
     public void setFragmentVerisiable(final BaseFragment fagment) {
-        if(mHandler==null){
+        if (mHandler == null) {
             mHandler = new Handler() {
             };
         }
@@ -140,7 +137,7 @@ public class MainActivity extends BaseActivity implements
     }
 
     @Override
-    public void onTabSelected(int index,int type) {
+    public void onTabSelected(int index, int type) {
         FragmentTransaction transaction = mFragmentManager.beginTransaction();
         switch (index) {
             case HOME_TAB_INDEX_0:
@@ -197,8 +194,6 @@ public class MainActivity extends BaseActivity implements
         mIndex = index;
         transaction.commitAllowingStateLoss();
     }
-
-
 
 
     private void hideFragments(FragmentTransaction transaction) {
@@ -278,6 +273,7 @@ public class MainActivity extends BaseActivity implements
     public static void setIndexByPre() {
         mIndex = preIndex;
     }
+
     public static void setIndexInit() {
         mIndex = HOME_TAB_INDEX_0;
     }
@@ -293,17 +289,18 @@ public class MainActivity extends BaseActivity implements
 
     /**
      * 通过index获取主页面中的某个fragment
-     * @param index  0-3
+     *
+     * @param index 0-3
      * @return
      */
-    public BaseFragment getFragmentByIndex(int index){
-        if(index == 0){
+    public BaseFragment getFragmentByIndex(int index) {
+        if (index == 0) {
             return mHomeFragment0;
-        }else if(index ==1){
+        } else if (index == 1) {
             return mHomeFragment1;
-        }else if(index ==2){
+        } else if (index == 2) {
             return mHomeFragment2;
-        }else if(index ==3){
+        } else if (index == 3) {
             return mHomeFragment3;
         }
         return null;
