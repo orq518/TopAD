@@ -1,4 +1,4 @@
-package com.topad.presenter;
+package com.topad.model;
 
 /**
  * The author 欧瑞强 on 2015/7/23.
