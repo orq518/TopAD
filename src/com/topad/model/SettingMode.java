@@ -5,7 +5,6 @@ import android.content.Context;
 import com.topad.bean.BaseBean;
 import com.topad.net.HttpCallback;
 import com.topad.net.http.RequestParams;
-import com.topad.presenter.NetCallBack;
 import com.topad.util.Constants;
 
 /**
