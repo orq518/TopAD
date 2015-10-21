@@ -6,18 +6,17 @@
               android:layout_height="fill_parent"
               android:background="@color/white"
               android:orientation="vertical">
-
+    <com.topad.view.customviews.WalletTitleView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
     <RelativeLayout
         android:id="@+id/wallet_lin_main"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:orientation="vertical"
-        android:visibility="gone">
+        android:orientation="vertical">
 
-        <com.topad.view.customviews.WalletTitleView
-            android:id="@+id/title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+
 
     </RelativeLayout>
 
