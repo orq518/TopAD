@@ -18,14 +18,14 @@ import com.topad.R;
 import com.topad.util.LogUtil;
 import com.topad.util.Utils;
 import com.topad.view.customviews.CircleProgressDialog;
-import com.topad.view.customviews.WalletTitleView;
+import com.topad.view.customviews.TitleView;
 
 import org.apache.http.util.EncodingUtils;
 
 @SuppressLint("SetJavaScriptEnabled")
 public class WebViewActivity extends BaseActivity {
 
-    private WalletTitleView mTitleView;
+    private TitleView mTitleView;
     private String mUrl;
     private WebView mWebView;
     protected CircleProgressDialog mReadingProgress;
@@ -80,7 +80,7 @@ public class WebViewActivity extends BaseActivity {
     @Override
     public void initViews() {
         title = getIntent().getStringExtra("title");
-        mTitleView = (WalletTitleView) findViewById(R.id.title);
+        mTitleView = (TitleView) findViewById(R.id.title);
         mTitleView.setTitle(title);
         mTitleView.setLeftClickListener(new View.OnClickListener() {
             @Override

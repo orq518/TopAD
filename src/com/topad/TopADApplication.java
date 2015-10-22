@@ -41,7 +41,6 @@ public class TopADApplication extends Application {
     @Override
     protected void finalize() throws Throwable {
         super.finalize();
-        MainActivity.setIndexInit();
         LogUtil.d("#####退出");
     }
 
@@ -86,7 +85,6 @@ public class TopADApplication extends Application {
      */
     public void setHomeFragmentRefresh() {
         if (mFragmentManager != null) {
-            MainActivity.setIndexByPre();
             List<Fragment> fragmentsList = mFragmentManager.getFragments();
             for (int i = 0; i < fragmentsList.size(); i++) {
                 BaseFragment baseFragment = (BaseFragment) fragmentsList.get(i);
