@@ -74,6 +74,8 @@
                         android:background="@color/bule"
                         android:gravity="center_vertical"
                         android:layout_weight="1"
+                        android:onClick="onClick"
+                        android:clickable="true"
                         android:padding="15dp">
 
                         <ImageView
@@ -103,6 +105,8 @@
                         android:gravity="center_vertical"
                         android:layout_weight="1"
                         android:padding="15dp"
+                        android:clickable="true"
+                        android:onClick="onClick"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp">
 
@@ -132,6 +136,8 @@
                         android:background="@color/powder"
                         android:gravity="center_vertical"
                         android:layout_weight="1"
+                        android:clickable="true"
+                        android:onClick="onClick"
                         android:padding="15dp">
 
                         <ImageView
@@ -169,6 +175,8 @@
                         android:background="@color/yellow"
                         android:gravity="center_vertical"
                         android:layout_weight="1"
+                        android:clickable="true"
+                        android:onClick="onClick"
                         android:padding="15dp">
 
                         <ImageView
@@ -198,6 +206,8 @@
                         android:gravity="center_vertical"
                         android:layout_weight="1"
                         android:padding="15dp"
+                        android:onClick="onClick"
+                        android:clickable="true"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp">
 
@@ -227,6 +237,8 @@
                         android:background="@color/green"
                         android:gravity="center_vertical"
                         android:layout_weight="1"
+                        android:onClick="onClick"
+                        android:clickable="true"
                         android:padding="15dp">
 
                         <ImageView

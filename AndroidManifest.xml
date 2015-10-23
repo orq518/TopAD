@@ -61,9 +61,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.activity.WebViewActivity">
-
         </activity>
-
+        <activity android:name=".view.activity.SearchActivity">
+        </activity>
     </application>
 
 </manifest>
