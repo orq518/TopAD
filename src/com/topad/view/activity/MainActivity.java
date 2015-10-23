@@ -86,7 +86,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 startActivity(intent);
                 break;
             case R.id.net_layout://网络
-                intent = new Intent(MainActivity.this, RecordActivity.class);
+                intent = new Intent(MainActivity.this, SearchActivity.class);
                 intent.putExtra("searchtype",5);
                 startActivity(intent);
                 break;
