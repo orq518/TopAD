@@ -40,19 +40,20 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
     private AudioRecorder mr;
     private MediaPlayer mediaPlayer;
     private Dialog dialog;
-    private static int MAX_TIME = 15;    //�¼��ʱ�䣬��λ�룬0Ϊ��ʱ������
-    private static int MIX_TIME = 1;     //���¼��ʱ�䣬��λ�룬0Ϊ��ʱ�����ƣ�������Ϊ1
+    private static int MAX_TIME = 15;
+    private static int MIX_TIME = 1;
 
-    private static int RECORD_NO = 0;  //����¼��
-    private static int RECORD_ING = 1;   //����¼��
-    private static int RECODE_ED = 2;   //���¼��
+    private static int RECORD_NO = 0;
+    private static int RECORD_ING = 1;
+    private static int RECODE_ED = 2;
 
-    private static int RECODE_STATE = 0;      //¼����״̬
+    private static int RECODE_STATE = 0;
 
-    private static float recodeTime=0.0f;    //¼����ʱ��
-    private static double voiceValue=0.0;    //��˷��ȡ������
+    private static float recodeTime=0.0f;
+    private static double voiceValue=0.0;
     private ImageView dialog_img;// ֵ
     private Thread recordThread;
+    String pathString="ad/voice.amr";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -118,7 +119,7 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
 
                             if (recodeTime < MIX_TIME) {
                                 showWarnToast();
-                                record.setText("不能低于多长时间");
+                                record.setText("按住说话");
                                 RECODE_STATE=RECORD_NO;
                             }else{
                                 record.setText("按住说话");
@@ -189,16 +190,21 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
         }
 
     }
-    //ɾ�����ļ�
+
+    /**
+     * 搜索以前的录音，删除
+     */
     void scanOldFile(){
         File file = new File(Environment
-                .getExternalStorageDirectory(), "my/voice.amr");
+                .getExternalStorageDirectory(),pathString);
         if(file.exists()){
             file.delete();
         }
     }
 
-    //¼��ʱ��ʾDialog
+    /**
+     * 弹出录音的dialog
+     */
     void showVoiceDialog(){
         dialog = new Dialog(this,R.style.DialogStyle);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -209,48 +215,52 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
         dialog.show();
     }
 
-    //¼��ʱ��̫��ʱToast��ʾ
     void showWarnToast(){
         Toast toast = new Toast(this);
         LinearLayout linearLayout = new LinearLayout(this);
         linearLayout.setOrientation(LinearLayout.VERTICAL);
         linearLayout.setPadding(20, 20, 20, 20);
 
-        // ����һ��ImageView
         ImageView imageView = new ImageView(this);
-        imageView.setImageResource(R.drawable.voice_to_short); // ͼ��
+        imageView.setImageResource(R.drawable.voice_to_short);
 
         TextView mTv = new TextView(this);
-        mTv.setText("ʱ��̫��   ¼��ʧ��");
+        mTv.setText("时间不能少于1s");
         mTv.setTextSize(14);
-        mTv.setTextColor(Color.WHITE);//������ɫ
+        mTv.setTextColor(Color.WHITE);
         //mTv.setPadding(0, 10, 0, 0);
 
-        // ��ImageView��ToastView�ϲ���Layout��
         linearLayout.addView(imageView);
         linearLayout.addView(mTv);
-        linearLayout.setGravity(Gravity.CENTER);//���ݾ���
-        linearLayout.setBackgroundResource(R.drawable.record_bg);//�����Զ���toast�ı���
+        linearLayout.setGravity(Gravity.CENTER);
+        linearLayout.setBackgroundResource(R.drawable.record_bg);
 
         toast.setView(linearLayout);
-        toast.setGravity(Gravity.CENTER, 0,0);//���λ��Ϊ�м�     100Ϊ������100dp
+        toast.setGravity(Gravity.CENTER, 0,0);
         toast.show();
     }
 
-    //��ȡ�ļ��ֻ�·��
+    /**
+     * 获取录音路径
+     * @return
+     */
     private String getAmrPath(){
         File file = new File(Environment
-                .getExternalStorageDirectory(), "my/voice.amr");
+                .getExternalStorageDirectory(),pathString);
         return file.getAbsolutePath();
     }
 
-    //¼����ʱ�߳�
+    /**
+     * 创建录音的线程
+     */
     void mythread(){
         recordThread = new Thread(ImgThread);
         recordThread.start();
     }
 
-    //¼��DialogͼƬ��������С�л�
+    /**
+     * 设置录音的状态图片
+     */
     void setDialogImage(){
         if (voiceValue < 200.0) {
             dialog_img.setImageResource(R.drawable.record_animate_01);
@@ -283,7 +293,6 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
         }
     }
 
-    //¼���߳�
     private Runnable ImgThread = new Runnable() {
 
         @Override
@@ -314,7 +323,6 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
 
                 switch (msg.what) {
                     case 0:
-                        //¼������15���Զ�ֹͣ
                         if (RECODE_STATE == RECORD_ING) {
                             RECODE_STATE=RECODE_ED;
                             if (dialog.isShowing()) {
@@ -329,10 +337,10 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
 
                             if (recodeTime < 1.0) {
                                 showWarnToast();
-                                record.setText("��ס��ʼ¼��");
+//                                record.setText("��ס��ʼ¼��");
                                 RECODE_STATE=RECORD_NO;
                             }else{
-                                record.setText("¼�����!�������¼��");
+//                                record.setText("¼�����!�������¼��");
                             }
                         }
                         break;
