@@ -8,26 +8,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.topad.R;
 import com.topad.util.LogUtil;
-import com.topad.view.customviews.WalletTitleView;
+import com.topad.view.customviews.TitleView;
 
 /**
  * Created by ouruiqiang on 2015/10/16.
  * File for what:
  * ps:
  */
-public class WalletFragment extends BaseFragment implements  View.OnClickListener{
+public class MyMediaFragment extends BaseFragment implements  View.OnClickListener{
 
-    private String tag = "WalletFragment";
+    private String tag = "MyMediaFragment";
     private View mRootView;
-    RelativeLayout mMainWalletLaout;
-    RelativeLayout mNotIdentityWalletLaout;
-    View mWalletView;
+    private RelativeLayout mMainWalletLaout;
     private Context mCtx;
-    private TextView mRefersh;
 
     @Override
     public String getFragmentName() {
@@ -46,9 +42,8 @@ public class WalletFragment extends BaseFragment implements  View.OnClickListene
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         if (null == mRootView) {
-            mRootView = getLayoutInflater(savedInstanceState).inflate(R.layout.fragment_wallet_layout, null);
-//            mRootView = getLayoutInflater(savedInstanceState).inflate(R.layout.activity_my_invite, null);
-            WalletTitleView mTitleView = (WalletTitleView) mRootView.findViewById(R.id.title);
+            mRootView = getLayoutInflater(savedInstanceState).inflate(R.layout.fragment_my_media_layout, null);
+            TitleView mTitleView = (TitleView) mRootView.findViewById(R.id.title);
             mTitleView.setTitle("生活");
             mTitleView.setLeftVisiable(false);
 
@@ -58,7 +53,6 @@ public class WalletFragment extends BaseFragment implements  View.OnClickListene
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-        //钱包的
         initView();
     }
 
@@ -81,11 +75,9 @@ public class WalletFragment extends BaseFragment implements  View.OnClickListene
     public void setVisible(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
 
-        //钱包的逻辑
         LogUtil.d("是否显示：" + isVisibleToUser + "    isNeedRefresh:" + isNeedRefresh);
         if (isVisibleToUser && isNeedRefresh) {
             isNeedRefresh = false;
-            mWalletView = null;
         }
 
     }

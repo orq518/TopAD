@@ -19,7 +19,7 @@ import com.topad.util.Utils;
 /**
  * 标题栏
  */
-public class WalletTitleView extends RelativeLayout {
+public class TitleView extends RelativeLayout {
     private TextView mTitle;
     private TextView mLeft;
     private TextView mRigh;
@@ -36,12 +36,12 @@ public class WalletTitleView extends RelativeLayout {
     /** title **/
     private String mTitleString;
 
-    public WalletTitleView(Context context) {
+    public TitleView(Context context) {
         super(context);
         mContext = context;
     }
 
-    public WalletTitleView(Context context, AttributeSet attrs) {
+    public TitleView(Context context, AttributeSet attrs) {
         super(context, attrs);
         mContext = context;
         LayoutInflater mInflater = (LayoutInflater) context

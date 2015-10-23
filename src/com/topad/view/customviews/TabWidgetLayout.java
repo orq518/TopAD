@@ -22,7 +22,6 @@ import java.util.List;
  */
 public class TabWidgetLayout extends LinearLayout {
 
-
     // 存放底部菜单的各个文字CheckedTextView
     private List<CheckedTextView> mCheckedList = new ArrayList<CheckedTextView>();
     // 存放底部菜单每项View
@@ -36,14 +35,14 @@ public class TabWidgetLayout extends LinearLayout {
     private String[] mLabels;
     Context mContext;
     int height;
-    public int TOUCH=0,ONRESUME=1;
+    public int TOUCH=0, ONRESUME=1;
     public int  tabSelected;
     /**
      * 底部的icon
      */
     private int[] mDrawableIds = new int[]{R.drawable.bg_home,
-            R.drawable.bg_category, R.drawable.bg_collect,
-            R.drawable.bg_setting};
+            R.drawable.bg_category, R.drawable.bg_collect,};
+
     public TabWidgetLayout(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         // 初始化控件
@@ -69,24 +68,20 @@ public class TabWidgetLayout extends LinearLayout {
 
         LayoutInflater inflater = LayoutInflater.from(context);
 
-
         int size = mLabels.length;
         for (int i = 0; i < size; i++) {
             final int index = i;
             // 每个tab对应的layout
             RelativeLayout view = (RelativeLayout) inflater.inflate(R.layout.tab_item, null);
 
-            CheckedTextView itemName = (CheckedTextView) view
-                    .findViewById(R.id.item_name);
-            CheckedTextView itemIcon = (CheckedTextView) view
-                    .findViewById(R.id.item_icon);
+            CheckedTextView itemName = (CheckedTextView) view.findViewById(R.id.item_name);
+            CheckedTextView itemIcon = (CheckedTextView) view.findViewById(R.id.item_icon);
             itemIcon.setBackgroundResource(mDrawableIds[i]);
             itemName.setText(mLabels[i]);
+
             // 指示点ImageView，如有版本更新需要显示
-            ImageView indicateImg = (ImageView) view
-                    .findViewById(R.id.indicate_img);
-            LayoutParams params = new LayoutParams(
-                    LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT, 1.0f);
+            ImageView indicateImg = (ImageView) view.findViewById(R.id.indicate_img);
+            LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT, 1.0f);
             params.gravity = Gravity.CENTER;
             this.addView(view, params);
 
@@ -144,14 +139,13 @@ public class TabWidgetLayout extends LinearLayout {
                 LogUtil.d("//>" + mLabels[index] + " is selected...");
                 checkedTextView.setChecked(true);
                 checkedIcon.setChecked(true);
-                checkedTextView.setTextColor(mContext.getResources().getColor(R.color.tab_text_selected_color));//#F7587B
-//                mViewList.get(i).setBackgroundColor(mContext.getResources().getColor(R.color.tab_selected_bg_color));//#F0F1F2
-                mViewList.get(i).setBackgroundColor(mContext.getResources().getColor(R.color.white));//#F0F1F2
+                checkedTextView.setTextColor(mContext.getResources().getColor(R.color.white));//#F7587B
+                mViewList.get(i).setBackgroundColor(mContext.getResources().getColor(R.color.act_home_tab_blue_normal));//#F0F1F2
             } else {
                 checkedTextView.setChecked(false);
                 checkedIcon.setChecked(false);
                 checkedTextView.setTextColor(mContext.getResources().getColor(R.color.gray));//#130C0E
-                mViewList.get(i).setBackgroundColor(mContext.getResources().getColor(R.color.white));//#FAFAFA
+                mViewList.get(i).setBackgroundColor(mContext.getResources().getColor(R.color.act_home_tab_blue_normal));//#FAFAFA
             }
         }
     }

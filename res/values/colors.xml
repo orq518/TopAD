@@ -3,8 +3,17 @@
 
     <color name="white">#ffffff</color>
     <color name="black">#ff000000</color>
-    <color name="gray">#959595</color>
-    <color name="green">#29c245</color>
+    <color name="gray">#ded6d6</color>
+    <color name="gray_bg">#dddde2</color>
+    <color name="green">#FF74DC3C</color>
+    <color name="bule">#FF2983DA</color>
+    <color name="orange">#FFDA9029</color>
+    <color name="powder">#FFDA2982</color>
+    <color name="yellow">#FFD9D926</color>
+    <color name="hot">#FFDA0B31</color>
+    <color name="text_bg">#33ffffff</color>
+
+
     <color name="title_bg">#ffffffff</color>
     <color name="dark_gray">#333333</color>
     <color name="app_bg">#f5f5f9</color>
@@ -29,7 +38,6 @@
     <color name="tab_selected_bg_color">#F0F1F2</color>
     <color name="editor_hint_color">#ffc7c7c7</color>
     <color name="tip_text_color">#777777</color>
-    <color name="gray_bg">#f5f5f9</color>
 
     <color name="linked_blue">#2baef9</color>
     <color name="btn_disable">#FC6774</color>
@@ -59,4 +67,7 @@
     <color name="light_text_color">#c8d9e3</color>
     <color name="dialog_bg">#f7f7f7</color>
     <color name="qr_tip_gray">#808080</color>
+
+    <color name="act_home_tab_blue_normal">#FF0469CA</color>
+    <color name="act_home_tab_blue_press">#FF01529F</color>
 </resources>
