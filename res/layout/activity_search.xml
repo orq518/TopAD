@@ -127,6 +127,7 @@
                 android:onClick="onClick"
                 android:src="@drawable/keyboard_change_bg"/>
             <Button
+                android:id="@+id/record_bt"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dimen_10"
