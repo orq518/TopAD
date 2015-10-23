@@ -3,9 +3,8 @@
 
     <!-- 首页导航 -->
     <string-array name="tab_name">
-        <item >理财</item>
-        <item >生活</item>
-        <item >发现</item>
-        <item >我的</item>
+        <item >我的媒体</item>
+        <item >发布需求</item>
+        <item >我要抢单</item>
     </string-array>
 </resources>

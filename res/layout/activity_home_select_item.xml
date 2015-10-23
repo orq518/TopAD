@@ -1,40 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?>
+<!--首页底部布局item-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="center_horizontal"
-    android:background="@color/act_home_tab_blue_normal">
+    android:layout_gravity="center_vertical"
+    android:background="@color/act_home_tab_blue_normal"
+    android:orientation="vertical">
 
     <CheckedTextView
-        android:id="@+id/item_icon"
+        android:id="@+id/icon"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"
+        android:layout_marginLeft="10dp"
         android:background="@drawable/bg_home"
         android:checked="true"/>
 
     <CheckedTextView
-        android:id="@+id/item_name"
-        android:layout_width="wrap_content"
+        android:id="@+id/name"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/item_icon"
+        android:layout_toRightOf="@id/icon"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"
-        android:layout_marginLeft="2dp"
-        android:gravity="center"
-        android:text="菜单"
-        android:textSize="13sp"/>
+        android:layout_marginLeft="5dp"
+        android:gravity="left"
+        android:text="我的媒体"
+        android:textSize="16sp"
+        android:textColor="@color/white"/>
 
     <ImageView
-        android:id="@+id/indicate_img"
+        android:id="@+id/my_media_indicate_img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="15dp"
-        android:layout_toRightOf="@id/item_name"
+        android:layout_toRightOf="@id/name"
         android:src="@drawable/update_hint"
         android:visibility="gone"/>
 
