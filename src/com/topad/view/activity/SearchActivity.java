@@ -1,6 +1,7 @@
 package com.topad.view.activity;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -148,6 +149,10 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
     public void onClick(View v) {
         super.onClick(v);
         switch (v.getId()) {
+            case R.id.first_item:
+                Intent intent = new Intent(SearchActivity.this, SearchListActivity.class);
+                startActivity(intent);
+                break;
             case R.id.ic_voice:
                 layout_voice.setVisibility(View.GONE);
                 layout_keyboard.setVisibility(View.VISIBLE);
