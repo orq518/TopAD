@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+
+
+    <!-- 中间的背景色 -->
+    <solid android:color="@color/key_btn_pressed"/>
+    <!-- 设置四个角的角度 -->
+    <corners
+        android:bottomLeftRadius="@dimen/btn_radis"
+        android:bottomRightRadius="@dimen/btn_radis"
+        android:topLeftRadius="@dimen/btn_radis"
+        android:topRightRadius="@dimen/btn_radis"/>
+    <padding
+        android:bottom="10dp"
+        android:left="10dp"
+        android:right="10dp"
+        android:top="10dp"/>
+    <stroke
+        android:width="1dp"
+        android:color="@color/editor_hint_color"/>
+</shape>

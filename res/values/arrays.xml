@@ -3,8 +3,149 @@
 
     <!-- 首页导航 -->
     <string-array name="tab_name">
-        <item >我的媒体</item>
-        <item >发布需求</item>
-        <item >我要抢单</item>
+        <item>我的媒体</item>
+        <item>发布需求</item>
+        <item>我要抢单</item>
     </string-array>
+    <!-- 首页导航 -->
+    <string-array name="huwai">
+        <!--机场、高铁、火车站、地铁、公交、城市大牌、特定场所、 楼宇电梯-->
+        <item>机场</item>
+        <item>高铁</item>
+        <item>火车站</item>
+        <item>地铁</item>
+        <item>公交</item>
+        <item>城市大牌</item>
+        <item>特定场所</item>
+        <item>楼宇电梯</item>
+    </string-array>
+    <string-array name="jichang">
+        <!--机场高速、机场灯箱、机场包柱、机场电视、机场吊旗、机场收费站、机场 LED、
+机场刷屏机、机场推车、飞机内电视、其他-->
+        <item>机场高速</item>
+        <item>机场灯箱</item>
+        <item>机场包柱</item>
+        <item>机场电视</item>
+        <item>机场吊旗</item>
+        <item>机场收费站</item>
+        <item>机场LED</item>
+        <item>机场刷屏机</item>
+        <item>机场推车</item>
+        <item>机内电视</item>
+        <item>其他</item>
+    </string-array>
+    <string-array name="gaotie">
+        <!--候车室灯箱、候车室电视、进站通道灯箱、出站通道灯箱、吊旗、刷屏机、高铁
+LED、座椅、出站门头、检票口门头灯箱、玻璃贴、高铁内电视、高铁内枕套、
+高铁内小桌板、其他-->
+        <item>候车室灯箱</item>
+        <item>候车室电视</item>
+        <item>进站通道灯箱</item>
+        <item>出站通道灯箱</item>
+        <item>吊旗</item>
+        <item>刷屏机</item>
+        <item>高铁LED</item>
+        <item>座椅</item>
+        <item>出站门头</item>
+        <item>检票口门头灯箱</item>
+        <item>玻璃贴</item>
+        <item>高铁内电视</item>
+        <item>高铁内枕套</item>
+        <item>高铁内小桌板</item>
+        <item>其他</item>
+    </string-array>
+    <string-array name="huochezhan">
+        <!--候车室灯箱、候车室电视、进站通道灯箱、出站通道灯箱、吊旗、刷屏机、 LED、
+座椅、出站门头、检票口门头灯箱、玻璃贴、火车内电视、火车内枕套、火车内
+小桌板、其他-->
+        <item>候车室灯箱</item>
+        <item>候车室电视</item>
+        <item>进站通道灯箱</item>
+        <item>出站通道灯箱</item>
+        <item>吊旗</item>
+        <item>刷屏机</item>
+        <item>LED</item>
+        <item>座椅</item>
+        <item>出站门头</item>
+        <item>检票口门头灯箱</item>
+        <item>玻璃贴</item>
+        <item>火车内电视</item>
+        <item>火车内枕套</item>
+        <item>火车内小桌板</item>
+        <item>其他</item>
+    </string-array>
+    <string-array name="ditie">
+        <!--地铁电视、地铁包柱、地铁海报、地铁墙体、地铁扶梯、地铁车内广告、安全门
+广告、地铁 LED、地铁站灯箱、地铁出入口灯箱、其他-->
+        <item>地铁电视</item>
+        <item>地铁包柱</item>
+        <item>地铁海报</item>
+        <item>地铁墙体</item>
+        <item>地铁扶梯</item>
+        <item>地铁车内广告</item>
+        <item>安全门广告</item>
+        <item>地铁LED</item>
+        <item>地铁站灯箱</item>
+        <item>地铁出入口灯箱</item>
+        <item>其他</item>
+    </string-array>
+    <string-array name="gongjiao">
+        <!--公交电视、公交站牌、公交车身、公交车内、公交候车亭、公交站台、长途汽车
+站、其他-->
+        <item>公交电视</item>
+        <item>公交站牌</item>
+        <item>公交车身</item>
+        <item>公交车内</item>
+        <item>公交候车亭</item>
+        <item>公交站台</item>
+        <item>长途汽车站</item>
+        <item>其他</item>
+    </string-array>
+    <string-array name="chengshidapai">
+        <!--环路立柱、高速立柱、高速大牌、楼体大牌、城市 LED 大屏、楼顶围挡、桥体广
+告、其他-->
+        <item>环路立柱</item>
+        <item>高速立柱</item>
+        <item>高速大牌</item>
+        <item>楼体大牌</item>
+        <item>城市LED大屏</item>
+        <item>楼顶围挡</item>
+        <item>桥体广告</item>
+        <item>其他</item>
+    </string-array>
+    <string-array name="gidingchangsuo">
+        <!--医院、学校、 宾馆、 公园、加油站、电影院、娱乐场所、卫生间、健身会所、高
+尔夫、体育场中心、商场超市、停车场、农村墙体、门头店招、其他-->
+        <item>医院</item>
+        <item>学校</item>
+        <item>宾馆</item>
+        <item>公园</item>
+        <item>加油站</item>
+        <item>电影院</item>
+        <item>娱乐场所</item>
+        <item>卫生间</item>
+        <item>健身会所</item>
+        <item>高尔夫</item>
+        <item>体育场中心</item>
+        <item>商场超市</item>
+        <item>停车场</item>
+        <item>农村墙体</item>
+        <item>门头店招</item>
+        <item>其他</item>
+    </string-array>
+    <string-array name="louyudianti">
+        <!--办公楼电梯口视频、办公楼电梯内框架、办公楼电梯内视频、办公楼刷屏机、社
+区楼宇视频、社区 LED、社区灯箱、其他-->
+        <item>办公楼电梯口视频</item>
+        <item>办公楼电梯内框架</item>
+        <item>办公楼电梯内视频</item>
+        <item>办公楼刷屏机</item>
+        <item>社区楼宇视频</item>
+        <item>社区LED</item>
+        <item>社区灯箱</item>
+        <item>其他</item>
+    </string-array>
+
+
+
 </resources>

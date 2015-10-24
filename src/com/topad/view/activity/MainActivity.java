@@ -1,34 +1,22 @@
 package com.topad.view.activity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.topad.R;
-import com.topad.TopADApplication;
-import com.topad.util.ActivityCollector;
-import com.topad.util.LogUtil;
-import com.topad.util.SystemBarTintManager;
-import com.topad.util.Utils;
-import com.topad.view.customviews.TabWidgetLayout;
 import com.topad.view.customviews.TitleView;
-import com.topad.view.fragment.BaseFragment;
-import com.topad.view.fragment.MyMediaFragment;
 
 /**
  * 主界面
  */
-public class MainActivity extends BaseActivity implements View.OnClickListener{
+public class MainActivity extends BaseActivity implements View.OnClickListener {
 
-    /** title布局 **/
+    /**
+     * title布局
+     **/
     private TitleView mTitle;
 
     @Override
@@ -52,9 +40,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         mTitle = (TitleView) findViewById(R.id.title);
         // 设置顶部布局
         mTitle.setTitle(getString(R.string.main_title));
-        mTitle.setRightTextVBackgroud(getResources().getDrawable(R.drawable.app_icon));
-        mTitle.setLeftClickListener(new TitleLeftOnClickListener());
-
+        mTitle.setLeftVisiable(false);
         setBottomLayout();
 
     }
@@ -72,12 +58,40 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     @Override
     public void onClick(View v) {
         super.onClick(v);
-
+        Intent intent;
         switch (v.getId()) {
-//            case R.id.version_update:{
-//                break;
-//            default:{
-//                break;
+            case R.id.tv_layout://电视
+                intent = new Intent(MainActivity.this, SearchActivity.class);
+                intent.putExtra("searchtype",0);
+                startActivity(intent);
+                break;
+            case R.id.broadcast_layout://广播
+                intent = new Intent(MainActivity.this, SearchActivity.class);
+                intent.putExtra("searchtype",1);
+                startActivity(intent);
+                break;
+            case R.id.newspaper_layout://报纸
+                intent = new Intent(MainActivity.this, SearchActivity.class);
+                intent.putExtra("searchtype",2);
+                startActivity(intent);
+                break;
+            case R.id.outdoor_layout://户外
+                intent = new Intent(MainActivity.this, SearchActivity.class);
+                intent.putExtra("searchtype",3);
+                startActivity(intent);
+                break;
+            case R.id.magazine_layout://杂志
+                intent = new Intent(MainActivity.this, SearchActivity.class);
+                intent.putExtra("searchtype",4);
+                startActivity(intent);
+                break;
+            case R.id.net_layout://网络
+                intent = new Intent(MainActivity.this, SearchActivity.class);
+                intent.putExtra("searchtype",5);
+                startActivity(intent);
+                break;
+            default:
+                break;
         }
     }
 
