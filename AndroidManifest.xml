@@ -66,6 +66,8 @@
         </activity>
         <activity android:name=".view.activity.SearchListActivity">
         </activity>
+        <activity android:name=".view.activity.ShareNeedsActivity">
+        </activity>
     </application>
 
 </manifest>
