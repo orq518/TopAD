@@ -1,6 +1,7 @@
 package com.topad.view.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -64,42 +65,42 @@ public class NeedsListActivity extends BaseActivity implements View.OnClickListe
     @Override
     public void initViews() {
         type = getIntent().getIntExtra("type", 0);
-        switch(type){
+        switch (type) {
             case 0:
-                tempArray=guanggaochuangyi;
+                tempArray = guanggaochuangyi;
                 break;
             case 1:
-                tempArray=pingmiansheji;
+                tempArray = pingmiansheji;
                 break;
             case 2:
-                tempArray=yingxiaotuiguang;
+                tempArray = yingxiaotuiguang;
                 break;
             case 3:
-                tempArray=yingshidongman;
+                tempArray = yingshidongman;
                 break;
             case 4:
-                tempArray=wenancehua;
+                tempArray = wenancehua;
                 break;
             case 5:
-                tempArray=guanggaojiance;
+                tempArray = guanggaojiance;
                 break;
             case 6:
-                tempArray=zhuanjiapeixun;
+                tempArray = zhuanjiapeixun;
                 break;
             case 7:
-                tempArray=gusnlixicun;
+                tempArray = gusnlixicun;
                 break;
             case 8:
-                tempArray=wangzhanruanjian;
+                tempArray = wangzhanruanjian;
                 break;
             case 9:
-                tempArray=gongguanfuwu;
+                tempArray = gongguanfuwu;
                 break;
             case 10:
-                tempArray=qiyezhaopin;
+                tempArray = qiyezhaopin;
                 break;
             case 11:
-                tempArray=qitafuwu;
+                tempArray = qitafuwu;
                 break;
         }
         //测试数据
@@ -120,8 +121,8 @@ public class NeedsListActivity extends BaseActivity implements View.OnClickListe
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                adapter.notifyDataSetChanged();
+                Intent intent = new Intent(NeedsListActivity.this, ShareNeedsEditActivity.class);
+                startActivity(intent);
             }
         });
     }

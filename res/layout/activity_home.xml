@@ -46,6 +46,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/act_home_tab_blue_normal"
+            android:onClick="onClick"
+            android:clickable="true"
             android:layout_weight="1">
 
             <include

@@ -90,6 +90,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 intent.putExtra("searchtype",5);
                 startActivity(intent);
                 break;
+            case R.id.release_demand_layout://发布需求
+                intent = new Intent(MainActivity.this, ShareNeedsActivity.class);
+                startActivity(intent);
+                break;
+
             default:
                 break;
         }
