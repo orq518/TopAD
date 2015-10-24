@@ -9,1082 +9,12 @@
     <com.topad.view.customviews.TitleView
         android:id="@+id/title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <!-- 内容 -->
-    <ScrollView
-        android:id="@+id/scroll_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:background="@color/gray_bg"
-        android:layout_below="@id/title"
-        android:layout_marginBottom="60dp">
-
-        <LinearLayout
-            android:id="@+id/scroll_layout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <!-- 我需要媒体资源 -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="5dp">
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:background="@drawable/app_icon"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="5dp"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="我需要媒体资源"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="@color/white">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:background="@color/white"
-                    android:padding="5dp">
-
-                    <!-- 电视 -->
-                    <LinearLayout
-                        android:id="@+id/tv_layout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:background="@color/bule"
-                        android:gravity="center_vertical"
-                        android:layout_weight="1"
-                        android:onClick="onClick"
-                        android:clickable="true"
-                        android:padding="15dp">
-
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:background="@drawable/app_icon"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="5dp"
-                            />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="电视"
-                            android:textColor="@color/black"
-                            android:textSize="16sp" />
-
-                    </LinearLayout>
-
-                    <!-- 广播 -->
-                    <LinearLayout
-                        android:id="@+id/broadcast_layout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:background="@color/orange"
-                        android:gravity="center_vertical"
-                        android:layout_weight="1"
-                        android:padding="15dp"
-                        android:clickable="true"
-                        android:onClick="onClick"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp">
-
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:background="@drawable/app_icon"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="5dp"
-                            />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="广播"
-                            android:textColor="@color/black"
-                            android:textSize="16sp"/>
-
-                    </LinearLayout>
-
-                    <!-- 报纸 -->
-                    <LinearLayout
-                        android:id="@+id/newspaper_layout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:background="@color/powder"
-                        android:gravity="center_vertical"
-                        android:layout_weight="1"
-                        android:clickable="true"
-                        android:onClick="onClick"
-                        android:padding="15dp">
-
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:background="@drawable/app_icon"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="5dp"
-                            />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="报纸"
-                            android:textColor="@color/black"
-                            android:textSize="16sp"/>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:background="@color/white"
-                    android:padding="5dp">
-
-                    <!-- 户外 -->
-                    <LinearLayout
-                        android:id="@+id/outdoor_layout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:background="@color/yellow"
-                        android:gravity="center_vertical"
-                        android:layout_weight="1"
-                        android:clickable="true"
-                        android:onClick="onClick"
-                        android:padding="15dp">
-
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:background="@drawable/app_icon"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="5dp"
-                            />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="户外"
-                            android:textColor="@color/black"
-                            android:textSize="16sp" />
-
-                    </LinearLayout>
-
-                    <!-- 杂志 -->
-                    <LinearLayout
-                        android:id="@+id/magazine_layout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:background="@color/hot"
-                        android:gravity="center_vertical"
-                        android:layout_weight="1"
-                        android:padding="15dp"
-                        android:onClick="onClick"
-                        android:clickable="true"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp">
-
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:background="@drawable/app_icon"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="5dp"
-                            />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="杂志"
-                            android:textColor="@color/black"
-                            android:textSize="16sp"/>
-
-                    </LinearLayout>
-
-                    <!-- 网络 -->
-                    <LinearLayout
-                        android:id="@+id/net_layout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:background="@color/green"
-                        android:gravity="center_vertical"
-                        android:layout_weight="1"
-                        android:onClick="onClick"
-                        android:clickable="true"
-                        android:padding="15dp">
-
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:background="@drawable/app_icon"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="5dp"
-                            />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="网络"
-                            android:textColor="@color/black"
-                            android:textSize="16sp"/>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <!-- 我需要广告服务 -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="5dp">
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:background="@drawable/app_icon"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="5dp"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="我需要广告服务"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="@color/white">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:background="@color/gray"
-                    android:paddingTop="2dp"
-                    android:paddingBottom="2dp">
-
-                    <!-- 广告创意 -->
-                    <LinearLayout
-                        android:id="@+id/advertising_creative_layout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:background="@color/white"
-                        android:gravity="center_vertical"
-                        android:layout_weight="1"
-                        android:padding="20dp">
-
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:background="@drawable/app_icon"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="5dp"
-                            />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="广告创意"
-                            android:textColor="@color/black"
-                            android:textSize="16sp" />
-
-                    </LinearLayout>
-
-                    <!-- 营销策略 -->
-                    <LinearLayout
-                        android:id="@+id/marketing_strategy_layout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:background="@color/white"
-                        android:gravity="center_vertical"
-                        android:layout_weight="1"
-                        android:padding="20dp"
-                        android:layout_marginLeft="2dp">
-
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:background="@drawable/app_icon"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="5dp"
-                            />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="营销策略"
-                            android:textColor="@color/black"
-                            android:textSize="16sp"/>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:background="@color/gray"
-                    android:paddingBottom="2dp">
-
-                    <!-- 影视广告 -->
-                    <LinearLayout
-                        android:id="@+id/tvc_layout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:background="@color/white"
-                        android:gravity="center_vertical"
-                        android:layout_weight="1"
-                        android:padding="20dp">
-
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:background="@drawable/app_icon"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="5dp"
-                            />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="影视广告"
-                            android:textColor="@color/black"
-                            android:textSize="16sp" />
-
-                    </LinearLayout>
-
-                    <!-- 动漫创作 -->
-                    <LinearLayout
-                        android:id="@+id/anime_create_layout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:background="@color/white"
-                        android:gravity="center_vertical"
-                        android:layout_weight="1"
-                        android:padding="20dp"
-                        android:layout_marginLeft="2dp">
-
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:background="@drawable/app_icon"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="5dp"
-                            />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="动漫创作"
-                            android:textColor="@color/black"
-                            android:textSize="16sp"/>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <!-- 我需要平面设计 -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="5dp">
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:background="@drawable/app_icon"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="5dp"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="我需要平面设计"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:background="@color/gray"
-                android:paddingTop="2dp"
-                android:paddingBottom="2dp">
-
-                <!-- vi设计 -->
-                <LinearLayout
-                    android:id="@+id/vi_design_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:background="@color/white"
-                    android:gravity="center_vertical"
-                    android:layout_weight="1"
-                    android:paddingTop="30dp"
-                    android:paddingBottom="30dp"
-                    android:paddingLeft="23dp"
-                    android:paddingRight="23dp">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:background="@drawable/app_icon"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="5dp"
-                        />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="vi设计"
-                        android:textColor="@color/black"
-                        android:textSize="16sp" />
-
-                </LinearLayout>
-
-                <!-- LOGO设计 -->
-                <LinearLayout
-                    android:id="@+id/logo_design_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:background="@color/white"
-                    android:gravity="center_vertical"
-                    android:layout_weight="1"
-                    android:paddingTop="30dp"
-                    android:paddingBottom="30dp"
-                    android:paddingLeft="23dp"
-                    android:paddingRight="23dp"
-                    android:layout_marginLeft="2dp"
-                    android:layout_marginRight="2dp">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:background="@drawable/app_icon"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="5dp"
-                        />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="LOGO设计"
-                        android:textColor="@color/black"
-                        android:textSize="16sp"/>
-
-                </LinearLayout>
-
-                <!-- APP/UI设计 -->
-                <LinearLayout
-                    android:id="@+id/app_ui_design_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:background="@color/white"
-                    android:gravity="center_vertical"
-                    android:layout_weight="1"
-                    android:paddingTop="30dp"
-                    android:paddingBottom="30dp"
-                    android:paddingLeft="23dp"
-                    android:paddingRight="23dp">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:background="@drawable/app_icon"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="5dp"
-                        />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="UI设计"
-                        android:textColor="@color/black"
-                        android:textSize="16sp"/>
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:background="@color/gray"
-                android:paddingBottom="2dp">
-
-                <!-- 产品设计 -->
-                <LinearLayout
-                    android:id="@+id/product_design_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:background="@color/white"
-                    android:gravity="center_vertical"
-                    android:layout_weight="1"
-                    android:paddingTop="30dp"
-                    android:paddingBottom="30dp"
-                    android:paddingLeft="23dp"
-                    android:paddingRight="23dp">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:background="@drawable/app_icon"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="5dp"
-                        />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="产品设计"
-                        android:textColor="@color/black"
-                        android:textSize="16sp" />
-
-                </LinearLayout>
-
-                <!-- 包装设计 -->
-                <LinearLayout
-                    android:id="@+id/packing_design_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:background="@color/white"
-                    android:gravity="center_vertical"
-                    android:layout_weight="1"
-                    android:paddingTop="30dp"
-                    android:paddingBottom="30dp"
-                    android:paddingLeft="23dp"
-                    android:paddingRight="23dp"
-                    android:layout_marginLeft="2dp"
-                    android:layout_marginRight="2dp">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:background="@drawable/app_icon"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="5dp"
-                        />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="包装设计"
-                        android:textColor="@color/black"
-                        android:textSize="16sp"/>
-
-                </LinearLayout>
-
-                <!-- 装修设计 -->
-                <LinearLayout
-                    android:id="@+id/renovation_design_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:background="@color/white"
-                    android:gravity="center_vertical"
-                    android:layout_weight="1"
-                    android:paddingTop="30dp"
-                    android:paddingBottom="30dp"
-                    android:paddingLeft="23dp"
-                    android:paddingRight="23dp">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:background="@drawable/app_icon"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="5dp"
-                        />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="装修设计"
-                        android:textColor="@color/black"
-                        android:textSize="16sp"/>
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <!-- 我需要其他服务 -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="5dp">
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:background="@drawable/app_icon"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="5dp"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="我需要其他服务"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:background="@color/gray"
-                android:paddingTop="2dp"
-                android:paddingBottom="2dp">
-
-                <!-- 公关服务 -->
-                <LinearLayout
-                    android:id="@+id/public_relations_service_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@color/white"
-                    android:gravity="center"
-                    android:layout_weight="1"
-                    android:paddingTop="30dp"
-                    android:paddingBottom="30dp"
-                    android:paddingLeft="25dp"
-                    android:paddingRight="25dp">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:background="@drawable/app_icon"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="5dp"
-                        />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="公关服务"
-                        android:textColor="@color/black"
-                        android:layout_marginTop="5dp"
-                        android:textSize="16sp" />
-
-                </LinearLayout>
-
-                <!-- 管理咨询 -->
-                <LinearLayout
-                    android:id="@+id/management_consultation_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@color/white"
-                    android:gravity="center"
-                    android:layout_weight="1"
-                    android:paddingTop="30dp"
-                    android:paddingBottom="30dp"
-                    android:paddingLeft="25dp"
-                    android:paddingRight="25dp"
-                    android:layout_marginLeft="2dp"
-                    android:layout_marginRight="2dp">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:background="@drawable/app_icon"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="5dp"
-                        />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="管理咨询"
-                        android:textColor="@color/black"
-                        android:layout_marginTop="5dp"
-                        android:textSize="16sp"/>
-
-                </LinearLayout>
-
-                <!-- 网络营销 -->
-                <LinearLayout
-                    android:id="@+id/network_marketing_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@color/white"
-                    android:gravity="center"
-                    android:layout_weight="1"
-                    android:paddingTop="30dp"
-                    android:paddingBottom="30dp"
-                    android:paddingLeft="25dp"
-                    android:paddingRight="25dp"
-                    android:layout_marginRight="2dp">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:background="@drawable/app_icon"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="5dp"
-                        />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="网络营销"
-                        android:textColor="@color/black"
-                        android:layout_marginTop="5dp"
-                        android:textSize="16sp"/>
-
-                </LinearLayout>
-
-                <!-- 专业培训 -->
-                <LinearLayout
-                    android:id="@+id/professional_training_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@color/white"
-                    android:gravity="center"
-                    android:layout_weight="1"
-                    android:paddingTop="30dp"
-                    android:paddingBottom="30dp"
-                    android:paddingLeft="25dp"
-                    android:paddingRight="25dp">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:background="@drawable/app_icon"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="5dp"
-                        />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="专业培训"
-                        android:textColor="@color/black"
-                        android:layout_marginTop="5dp"
-                        android:textSize="16sp" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:background="@color/gray"
-                android:paddingTop="20dp"
-                android:paddingBottom="2dp">
-
-                <!-- 广告检测 -->
-                <LinearLayout
-                    android:id="@+id/commercial_detection_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@color/white"
-                    android:gravity="center"
-                    android:layout_weight="1"
-                    android:paddingTop="30dp"
-                    android:paddingBottom="30dp"
-                    android:paddingLeft="25dp"
-                    android:paddingRight="25dp">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:background="@drawable/app_icon"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="5dp"
-                        />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="广告检测"
-                        android:textColor="@color/black"
-                        android:layout_marginTop="5dp"
-                        android:textSize="16sp" />
-
-                </LinearLayout>
-
-                <!-- 商务报告 -->
-                <LinearLayout
-                    android:id="@+id/business_report_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@color/white"
-                    android:gravity="center"
-                    android:layout_weight="1"
-                    android:paddingTop="30dp"
-                    android:paddingBottom="30dp"
-                    android:paddingLeft="25dp"
-                    android:paddingRight="25dp"
-                    android:layout_marginLeft="2dp"
-                    android:layout_marginRight="2dp">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:background="@drawable/app_icon"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="5dp"
-                        />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="商务报告"
-                        android:textColor="@color/black"
-                        android:layout_marginTop="5dp"
-                        android:textSize="16sp"/>
-
-                </LinearLayout>
-
-                <!-- 设备租赁 -->
-                <LinearLayout
-                    android:id="@+id/equipment_lease_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@color/white"
-                    android:gravity="center"
-                    android:layout_weight="1"
-                    android:paddingTop="30dp"
-                    android:paddingBottom="30dp"
-                    android:paddingLeft="25dp"
-                    android:paddingRight="25dp"
-                    android:layout_marginRight="2dp">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:background="@drawable/app_icon"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="5dp"
-                        />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="设备租赁"
-                        android:textColor="@color/black"
-                        android:layout_marginTop="5dp"
-                        android:textSize="16sp"/>
-
-                </LinearLayout>
-
-                <!-- 会议会展 -->
-                <LinearLayout
-                    android:id="@+id/conference_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@color/white"
-                    android:gravity="center"
-                    android:layout_weight="1"
-                    android:paddingTop="30dp"
-                    android:paddingBottom="30dp"
-                    android:paddingLeft="25dp"
-                    android:paddingRight="25dp">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:background="@drawable/app_icon"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="5dp"
-                        />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="会议会展"
-                        android:textColor="@color/black"
-                        android:layout_marginTop="5dp"
-                        android:textSize="16sp" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:background="@color/gray"
-                android:paddingTop="20dp"
-                android:paddingBottom="2dp"
-                >
-
-                <!-- 法律服务 -->
-                <LinearLayout
-                    android:id="@+id/legal_services_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@color/white"
-                    android:gravity="center"
-                    android:layout_weight="1"
-                    android:paddingTop="30dp"
-                    android:paddingBottom="30dp"
-                    android:paddingLeft="25dp"
-                    android:paddingRight="25dp">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:background="@drawable/app_icon"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="5dp"
-                        />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="法律服务"
-                        android:textColor="@color/black"
-                        android:layout_marginTop="5dp"
-                        android:textSize="16sp" />
-
-                </LinearLayout>
-
-                <!-- 知识产权 -->
-                <LinearLayout
-                    android:id="@+id/intellectual_property_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@color/white"
-                    android:gravity="center"
-                    android:layout_weight="1"
-                    android:paddingTop="30dp"
-                    android:paddingBottom="30dp"
-                    android:paddingLeft="25dp"
-                    android:paddingRight="25dp"
-                    android:layout_marginLeft="2dp"
-                    android:layout_marginRight="2dp">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:background="@drawable/app_icon"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="5dp"
-                        />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="知识产权"
-                        android:textColor="@color/black"
-                        android:layout_marginTop="5dp"
-                        android:textSize="16sp"/>
-
-                </LinearLayout>
-
-                <!-- 网站建议 -->
-                <LinearLayout
-                    android:id="@+id/website_suggestion_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@color/white"
-                    android:gravity="center"
-                    android:layout_weight="1"
-                    android:paddingTop="30dp"
-                    android:paddingBottom="30dp"
-                    android:paddingLeft="25dp"
-                    android:paddingRight="25dp">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:background="@drawable/app_icon"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="5dp"
-                        />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="网站建议"
-                        android:textColor="@color/black"
-                        android:layout_marginTop="5dp"
-                        android:textSize="16sp"/>
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </ScrollView>
-
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"/>
 
     <!-- 底部布局 -->
     <LinearLayout
+        android:id="@+id/bottom_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/act_home_tab_blue_normal"
@@ -1145,5 +75,739 @@
         </RelativeLayout>
 
     </LinearLayout>
+
+    <!-- 内容 -->
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:background="@color/gray_bg"
+        android:layout_below="@id/title"
+        android:layout_above="@id/bottom_layout">
+
+        <LinearLayout
+            android:id="@+id/scroll_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- 我需要媒体资源 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/homepage_title_icon"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="我需要媒体资源"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@color/white"
+                    android:padding="5dp">
+
+                    <!-- 电视 -->
+                    <LinearLayout
+                        android:id="@+id/tv_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@drawable/homepage_icon_tv"
+                        android:gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:onClick="onClick"
+                        android:clickable="true"
+                        android:padding="15dp">
+
+                    </LinearLayout>
+
+                    <!-- 广播 -->
+                    <LinearLayout
+                        android:id="@+id/broadcast_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@drawable/homepage_icon_airwave"
+                        android:gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:padding="15dp"
+                        android:clickable="true"
+                        android:onClick="onClick"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp">
+
+                    </LinearLayout>
+
+                    <!-- 报纸 -->
+                    <LinearLayout
+                        android:id="@+id/newspaper_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@drawable/homepage_icon_paper"
+                        android:gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:onClick="onClick"
+                        android:padding="15dp">
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@color/white"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp">
+
+                    <!-- 户外 -->
+                    <LinearLayout
+                        android:id="@+id/outdoor_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@drawable/homepage_icon_outdoor"
+                        android:gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:onClick="onClick"
+                        android:padding="15dp">
+
+                    </LinearLayout>
+
+                    <!-- 杂志 -->
+                    <LinearLayout
+                        android:id="@+id/magazine_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@drawable/homepage_icon_magazine"
+                        android:gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:padding="15dp"
+                        android:onClick="onClick"
+                        android:clickable="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp">
+
+                    </LinearLayout>
+
+                    <!-- 网络 -->
+                    <LinearLayout
+                        android:id="@+id/net_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@drawable/homepage_icon_web"
+                        android:gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:onClick="onClick"
+                        android:clickable="true"
+                        android:padding="15dp">
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- 我需要广告服务 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="5dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/homepage_title_icon"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="我需要广告服务"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@color/gray"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp">
+
+                    <!-- 广告创意 -->
+                    <LinearLayout
+                        android:id="@+id/advertising_creative_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@drawable/homepage_icon_idea"
+                        android:gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:padding="20dp">
+
+                    </LinearLayout>
+
+                    <!-- 营销策略 -->
+                    <LinearLayout
+                        android:id="@+id/marketing_strategy_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@drawable/homepage_icon_plan"
+                        android:gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:padding="20dp"
+                        android:layout_marginLeft="2dp">
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@color/gray"
+                    android:paddingBottom="2dp">
+
+                    <!-- 影视广告 -->
+                    <LinearLayout
+                        android:id="@+id/tvc_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@drawable/homepage_icon_video"
+                        android:gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:padding="20dp">
+
+                    </LinearLayout>
+
+                    <!-- 动漫创作 -->
+                    <LinearLayout
+                        android:id="@+id/anime_create_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@drawable/homepage_icon_cartoon"
+                        android:gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:padding="20dp"
+                        android:layout_marginLeft="2dp">
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- 我需要平面设计 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="5dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/homepage_title_icon"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="我需要平面设计"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@color/gray"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp">
+
+                <!-- vi设计 -->
+                <LinearLayout
+                    android:id="@+id/vi_design_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/homepage_icon_vi"
+                    android:gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:paddingTop="30dp"
+                    android:paddingBottom="30dp"
+                    android:paddingLeft="23dp"
+                    android:paddingRight="23dp">
+
+                </LinearLayout>
+
+                <!-- LOGO设计 -->
+                <LinearLayout
+                    android:id="@+id/logo_design_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/homepage_icon_logo"
+                    android:gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:paddingTop="30dp"
+                    android:paddingBottom="30dp"
+                    android:paddingLeft="23dp"
+                    android:paddingRight="23dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp">
+
+                </LinearLayout>
+
+                <!-- APP/UI设计 -->
+                <LinearLayout
+                    android:id="@+id/app_ui_design_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/homepage_icon_ui"
+                    android:gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:paddingTop="30dp"
+                    android:paddingBottom="30dp"
+                    android:paddingLeft="23dp"
+                    android:paddingRight="23dp">
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@color/gray"
+                android:paddingBottom="2dp">
+
+                <!-- 产品设计 -->
+                <LinearLayout
+                    android:id="@+id/product_design_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/homepage_icon_product"
+                    android:gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:paddingTop="30dp"
+                    android:paddingBottom="30dp"
+                    android:paddingLeft="23dp"
+                    android:paddingRight="23dp">
+
+                </LinearLayout>
+
+                <!-- 包装设计 -->
+                <LinearLayout
+                    android:id="@+id/packing_design_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/homepage_icon_pack"
+                    android:gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:paddingTop="30dp"
+                    android:paddingBottom="30dp"
+                    android:paddingLeft="23dp"
+                    android:paddingRight="23dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp">
+
+                </LinearLayout>
+
+                <!-- 装修设计 -->
+                <LinearLayout
+                    android:id="@+id/renovation_design_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/homepage_icon_decoration"
+                    android:gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:paddingTop="30dp"
+                    android:paddingBottom="30dp"
+                    android:paddingLeft="23dp"
+                    android:paddingRight="23dp">
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- 我需要其他服务 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="5dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/homepage_title_icon"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="我需要其他服务"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@color/gray_bg"
+                android:padding="5dp">
+
+                <!-- 公关服务 -->
+                <LinearLayout
+                    android:id="@+id/public_relations_service_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:padding="5dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/homepage_icon_service" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="公关服务"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="5dp"
+                        android:textSize="16sp"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <!-- 管理咨询 -->
+                <LinearLayout
+                    android:id="@+id/management_consultation_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:padding="5dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/homepage_icon_manage"
+
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="管理咨询"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="5dp"
+                        android:textSize="16sp"
+                        android:gravity="center"/>
+
+                </LinearLayout>
+
+                <!-- 网络营销 -->
+                <LinearLayout
+                    android:id="@+id/network_marketing_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:padding="5dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/homepage_icon_network"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="网络营销"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="5dp"
+                        android:textSize="16sp"
+                        android:gravity="center"/>
+
+                </LinearLayout>
+
+                <!-- 专业培训 -->
+                <LinearLayout
+                    android:id="@+id/professional_training_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:padding="5dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/homepage_icon_education"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="专业培训"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="5dp"
+                        android:textSize="16sp"
+                        android:gravity="center"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@color/white"
+                android:padding="5dp">
+
+                <!-- 广告检测 -->
+                <LinearLayout
+                    android:id="@+id/commercial_detection_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:padding="5dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/homepage_icon_monitor"
+
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="广告检测"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="5dp"
+                        android:textSize="16sp"
+                        android:gravity="center"/>
+
+                </LinearLayout>
+
+                <!-- 商务报告 -->
+                <LinearLayout
+                    android:id="@+id/business_report_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:padding="5dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/homepage_icon_lecture"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="商务报告"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="5dp"
+                        android:textSize="16sp"
+                        android:gravity="center"/>
+
+                </LinearLayout>
+
+                <!-- 设备租赁 -->
+                <LinearLayout
+                    android:id="@+id/equipment_lease_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:padding="5dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/homepage_icon_rent"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="设备租赁"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="5dp"
+                        android:textSize="16sp"
+                        android:gravity="center"/>
+
+                </LinearLayout>
+
+                <!-- 会议会展 -->
+                <LinearLayout
+                    android:id="@+id/conference_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:padding="5dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/homepage_icon_meet"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="会议会展"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="5dp"
+                        android:textSize="16sp"
+                        android:gravity="center"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@color/gray_bg"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
+
+                <!-- 法律服务 -->
+                <LinearLayout
+                    android:id="@+id/legal_services_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/homepage_icon_law"
+                    android:gravity="center"
+                    android:layout_weight="1">
+
+                </LinearLayout>
+
+                <!-- 知识产权 -->
+                <LinearLayout
+                    android:id="@+id/intellectual_property_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/homepage_icon_knowledge"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp">
+
+                </LinearLayout>
+
+                <!-- 网站建议 -->
+                <LinearLayout
+                    android:id="@+id/website_suggestion_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/homepage_icon_webmake"
+                    android:gravity="center"
+                    android:layout_weight="1">
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </RelativeLayout>
