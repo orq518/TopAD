@@ -10,6 +10,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -121,7 +122,13 @@ public class ShareNeedsActivity extends BaseActivity implements View.OnClickList
     public void onBack() {
         finish();
     }
-
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_BACK)) {
+            onBack();
+        }
+        return super.onKeyDown(keyCode, event);
+    }
     /**
      * 设置底部布局
      */

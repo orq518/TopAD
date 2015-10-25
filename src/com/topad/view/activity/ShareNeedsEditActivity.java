@@ -2,6 +2,7 @@ package com.topad.view.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 
 import com.topad.R;
@@ -42,6 +43,13 @@ public class ShareNeedsEditActivity extends BaseActivity implements View.OnClick
     @Override
     public void initData() {
 
+    }
+    @Override
+     public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_BACK)) {
+            onBack();
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
     @Override

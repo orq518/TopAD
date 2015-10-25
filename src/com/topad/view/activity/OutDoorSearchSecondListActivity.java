@@ -1,46 +1,33 @@
 package com.topad.view.activity;
 
-import android.app.Dialog;
 import android.content.Context;
-import android.graphics.Color;
-import android.media.MediaPlayer;
+import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
-import android.os.Environment;
-import android.os.Handler;
-import android.os.Message;
-import android.util.Log;
-import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.topad.R;
 import com.topad.bean.SearchListBean;
-import com.topad.util.AudioRecorder;
-import com.topad.util.LogUtil;
 import com.topad.util.Utils;
 import com.topad.view.customviews.TitleView;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- * 主界面
+ * 户外搜索二级
  */
-public class SearchListActivity extends BaseActivity implements View.OnClickListener {
+public class OutDoorSearchSecondListActivity extends BaseActivity implements View.OnClickListener {
 
+
+    int curID=-1;
     /**
      * title布局
      **/
@@ -48,6 +35,8 @@ public class SearchListActivity extends BaseActivity implements View.OnClickList
     ListView listview;
     ArrayList<SearchListBean> dataList = new ArrayList<SearchListBean>();
     ListViewAdapter adapter;
+    int type;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,12 +54,42 @@ public class SearchListActivity extends BaseActivity implements View.OnClickList
 
     @Override
     public void initViews() {
+        type = getIntent().getIntExtra("type", 0);
+        Resources res = getResources();
+        String[] tempArray = null;
+        switch (type) {
+            case 0:
+                tempArray = res.getStringArray(R.array.jichang);
+                break;
+            case 1:
+                tempArray = res.getStringArray(R.array.gaotie);
+                break;
+            case 2:
+                tempArray = res.getStringArray(R.array.huochezhan);
+                break;
+            case 3:
+                tempArray = res.getStringArray(R.array.ditie);
+                break;
+            case 4:
+                tempArray = res.getStringArray(R.array.gongjiao);
+                break;
+            case 5:
+                tempArray = res.getStringArray(R.array.chengshidapai);
+                break;
+            case 6:
+                tempArray = res.getStringArray(R.array.gidingchangsuo);
+                break;
+            case 7:
+                tempArray = res.getStringArray(R.array.louyudianti);
+                break;
+        }
+
         //测试数据
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < tempArray.length; i++) {
             SearchListBean bean = new SearchListBean();
-            bean.name = i + "哈哈";
-            if(i==3){
-                bean.isSelected=true;
+            bean.name = tempArray[i];
+            if (curID == i) {
+                bean.isSelected = true;
             }
             dataList.add(bean);
         }
@@ -81,19 +100,20 @@ public class SearchListActivity extends BaseActivity implements View.OnClickList
         mTitle.setTitle(getString(R.string.main_title));
         mTitle.setLeftClickListener(new TitleLeftOnClickListener());
         listview = (ListView) findViewById(R.id.listview);
-        adapter=new ListViewAdapter(this);
+        adapter = new ListViewAdapter(this);
         listview.setAdapter(adapter);
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                for(int i=0;i<dataList.size();i++){
-                    SearchListBean bean=dataList.get(i);
-                    bean.isSelected=false;
+                for (int i = 0; i < dataList.size(); i++) {
+                    SearchListBean bean = dataList.get(i);
+                    bean.isSelected = false;
                 }
-                SearchListBean bean=dataList.get(position);
-                bean.isSelected=true;
+                curID = position;
+                SearchListBean bean = dataList.get(curID);
+                bean.isSelected = true;
                 adapter.notifyDataSetChanged();
+                onBack();
             }
         });
     }
@@ -127,9 +147,22 @@ public class SearchListActivity extends BaseActivity implements View.OnClickList
         }
 
     }
-
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_BACK)) {
+            onBack();
+        }
+        return super.onKeyDown(keyCode, event);
+    }
     @Override
     public void onBack() {
+        if(curID>=0) {
+            Intent intent = new Intent();
+//            intent.putExtra("id", curID);
+            SearchListBean bean = dataList.get(curID);
+            intent.putExtra("mediaType", bean.name);
+            setResult(RESULT_OK, intent);
+        }
         finish();
     }
 
@@ -164,25 +197,22 @@ public class SearchListActivity extends BaseActivity implements View.OnClickList
         public View getView(int position, View convertView, ViewGroup parent) {
             ViewHolder viewHolder;
             if (convertView == null) {
-                convertView = mInflater.inflate(R.layout.search_list_item, null);
+                convertView = mInflater.inflate(R.layout.search_second_list_item, null);
                 viewHolder = new ViewHolder();
                 viewHolder.left_ic = (ImageView) convertView.findViewById(R.id.left_ic);
+                viewHolder.right_ic = (ImageView) convertView.findViewById(R.id.right_ic);
                 viewHolder.name = (TextView) convertView.findViewById(R.id.name);
-                viewHolder.type = (TextView) convertView.findViewById(R.id.type);
                 convertView.setTag(viewHolder);
             } else {
                 viewHolder = (ViewHolder) convertView.getTag();
             }
-            SearchListBean bean=dataList.get(position);
-            if(bean.isSelected){
+            SearchListBean bean = dataList.get(position);
+            if (bean.isSelected) {
                 viewHolder.left_ic.setVisibility(View.VISIBLE);
-            }else{
+                viewHolder.right_ic.setVisibility(View.VISIBLE);
+            } else {
                 viewHolder.left_ic.setVisibility(View.INVISIBLE);
-            }
-            if(!Utils.isEmpty(bean.type)){
-                viewHolder.type.setText(bean.type);
-            }else{
-                viewHolder.type.setText("");
+                viewHolder.right_ic.setVisibility(View.INVISIBLE);
             }
             viewHolder.name.setText(bean.name);
             return convertView;
@@ -190,8 +220,8 @@ public class SearchListActivity extends BaseActivity implements View.OnClickList
 
 
         class ViewHolder {
-            ImageView left_ic;
-            TextView name, type;
+            ImageView left_ic,right_ic;
+            TextView name;
         }
 
     }
