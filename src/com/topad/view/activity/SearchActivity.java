@@ -271,9 +271,9 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
             SearchItemBean itembean=itemBeans.get(i);
             switch (searchType) {
                 case 0://电视
-                    break;
                 case 1://广播
-                    break;
+                case 4://杂志
+                case 5://网络
                 case 2://报纸
                     RelativeLayout search_selected = (RelativeLayout) getLayoutInflater().inflate(R.layout.other_search_selected_item, null);
                     TextView baizhiName = (TextView) search_selected.findViewById(R.id.city);
@@ -321,10 +321,7 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
 
 
                     break;
-                case 4://杂志
-                    break;
-                case 5://网络
-                    break;
+
             }
         }
     }
