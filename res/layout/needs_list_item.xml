@@ -2,15 +2,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="50dp"
-    android:paddingRight="@dimen/dimen_10"
+    android:padding="@dimen/dimen_10"
     android:background="@color/app_bg"
     >
     <ImageView
         android:id="@+id/left_ic"
-        android:layout_width="5dp"
-        android:layout_height="fill_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:background="@drawable/left_ic"/>
+        android:src="@drawable/vi_cis_design"/>
     <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
@@ -19,7 +19,7 @@
         android:layout_marginLeft="@dimen/dimen_15"
         android:layout_toRightOf="@id/left_ic"
         android:text="机场"
-        android:textColor="@color/black"
+        android:textColor="@color/dark_gray"
         android:textSize="18sp"/>
     <ImageView
         android:id="@+id/right_ic"
@@ -28,14 +28,4 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:src="@drawable/arrow"/>
-    <TextView
-        android:id="@+id/type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginRight="10dp"
-        android:layout_toLeftOf="@+id/right_ic"
-        android:text="进站通道"
-        android:textColor="@color/tab_text_default"
-        android:textSize="18sp"/>
 </RelativeLayout>

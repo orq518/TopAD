@@ -16,6 +16,7 @@
 
     <color name="title_bg">#ffffffff</color>
     <color name="dark_gray">#333333</color>
+    <color name="dark_gray_text">#555555</color>
     <color name="app_bg">#f5f5f9</color>
     <color name="tab_item_default">#fafafa</color>
     <color name="tab_item_selected">#f0f1f2</color>

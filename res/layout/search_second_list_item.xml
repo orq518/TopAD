@@ -27,15 +27,5 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:src="@drawable/arrow"/>
-    <TextView
-        android:id="@+id/type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginRight="10dp"
-        android:layout_toLeftOf="@+id/right_ic"
-        android:text="进站通道"
-        android:textColor="@color/tab_text_default"
-        android:textSize="18sp"/>
+        android:src="@drawable/search_selected"/>
 </RelativeLayout>
