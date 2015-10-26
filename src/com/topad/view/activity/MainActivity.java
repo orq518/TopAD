@@ -61,35 +61,40 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         Intent intent;
         switch (v.getId()) {
             case R.id.tv_layout://电视
-                intent = new Intent(MainActivity.this, SearchActivity.class);
+                intent = new Intent(MainActivity.this, OutDoorSearchActivity.class);
                 intent.putExtra("searchtype",0);
                 startActivity(intent);
                 break;
             case R.id.broadcast_layout://广播
-                intent = new Intent(MainActivity.this, SearchActivity.class);
+                intent = new Intent(MainActivity.this, OutDoorSearchActivity.class);
                 intent.putExtra("searchtype",1);
                 startActivity(intent);
                 break;
             case R.id.newspaper_layout://报纸
-                intent = new Intent(MainActivity.this, SearchActivity.class);
+                intent = new Intent(MainActivity.this, OutDoorSearchActivity.class);
                 intent.putExtra("searchtype",2);
                 startActivity(intent);
                 break;
             case R.id.outdoor_layout://户外
-                intent = new Intent(MainActivity.this, SearchActivity.class);
+                intent = new Intent(MainActivity.this, OutDoorSearchActivity.class);
                 intent.putExtra("searchtype",3);
                 startActivity(intent);
                 break;
             case R.id.magazine_layout://杂志
-                intent = new Intent(MainActivity.this, SearchActivity.class);
+                intent = new Intent(MainActivity.this, OutDoorSearchActivity.class);
                 intent.putExtra("searchtype",4);
                 startActivity(intent);
                 break;
             case R.id.net_layout://网络
-                intent = new Intent(MainActivity.this, SearchActivity.class);
+                intent = new Intent(MainActivity.this, OutDoorSearchActivity.class);
                 intent.putExtra("searchtype",5);
                 startActivity(intent);
                 break;
+            case R.id.release_demand_layout://发布需求
+                intent = new Intent(MainActivity.this, ShareNeedsActivity.class);
+                startActivity(intent);
+                break;
+
             default:
                 break;
         }

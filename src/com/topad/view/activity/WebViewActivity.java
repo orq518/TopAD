@@ -66,7 +66,6 @@ public class WebViewActivity extends BaseActivity {
         intent.putExtra("data", "");
         context.startActivity(intent);
     }
-
     @Override
     public int setLayoutById() {
         return R.layout.webview_activity;

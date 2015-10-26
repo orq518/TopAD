@@ -146,6 +146,82 @@ LED、座椅、出站门头、检票口门头灯箱、玻璃贴、高铁内电�
         <item>其他</item>
     </string-array>
 
-
-
+    <string-array name="baozhi">
+        <!--日报、晚报、都市报、商报、时事新闻、电视报、 IT 科技、金融、
+经济、都市生活、体育、教育、汽车、人才、房产、健康、军事、 其他-->
+        <item>日报</item>
+        <item>晚报</item>
+        <item>都市报</item>
+        <item>商报</item>
+        <item>时事新闻</item>
+        <item>电视报</item>
+        <item>IT科技</item>
+        <item>金融</item>
+        <item>经济</item>
+        <item>都市生活</item>
+        <item>体育</item>
+        <item>教育</item>
+        <item>汽车</item>
+        <item>人才</item>
+        <item>房产</item>
+        <item>健康</item>
+        <item>军事</item>
+        <item>其他</item>
+    </string-array>
+    <string-array name="zazhi">
+        <!--时尚、交通、文学、军事、故事、小说、生活、行业期刊、农业、 DM、其他-->
+        <item>时尚</item>
+        <item>交通</item>
+        <item>文学</item>
+        <item>军事</item>
+        <item>故事</item>
+        <item>小说</item>
+        <item>生活</item>
+        <item>行业期刊</item>
+        <item>农业</item>
+        <item>DM</item>
+        <item>其他</item>
+    </string-array>
+    <string-array name="wangluo">
+        <!--门户网站、社交网站、 BBS、微博、微信、 APP、邮箱、网络视频、手机、
+购物网站、行业网站、电视台网、广播网、报网、城市网、婚恋网、招聘网、
+其他-->
+        <item>门户网站</item>
+        <item>社交网站</item>
+        <item>BBS</item>
+        <item>微博</item>
+        <item>微信</item>
+        <item>APP</item>
+        <item>邮箱</item>
+        <item>网络视频</item>
+        <item>手机</item>
+        <item>购物网站</item>
+        <item>行业网站</item>
+        <item>电视台网</item>
+        <item>广播网</item>
+        <item>报网</item>
+        <item>城市网</item>
+        <item>婚恋网</item>
+        <item>招聘网</item>
+        <item>其他</item>
+    </string-array>
+    <string-array name="dainshi">
+        <!--中央电视台、卫视、省级电视台、城市电视台、教育电视台、有线数字
+    电视台、县级电视台-->
+        <item>中央电视台</item>
+        <item>卫视</item>
+        <item>省级电视台</item>
+        <item>城市电视台</item>
+        <item>教育电视台</item>
+        <item>有线数字电视台</item>
+        <item>县级电视台</item>
+    </string-array>
+    <string-array name="guangbo">
+        <!--中央人民广播电台、省级广播电台、城市广播电台、县级广播电台-->
+        <item>中央人民广播电台</item>
+        <item>省级广播电台</item>
+        <item>城市广播电台</item>
+        <item>城市广播电台</item>
+        <item>县级广播电台</item>
+    </string-array>
 </resources>
