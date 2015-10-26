@@ -3,6 +3,10 @@
 
     <string name="app_name">TopAD</string>
     <string name="main_title">TopAD广告</string>
+    <string name="ads_advertising_creative_title">广告创意</string>
+    <string name="ads_marketing_strategy_title">营销策略</string>
+    <string name="ads_tvc_title">影视广告</string>
+    <string name="ads_anime_create_title">动漫创作</string>
     <string name="loading_tips">正在加载...</string>
     <string name="no_connection">无网络连接，请检查网络</string>
     <string name="connect_error">服务器连接错误</string>

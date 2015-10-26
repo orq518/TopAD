@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/app_bg"
+    android:background="@color/bule"
     android:orientation="vertical">
 
     <!-- 顶部标题 -->
@@ -10,7 +10,8 @@
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"/>
+        android:layout_alignParentTop="true"
+        android:fitsSystemWindows="true"/>
 
     <!-- 底部布局 -->
     <LinearLayout
@@ -502,7 +503,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:background="@color/gray_bg"
-                android:padding="5dp">
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp">
 
                 <!-- 公关服务 -->
                 <LinearLayout
