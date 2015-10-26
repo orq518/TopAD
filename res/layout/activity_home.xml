@@ -17,62 +17,44 @@
         android:id="@+id/bottom_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/act_home_tab_blue_normal"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal">
 
         <!-- 我的媒体 -->
-        <RelativeLayout
-            android:id="@+id/my_media_layout"
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/my_media"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1">
+            android:background="@drawable/homepage_icon_ihave"
+            android:layout_weight="1"/>
 
-            <include
-                android:id="@+id/my_media"
-                layout="@layout/activity_home_select_item"/>
-
-            <View
-                android:layout_width="0.5dp"
-                android:layout_height="50dp"
-                android:layout_alignParentRight="true"
-                android:background="@color/white" />
-
-        </RelativeLayout>
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:background="@color/white" />
 
         <!-- 发布需求 -->
-        <RelativeLayout
-            android:id="@+id/release_demand_layout"
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/release_demand"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/act_home_tab_blue_normal"
-            android:layout_weight="1">
+            android:background="@drawable/homepage_icon_publish"
+            android:layout_weight="1"/>
 
-            <include
-                android:id="@+id/release_demand"
-                layout="@layout/activity_home_select_item"/>
-
-            <View
-                android:layout_width="0.5dp"
-                android:layout_height="50dp"
-                android:layout_alignParentRight="true"
-                android:background="@color/white" />
-
-        </RelativeLayout>
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:background="@color/white" />
 
         <!-- 我要抢单 -->
-        <RelativeLayout
-            android:id="@+id/grab_single_layout"
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/grab_single"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/act_home_tab_blue_normal"
-            android:layout_weight="1">
-
-            <include
-                android:id="@+id/grab_single"
-                layout="@layout/activity_home_select_item"/>
-
-        </RelativeLayout>
+            android:background="@drawable/homepage_icon_iwant"
+            android:layout_weight="1"/>
 
     </LinearLayout>
 

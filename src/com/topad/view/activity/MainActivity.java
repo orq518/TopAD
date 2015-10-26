@@ -41,7 +41,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         // 设置顶部布局
         mTitle.setTitle(getString(R.string.main_title));
         mTitle.setLeftVisiable(false);
-        setBottomLayout();
 
     }
 
@@ -98,23 +97,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     @Override
     public void onBack() {
         finish();
-    }
-
-    /**
-     * 设置底部布局
-     */
-    public void setBottomLayout() {
-        RelativeLayout my_media = (RelativeLayout) findViewById(R.id.my_media);
-        TextView item_key1 = (TextView) my_media.findViewById(R.id.name);
-        item_key1.setText("我的媒体");
-
-        RelativeLayout release_demand = (RelativeLayout) findViewById(R.id.release_demand);
-        TextView item_key2 = (TextView) release_demand.findViewById(R.id.name);
-        item_key2.setText("发布需求");
-
-        RelativeLayout grab_single = (RelativeLayout) findViewById(R.id.grab_single);
-        TextView item_key3 = (TextView) grab_single.findViewById(R.id.name);
-        item_key3.setText("我要抢单");
     }
 
     /**
