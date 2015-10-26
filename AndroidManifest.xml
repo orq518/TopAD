@@ -62,7 +62,7 @@
         </activity>
         <activity android:name=".view.activity.WebViewActivity">
         </activity>
-        <activity android:name=".view.activity.OutDoorSearchActivity">
+        <activity android:name=".view.activity.SearchActivity">
         </activity>
         <activity android:name=".view.activity.OutDoorSearchListActivity">
         </activity>
@@ -76,6 +76,8 @@
                   android:configChanges="orientation|keyboardHidden"
                   android:windowSoftInputMode="adjustUnspecified|stateHidden">
 
+        </activity>
+        <activity android:name=".view.activity.OtherSearchListActivity">
         </activity>
     </application>
 
