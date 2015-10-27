@@ -10,12 +10,14 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import com.topad.R;
 import com.topad.bean.AdServiceBean;
 import com.topad.util.Utils;
+import com.topad.view.customviews.PTRGridView;
+import com.topad.view.customviews.PTRListView;
+import com.topad.view.customviews.PullToRefreshView;
 import com.topad.view.customviews.TitleView;
 import com.topad.view.customviews.pullToRefresh.PullToRefreshBase;
 import com.topad.view.customviews.pullToRefresh.PullToRefreshScrollView;
@@ -28,20 +30,22 @@ import java.util.ArrayList;
  * @author lht
  * @data: on 15/10/26 11:06
  */
-public class AdvertisingServiceActivity extends BaseActivity implements View.OnClickListener, PullToRefreshBase.OnRefreshListener{
-    private static final String LTAG = AdvertisingServiceActivity.class.getSimpleName();
+public class ADSActivity extends BaseActivity implements View.OnClickListener, PullToRefreshView.OnFooterRefreshListener {
+    private static final String LTAG = ADSActivity.class.getSimpleName();
     /** 上下文 **/
     private Context mContext;
     /** 顶部布局 **/
     private TitleView mTitleView;
+    private PullToRefreshView mPullToRefreshView;
+    /** GridView对象 **/
+    private PTRGridView mGridView;
     /** listView **/
-    private ListView mListView;
+    private PTRListView mListView;
     /** 适配器 **/
     private ListAdapter adapter;
     /** 数据源 **/
     private ArrayList<AdServiceBean> bankList = new ArrayList<AdServiceBean>();
-    /** 自定义的listview的上下拉动刷新 **/
-    private PullToRefreshScrollView mPullToRefreshView;
+
     /** ScrollView **/
     private ScrollView mScrollView;
     /** view **/
@@ -57,7 +61,7 @@ public class AdvertisingServiceActivity extends BaseActivity implements View.OnC
 
     @Override
     public View setLayoutByView() {
-        view = (LinearLayout)View.inflate(this, R.layout.activity_ad_service, null);
+        view = (LinearLayout)View.inflate(this, R.layout.activity_ads_list, null);
         return view;
     }
 
@@ -84,18 +88,9 @@ public class AdvertisingServiceActivity extends BaseActivity implements View.OnC
         }
         mTitleView.setLeftClickListener(new TitleLeftOnClickListener());
 
-        mListView = (ListView) view.findViewById(R.id.listview);
-
-        view.removeView(mListView);
-        mPullToRefreshView = new PullToRefreshScrollView(this);
-        mScrollView = mPullToRefreshView.getRefreshableView();
-        mScrollView.setOverScrollMode(ScrollView.OVER_SCROLL_NEVER);
-        mScrollView.setVerticalScrollBarEnabled(false);
-        mScrollView.setFillViewport(true);
-        mScrollView.addView(mListView);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-        view.addView(mPullToRefreshView, layoutParams);
-        mPullToRefreshView.setOnRefreshListener(this);
+        mPullToRefreshView = (PullToRefreshView) view.findViewById(R.id.main_pull_refresh_view);
+//        mPullToRefreshView.hideHeader();
+        mListView = (PTRListView) view.findViewById(R.id.listview);
 
         adapter = new ListAdapter();
         mListView.setAdapter(adapter);
@@ -103,7 +98,9 @@ public class AdvertisingServiceActivity extends BaseActivity implements View.OnC
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-
+                Intent intent = new Intent(ADSActivity.this, ADSDetailsActivity.class);
+                intent.putExtra("title",bankList.get(position).name);
+                startActivity(intent);
             }
         });
 
@@ -158,13 +155,21 @@ public class AdvertisingServiceActivity extends BaseActivity implements View.OnC
         }
     }
 
+    /**
+     * 下拉监听
+     * @param view
+     */
     @Override
-    public void onPullDownToRefresh(PullToRefreshBase refreshView) {
+    public void onFooterRefresh(PullToRefreshView view) {
+        mPullToRefreshView.postDelayed(new Runnable() {
 
-    }
+            @Override
+            public void run() {
+                mPullToRefreshView.onFooterRefreshComplete();
+                Utils.showToast(mContext, "加载更多数据!");
+            }
 
-    @Override
-    public void onPullUpToRefresh(PullToRefreshBase refreshView) {
+        }, 2000);
 
     }
 
