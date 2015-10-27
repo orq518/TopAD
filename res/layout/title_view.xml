@@ -21,7 +21,7 @@
             android:drawableLeft="@drawable/left_back_selector"
             android:drawablePadding="5dp"
             android:gravity="center_vertical"
-            android:paddingLeft="5dp"
+            android:paddingLeft="8dp"
             android:paddingRight="2dp"
             android:text="     "
             android:textColor="@color/dark_gray"
@@ -74,11 +74,11 @@
 
         <ImageView
             android:id="@+id/mRightImage"
-            android:layout_width="@dimen/dimen_30"
-            android:layout_height="@dimen/dimen_30"
+            android:layout_width="@dimen/dimen_25"
+            android:layout_height="@dimen/dimen_25"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="8dp"
+            android:layout_marginRight="@dimen/dimen_10"
             android:visibility="gone"
             android:background="@drawable/app_icon"
             />

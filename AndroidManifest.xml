@@ -70,15 +70,25 @@
 
         <activity android:name=".view.activity.WebViewActivity">
         </activity>
-        <activity android:name=".view.activity.SearchActivity">
+        <activity android:name=".view.activity.SearchActivity"
+                  android:configChanges="orientation|keyboardHidden"
+                  android:windowSoftInputMode="adjustUnspecified|stateHidden">
         </activity>
-        <activity android:name=".view.activity.OutDoorSearchListActivity">
+        <activity android:name=".view.activity.OutDoorSearchListActivity"
+                  android:configChanges="orientation|keyboardHidden"
+                  android:windowSoftInputMode="adjustUnspecified|stateHidden">
         </activity>
-        <activity android:name=".view.activity.OutDoorSearchSecondListActivity">
+        <activity android:name=".view.activity.OutDoorSearchSecondListActivity"
+                  android:configChanges="orientation|keyboardHidden"
+                  android:windowSoftInputMode="adjustUnspecified|stateHidden">
         </activity>
-        <activity android:name=".view.activity.ShareNeedsActivity">
+        <activity android:name=".view.activity.ShareNeedsActivity"
+                  android:configChanges="orientation|keyboardHidden"
+                  android:windowSoftInputMode="adjustUnspecified|stateHidden">
         </activity>
-        <activity android:name=".view.activity.NeedsListActivity">
+        <activity android:name=".view.activity.NeedsListActivity"
+                  android:configChanges="orientation|keyboardHidden"
+                  android:windowSoftInputMode="adjustUnspecified|stateHidden">
         </activity>
         <activity android:name=".view.activity.ShareNeedsEditActivity"
                   android:configChanges="orientation|keyboardHidden"
@@ -93,8 +103,16 @@
                 <category android:name="com.readystatesoftware.systembartint.SAMPLE" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.activity.OtherSearchListActivity">
+        <activity android:name=".view.activity.OtherSearchListActivity"
+                  android:configChanges="orientation|keyboardHidden"
+                  android:windowSoftInputMode="adjustUnspecified|stateHidden">
         </activity>
+
+        <activity android:name=".amap.PoiKeywordSearchActivity"
+                  android:configChanges="orientation|keyboardHidden"
+                  android:windowSoftInputMode="adjustUnspecified|stateHidden">
+        </activity>
+
 
         <!-- 广告服务详情－广告创意、营销策略、影视广告、动漫创作 -->
         <activity
@@ -115,7 +133,9 @@
             </intent-filter>
         </activity>
 
-
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="050d29edd4e2174008315b46165a39d9" />
     </application>
 
 

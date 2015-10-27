@@ -6,6 +6,7 @@ import android.view.KeyEvent;
 import android.view.View;
 
 import com.topad.R;
+import com.topad.amap.PoiKeywordSearchActivity;
 import com.topad.view.customviews.TitleView;
 
 /**
@@ -37,7 +38,14 @@ public class ShareNeedsEditActivity extends BaseActivity implements View.OnClick
         // 设置顶部布局
         mTitle.setTitle(getString(R.string.main_title));
         mTitle.setLeftClickListener(new TitleLeftOnClickListener());
+        mTitle.setRightImageClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                Intent intent=new Intent(ShareNeedsEditActivity.this,  PoiKeywordSearchActivity.class);
+                startActivity(intent);
+            }
+        }, R.drawable.bt_search);
     }
 
     @Override

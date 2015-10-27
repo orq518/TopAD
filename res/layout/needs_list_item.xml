@@ -2,8 +2,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="50dp"
-    android:padding="@dimen/dimen_10"
-    android:background="@color/app_bg"
+    android:padding="@dimen/dimen_15"
+    android:background="@color/white"
     >
     <ImageView
         android:id="@+id/left_ic"
@@ -19,7 +19,7 @@
         android:layout_marginLeft="@dimen/dimen_15"
         android:layout_toRightOf="@id/left_ic"
         android:text="机场"
-        android:textColor="@color/dark_gray"
+        android:textColor="@color/dark_gray_text"
         android:textSize="18sp"/>
     <ImageView
         android:id="@+id/right_ic"
