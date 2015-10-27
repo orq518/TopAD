@@ -26,6 +26,7 @@ import com.topad.view.customviews.CircleProgressDialog;
 public abstract class BaseActivity extends FragmentActivity implements OnClickListener {
     public BaseBean base;
     public CircleProgressDialog mReadingProgress;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub

@@ -7,8 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.topad.R;
 import com.topad.util.SystemBarTintManager;
@@ -157,25 +155,25 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 break;
 
             case R.id.advertising_creative_layout://广告创意
-                intent = new Intent(MainActivity.this, AdvertisingServiceActivity.class);
+                intent = new Intent(MainActivity.this, ADSActivity.class);
                 intent.putExtra("category", "1");
                 startActivity(intent);
                 break;
 
             case R.id.marketing_strategy_layout://营销策略
-                intent = new Intent(MainActivity.this, AdvertisingServiceActivity.class);
+                intent = new Intent(MainActivity.this, ADSActivity.class);
                 intent.putExtra("category", "2");
                 startActivity(intent);
                 break;
 
             case R.id.tvc_layout://影视广告
-                intent = new Intent(MainActivity.this, AdvertisingServiceActivity.class);
+                intent = new Intent(MainActivity.this, ADSActivity.class);
                 intent.putExtra("category", "3");
                 startActivity(intent);
                 break;
 
             case R.id.anime_create_layout://动漫创作
-                intent = new Intent(MainActivity.this, AdvertisingServiceActivity.class);
+                intent = new Intent(MainActivity.this, ADSActivity.class);
                 intent.putExtra("category", "4");
                 startActivity(intent);
                 break;

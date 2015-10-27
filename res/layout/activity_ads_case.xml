@@ -1,0 +1,71 @@
+<!-- 服务类表页 -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bule"
+    android:orientation="vertical">
+
+    <!-- 顶部标题 -->
+    <com.topad.view.customviews.TitleView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"/>
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:background="@color/app_bg"
+        android:layout_below="@id/title">
+
+    <LinearLayout
+        android:id="@+id/scroll_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.topad.view.customviews.CycleImageLayout
+            android:id="@+id/ad_view"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:background="#11000000"
+            android:layout_below="@id/title"/>
+
+        <!-- 中部 -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="15dp"
+            android:layout_below="@id/ad_view">
+
+            <TextView
+                android:id="@+id/tv_case_introduce"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|left"
+                android:text="案例介绍"
+                android:textSize="18sp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/tv_case_introduce_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|left"
+                android:text="      内容对方水电费水电费水电费水电费对双方都十分的说法发生的撒分身乏术的  受到粉丝的似懂非懂司法手段水电费水电费水电费对双方都十分的说法发生的撒分身乏术的  受到粉丝的似懂非懂司法手段"
+                android:textSize="16sp"
+                android:textColor="@color/dark_gray_text"
+                android:layout_below="@id/tv_case_introduce"
+                android:layout_marginTop="10dp"/>
+
+        </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
