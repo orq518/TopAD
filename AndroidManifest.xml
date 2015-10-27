@@ -70,7 +70,7 @@
 
         <activity android:name=".view.activity.WebViewActivity">
         </activity>
-        <activity android:name=".view.activity.OutDoorSearchActivity">
+        <activity android:name=".view.activity.SearchActivity">
         </activity>
         <activity android:name=".view.activity.OutDoorSearchListActivity">
         </activity>
@@ -92,6 +92,8 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.readystatesoftware.systembartint.SAMPLE" />
             </intent-filter>
+        </activity>
+        <activity android:name=".view.activity.OtherSearchListActivity">
         </activity>
     </application>
 

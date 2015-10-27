@@ -9,107 +9,114 @@
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-
-    <LinearLayout android:layout_width="fill_parent"
-                  android:layout_height="wrap_content"
-                  android:orientation="vertical">
-        <LinearLayout
-            android:id="@+id/search_selected_layout"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-
-        </LinearLayout>
-        <include
-            android:id="@+id/outdoor_search_item"
-            layout="@layout/outdoor_search_item"/>
-        <LinearLayout
-            android:id="@+id/layout_voice"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/dimen_15"
-            android:layout_marginRight="@dimen/dimen_15"
-            android:layout_marginTop="@dimen/dimen_10"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/ic_voice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:onClick="onClick"
-                android:src="@drawable/voice_change_bg"/>
-            <EditText
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dimen_10"
-                android:background="@drawable/btn_board_gray"
-                android:hint="请输入详细描述"
-                android:padding="@dimen/dimen_10"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/layout_keyboard"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/dimen_15"
-            android:layout_marginRight="@dimen/dimen_15"
-            android:layout_marginTop="@dimen/dimen_15"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:visibility="gone">
-
-            <ImageView
-                android:id="@+id/ic_keyboard"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:onClick="onClick"
-                android:src="@drawable/keyboard_change_bg"/>
-            <Button
-                android:id="@+id/record_bt"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dimen_10"
-                android:background="@drawable/btn_bg_white"
-                android:hint="按住说话"
-                android:padding="@dimen/dimen_10"
-                android:textSize="@dimen/textsize_16"
-                />
-        </LinearLayout>
-        <LinearLayout android:layout_width="wrap_content"
+    <ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:layout_width="fill_parent"
                       android:layout_height="wrap_content"
-                      android:layout_gravity="right"
-                      android:layout_marginLeft="@dimen/dimen_15"
-                      android:layout_marginRight="@dimen/dimen_15"
-                      android:layout_marginTop="@dimen/dimen_10"
-                      android:gravity="center_vertical"
-                      android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="添加新的搜索条件"
-                android:textColor="@color/gray"
-                android:textSize="18sp"/>
-            <ImageView
-                android:id="@+id/add_type"
+                      android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/search_selected_layout"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dimen_5"
-                android:padding="@dimen/dimen_10"
-                android:src="@drawable/bg_add"
-                />
+                android:orientation="vertical">
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/outdoor_search_item"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_voice"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_15"
+                android:layout_marginRight="@dimen/dimen_15"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/ic_voice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:onClick="onClick"
+                    android:src="@drawable/voice_change_bg"/>
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_10"
+                    android:background="@drawable/btn_board_gray"
+                    android:hint="请输入详细描述"
+                    android:padding="@dimen/dimen_10"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/layout_keyboard"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_15"
+                android:layout_marginRight="@dimen/dimen_15"
+                android:layout_marginTop="@dimen/dimen_15"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/ic_keyboard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:onClick="onClick"
+                    android:src="@drawable/keyboard_change_bg"/>
+                <Button
+                    android:id="@+id/record_bt"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_10"
+                    android:background="@drawable/btn_bg_white"
+                    android:hint="按住说话"
+                    android:padding="@dimen/dimen_10"
+                    android:textSize="@dimen/textsize_16"
+                    />
+            </LinearLayout>
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_gravity="right"
+                          android:layout_marginLeft="@dimen/dimen_15"
+                          android:layout_marginRight="@dimen/dimen_15"
+                          android:layout_marginTop="@dimen/dimen_10"
+                          android:gravity="center_vertical"
+                          android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="添加新的搜索条件"
+                    android:textColor="@color/gray"
+                    android:textSize="18sp"/>
+                <ImageView
+                    android:id="@+id/add_type"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_5"
+                    android:padding="@dimen/dimen_10"
+                    android:src="@drawable/bg_add"
+                    />
+            </LinearLayout>
+            <Button
+                android:id="@+id/bt_identity_next_step"
+                style="@style/ucf_btn_red_style"
+                android:layout_marginLeft="@dimen/dimen_20"
+                android:layout_marginRight="@dimen/dimen_20"
+                android:layout_marginTop="@dimen/dimen_30"
+                android:text="提交搜索"/>
         </LinearLayout>
-        <Button
-            android:id="@+id/bt_identity_next_step"
-            style="@style/ucf_btn_red_style"
-            android:layout_marginLeft="@dimen/dimen_20"
-            android:layout_marginRight="@dimen/dimen_20"
-            android:layout_marginTop="@dimen/dimen_30"
-            android:text="提交搜索"/>
-    </LinearLayout>
+    </ScrollView>
 </LinearLayout>

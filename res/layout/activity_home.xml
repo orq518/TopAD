@@ -65,7 +65,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
-        android:background="@color/gray_bg"
+        android:background="@color/app_bg"
         android:layout_below="@id/title"
         android:layout_above="@id/bottom_layout">
 
@@ -258,8 +258,8 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:background="@color/gray"
-                    android:paddingTop="2dp"
-                    android:paddingBottom="2dp">
+                    android:paddingTop="1dp"
+                    android:paddingBottom="1dp">
 
                     <!-- 广告创意 -->
                     <LinearLayout
@@ -284,7 +284,7 @@
                         android:gravity="center_vertical"
                         android:layout_weight="1"
                         android:padding="20dp"
-                        android:layout_marginLeft="2dp">
+                        android:layout_marginLeft="1dp">
 
                     </LinearLayout>
 
@@ -295,7 +295,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:background="@color/gray"
-                    android:paddingBottom="2dp">
+                    android:paddingBottom="1dp">
 
                     <!-- 影视广告 -->
                     <LinearLayout
@@ -320,7 +320,7 @@
                         android:gravity="center_vertical"
                         android:layout_weight="1"
                         android:padding="20dp"
-                        android:layout_marginLeft="2dp">
+                        android:layout_marginLeft="1dp">
 
                     </LinearLayout>
 
@@ -358,8 +358,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:background="@color/gray"
-                android:paddingTop="2dp"
-                android:paddingBottom="2dp">
+                android:paddingTop="1dp"
+                android:paddingBottom="1dp">
 
                 <!-- vi设计 -->
                 <LinearLayout
@@ -390,8 +390,8 @@
                     android:paddingBottom="30dp"
                     android:paddingLeft="23dp"
                     android:paddingRight="23dp"
-                    android:layout_marginLeft="2dp"
-                    android:layout_marginRight="2dp">
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp">
 
                 </LinearLayout>
 
@@ -418,7 +418,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:background="@color/gray"
-                android:paddingBottom="2dp">
+                android:paddingBottom="1dp">
 
                 <!-- 产品设计 -->
                 <LinearLayout
@@ -449,8 +449,8 @@
                     android:paddingBottom="30dp"
                     android:paddingLeft="23dp"
                     android:paddingRight="23dp"
-                    android:layout_marginLeft="2dp"
-                    android:layout_marginRight="2dp">
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp">
 
                 </LinearLayout>
 
@@ -771,8 +771,8 @@
                     android:background="@drawable/homepage_icon_knowledge"
                     android:gravity="center"
                     android:layout_weight="1"
-                    android:layout_marginLeft="2dp"
-                    android:layout_marginRight="2dp">
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp">
 
                 </LinearLayout>
 
