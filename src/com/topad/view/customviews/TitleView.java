@@ -46,7 +46,7 @@ public class TitleView extends RelativeLayout {
         mContext = context;
         LayoutInflater mInflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-         v = mInflater.inflate(R.layout.title_view, null);
+        v = mInflater.inflate(R.layout.title_view, null);
         LinearLayout.LayoutParams layoutParams=new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
         this.addView(v,layoutParams);
         mTitle = (TextView) v.findViewById(R.id.tv_title);
