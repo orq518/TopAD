@@ -15,9 +15,10 @@ buildscript {
 }
 apply plugin: 'com.android.application'
 dependencies {
-    compile fileTree(include: '*.jar', dir: 'libs')
+    compile fileTree(dir: 'libs', include: '*.jar')
     //    compile 'com.umeng.analytics:analytics:latest.integration'
     compile 'com.android.support:support-v4:21.0.0'
+    compile files('libs/AMap_Services_V2.5.0.jar')
 }
 
 android {

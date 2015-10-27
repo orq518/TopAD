@@ -141,11 +141,13 @@ public class OutDoorSearchListActivity extends BaseActivity implements View.OnCl
     @Override
     public void onBack() {
 
-        Intent intent = new Intent();
-        SearchListBean bean= dataList.get(curID);
-        intent.putExtra("data", bean);
-        if(!Utils.isEmpty(bean.type)){
-            setResult(RESULT_OK, intent);
+        if(curID>-1) {
+            Intent intent = new Intent();
+            SearchListBean bean = dataList.get(curID);
+            intent.putExtra("data", bean);
+            if (!Utils.isEmpty(bean.type)) {
+                setResult(RESULT_OK, intent);
+            }
         }
         finish();
     }

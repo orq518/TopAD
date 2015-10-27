@@ -5,10 +5,7 @@
         android:background="@color/app_bg"
         android:clickable="true"
         android:onClick="onClick"
-        android:paddingBottom="@dimen/dimen_15"
-        android:paddingLeft="@dimen/dimen_15"
-        android:paddingRight="@dimen/dimen_15"
-        android:paddingTop="@dimen/dimen_15">
+        >
     <TextView
         android:id="@+id/city"
         android:layout_width="wrap_content"
@@ -16,6 +13,9 @@
         android:drawablePadding="@dimen/dimen_10"
         android:layout_centerVertical="true"
         android:text="报纸类别"
+        android:layout_marginLeft="@dimen/dimen_10"
+        android:layout_marginTop="@dimen/dimen_10"
+        android:layout_marginBottom="@dimen/dimen_10"
         android:textColor="@color/black"
         android:textSize="20sp"/>
     <TextView
@@ -25,6 +25,8 @@
         android:layout_marginLeft="10dp"
         android:layout_toRightOf="@id/city"
         android:text="时事新闻"
+        android:layout_marginTop="@dimen/dimen_10"
+        android:layout_marginBottom="@dimen/dimen_10"
         android:layout_centerVertical="true"
         android:textColor="@color/dark_gray_text"
         android:textSize="18sp"/>
@@ -33,6 +35,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
+        android:layout_marginTop="@dimen/dimen_10"
+        android:layout_marginBottom="@dimen/dimen_10"
         android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/dimen_10"
         android:src="@drawable/outdoor_delete"/>
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/gray"/>
 </RelativeLayout>

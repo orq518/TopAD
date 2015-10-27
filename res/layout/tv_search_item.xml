@@ -1,0 +1,30 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white"
+              android:orientation="vertical">
+
+
+    <EditText
+        android:id="@+id/tv_name"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen_10"
+        android:layout_marginRight="@dimen/dimen_10"
+        android:layout_marginTop="@dimen/dimen_5"
+        android:background="@drawable/btn_board_gray"
+        android:hint="请输入电视名称"
+        android:padding="@dimen/dimen_10"
+        />
+    <EditText
+        android:id="@+id/tv_program_name"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen_10"
+        android:layout_marginRight="@dimen/dimen_10"
+        android:layout_marginTop="@dimen/dimen_5"
+        android:background="@drawable/btn_board_gray"
+        android:hint="请输入栏目名称"
+        android:padding="@dimen/dimen_10"
+        />
+</LinearLayout>
