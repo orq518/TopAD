@@ -80,8 +80,8 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/dimen_10"
             android:visibility="gone"
-            android:background="@drawable/app_icon"
-            />
+            android:background="@drawable/app_icon" />
+
     </RelativeLayout>
 
     <View

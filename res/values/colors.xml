@@ -12,7 +12,8 @@
     <color name="powder">#FFDA2982</color>
     <color name="yellow">#FFD9D926</color>
     <color name="hot">#FFDA0B31</color>
-    <color name="text_bg">#33ffffff</color>
+    <color name="text_bg">#ff444444</color>
+    <color name="text_gray_bg">#ff9b9b9b</color>
 
 
     <color name="title_bg">#ffffffff</color>
