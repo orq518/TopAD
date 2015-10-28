@@ -19,42 +19,23 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private static final String LTAG = MainActivity.class.getSimpleName();
     /** 上下文 **/
     private Context mContext;
-    /**
-     * title布局
-     **/
+    /** title布局 **/
     private TitleView mTitle;
-    /**
-     * 我的媒体
-     */
+    /** 我的媒体 **/
     private ImageView mMyMedia;
-    /**
-     * 发布需求
-     */
+    /** 发布需求 **/
     private ImageView mReleaseDemand;
-    /**
-     * 我要抢单
-     */
+    /** 我要抢单 **/
     private ImageView mGrabSingle;
-    /**
-     * 广告创意
-     */
+    /** 广告创意 **/
     private LinearLayout mAdvertisingCreativEe;
-    /**
-     * 营销策略
-     */
+    /** 营销策略 **/
     private LinearLayout mMarketingStrategy;
-    /**
-     * 影视广告
-     */
+    /** 影视广告 **/
     private LinearLayout mTVC;
-    /**
-     * 动漫创作
-     */
+    /** 动漫创作 **/
     private LinearLayout mAnimeCreate;
-
-    /**
-     * 沉浸式状态栏
-     */
+    /** 沉浸式状态栏 **/
     private SystemBarTintManager mTintManager;
 
     @Override
@@ -155,25 +136,25 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 break;
 
             case R.id.advertising_creative_layout://广告创意
-                intent = new Intent(MainActivity.this, ADSActivity.class);
+                intent = new Intent(MainActivity.this, ADSListActivity.class);
                 intent.putExtra("category", "1");
                 startActivity(intent);
                 break;
 
             case R.id.marketing_strategy_layout://营销策略
-                intent = new Intent(MainActivity.this, ADSActivity.class);
+                intent = new Intent(MainActivity.this, ADSListActivity.class);
                 intent.putExtra("category", "2");
                 startActivity(intent);
                 break;
 
             case R.id.tvc_layout://影视广告
-                intent = new Intent(MainActivity.this, ADSActivity.class);
+                intent = new Intent(MainActivity.this, ADSListActivity.class);
                 intent.putExtra("category", "3");
                 startActivity(intent);
                 break;
 
             case R.id.anime_create_layout://动漫创作
-                intent = new Intent(MainActivity.this, ADSActivity.class);
+                intent = new Intent(MainActivity.this, ADSListActivity.class);
                 intent.putExtra("category", "4");
                 startActivity(intent);
                 break;
@@ -187,6 +168,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 break;
 
             case R.id.grab_single://我要抢单
+                intent = new Intent(MainActivity.this, GrabSingleActivity.class);
+                startActivity(intent);
                 break;
 
             default:

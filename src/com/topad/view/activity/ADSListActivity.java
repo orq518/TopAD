@@ -9,18 +9,13 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import com.topad.R;
 import com.topad.bean.AdServiceBean;
 import com.topad.util.Utils;
-import com.topad.view.customviews.PTRGridView;
 import com.topad.view.customviews.PTRListView;
 import com.topad.view.customviews.PullToRefreshView;
 import com.topad.view.customviews.TitleView;
-import com.topad.view.customviews.pullToRefresh.PullToRefreshBase;
-import com.topad.view.customviews.pullToRefresh.PullToRefreshScrollView;
 
 import java.util.ArrayList;
 
@@ -30,15 +25,14 @@ import java.util.ArrayList;
  * @author lht
  * @data: on 15/10/26 11:06
  */
-public class ADSActivity extends BaseActivity implements View.OnClickListener, PullToRefreshView.OnFooterRefreshListener {
-    private static final String LTAG = ADSActivity.class.getSimpleName();
+public class ADSListActivity extends BaseActivity implements View.OnClickListener, PullToRefreshView.OnFooterRefreshListener {
+    private static final String LTAG = ADSListActivity.class.getSimpleName();
     /** 上下文 **/
     private Context mContext;
     /** 顶部布局 **/
     private TitleView mTitleView;
+    /** 下载更多 **/
     private PullToRefreshView mPullToRefreshView;
-    /** GridView对象 **/
-    private PTRGridView mGridView;
     /** listView **/
     private PTRListView mListView;
     /** 适配器 **/
@@ -46,8 +40,6 @@ public class ADSActivity extends BaseActivity implements View.OnClickListener, P
     /** 数据源 **/
     private ArrayList<AdServiceBean> bankList = new ArrayList<AdServiceBean>();
 
-    /** ScrollView **/
-    private ScrollView mScrollView;
     /** view **/
     private LinearLayout view;
     /** 类别 **/
@@ -98,7 +90,7 @@ public class ADSActivity extends BaseActivity implements View.OnClickListener, P
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                Intent intent = new Intent(ADSActivity.this, ADSDetailsActivity.class);
+                Intent intent = new Intent(ADSListActivity.this, ADSDetailsActivity.class);
                 intent.putExtra("title",bankList.get(position).name);
                 startActivity(intent);
             }
