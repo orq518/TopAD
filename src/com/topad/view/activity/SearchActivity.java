@@ -29,6 +29,7 @@ import com.topad.bean.SearchItemBean;
 import com.topad.bean.SearchListBean;
 import com.topad.util.AudioRecorder;
 import com.topad.util.LogUtil;
+import com.topad.util.RecordTools;
 import com.topad.util.Utils;
 import com.topad.view.customviews.TitleView;
 
@@ -49,23 +50,7 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
     int searchType;
     Button record;
     ImageView add_type;
-    private AudioRecorder mr;
-    private MediaPlayer mediaPlayer;
-    private Dialog dialog;
-    private static int MAX_TIME = 15;
-    private static int MIX_TIME = 1;
 
-    private static int RECORD_NO = 0;
-    private static int RECORD_ING = 1;
-    private static int RECODE_ED = 2;
-
-    private static int RECODE_STATE = 0;
-
-    private static float recodeTime = 0.0f;
-    private static double voiceValue = 0.0;
-    private ImageView dialog_img;// ֵ
-    private Thread recordThread;
-    String pathString = "ad/voice.amr";
     /**
      * 选择好的条件
      */
@@ -250,54 +235,11 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
         layout_voice = (LinearLayout) findViewById(R.id.layout_voice);
         layout_keyboard = (LinearLayout) findViewById(R.id.layout_keyboard);
         record = (Button) findViewById(R.id.record_bt);
-        record.setOnTouchListener(new View.OnTouchListener() {
+        record.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN:
-                        record.setText("正在录音");
-                        if (RECODE_STATE != RECORD_ING) {
-                            scanOldFile();
-                            mr = new AudioRecorder("voice");
-                            RECODE_STATE = RECORD_ING;
-                            showVoiceDialog();
-                            try {
-                                mr.start();
-                            } catch (IOException e) {
-                                // TODO Auto-generated catch block
-                                e.printStackTrace();
-                            }
-                            mythread();
-                        }
-
-
-                        break;
-                    case MotionEvent.ACTION_UP:
-
-                        if (RECODE_STATE == RECORD_ING) {
-                            RECODE_STATE = RECODE_ED;
-                            if (dialog.isShowing()) {
-                                dialog.dismiss();
-                            }
-                            try {
-                                mr.stop();
-                                voiceValue = 0.0;
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-
-                            if (recodeTime < MIX_TIME) {
-                                showWarnToast();
-                                record.setText("按住说话");
-                                RECODE_STATE = RECORD_NO;
-                            } else {
-                                record.setText("按住说话");
-                            }
-                        }
-
-                        break;
-                }
-                return false;
+            public void onClick(View v) {
+                RecordTools recordTools=new RecordTools(SearchActivity.this);
+                recordTools.showVoiceDialog();
             }
         });
 
@@ -488,169 +430,5 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
 
     }
 
-    /**
-     * 搜索以前的录音，删除
-     */
-    void scanOldFile() {
-        File file = new File(Environment
-                .getExternalStorageDirectory(), pathString);
-        if (file.exists()) {
-            file.delete();
-        }
-    }
-
-    /**
-     * 弹出录音的dialog
-     */
-    void showVoiceDialog() {
-        dialog = new Dialog(this, R.style.DialogStyle);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        dialog.setContentView(R.layout.my_dialog);
-        dialog_img = (ImageView) dialog.findViewById(R.id.dialog_img);
-        dialog.show();
-    }
-
-    void showWarnToast() {
-        Toast toast = new Toast(this);
-        LinearLayout linearLayout = new LinearLayout(this);
-        linearLayout.setOrientation(LinearLayout.VERTICAL);
-        linearLayout.setPadding(20, 20, 20, 20);
-
-        ImageView imageView = new ImageView(this);
-        imageView.setImageResource(R.drawable.voice_to_short);
-
-        TextView mTv = new TextView(this);
-        mTv.setText("时间不能少于1s");
-        mTv.setTextSize(14);
-        mTv.setTextColor(Color.WHITE);
-        //mTv.setPadding(0, 10, 0, 0);
-
-        linearLayout.addView(imageView);
-        linearLayout.addView(mTv);
-        linearLayout.setGravity(Gravity.CENTER);
-        linearLayout.setBackgroundResource(R.drawable.record_bg);
-
-        toast.setView(linearLayout);
-        toast.setGravity(Gravity.CENTER, 0, 0);
-        toast.show();
-    }
-
-    /**
-     * 获取录音路径
-     *
-     * @return
-     */
-    private String getAmrPath() {
-        File file = new File(Environment
-                .getExternalStorageDirectory(), pathString);
-        return file.getAbsolutePath();
-    }
-
-    /**
-     * 创建录音的线程
-     */
-    void mythread() {
-        recordThread = new Thread(ImgThread);
-        recordThread.start();
-    }
-
-    /**
-     * 设置录音的状态图片
-     */
-    void setDialogImage() {
-        if (voiceValue < 200.0) {
-            dialog_img.setImageResource(R.drawable.record_animate_01);
-        } else if (voiceValue > 200.0 && voiceValue < 400) {
-            dialog_img.setImageResource(R.drawable.record_animate_02);
-        } else if (voiceValue > 400.0 && voiceValue < 800) {
-            dialog_img.setImageResource(R.drawable.record_animate_03);
-        } else if (voiceValue > 800.0 && voiceValue < 1600) {
-            dialog_img.setImageResource(R.drawable.record_animate_04);
-        } else if (voiceValue > 1600.0 && voiceValue < 3200) {
-            dialog_img.setImageResource(R.drawable.record_animate_05);
-        } else if (voiceValue > 3200.0 && voiceValue < 5000) {
-            dialog_img.setImageResource(R.drawable.record_animate_06);
-        } else if (voiceValue > 5000.0 && voiceValue < 7000) {
-            dialog_img.setImageResource(R.drawable.record_animate_07);
-        } else if (voiceValue > 7000.0 && voiceValue < 10000.0) {
-            dialog_img.setImageResource(R.drawable.record_animate_08);
-        } else if (voiceValue > 10000.0 && voiceValue < 14000.0) {
-            dialog_img.setImageResource(R.drawable.record_animate_09);
-        } else if (voiceValue > 14000.0 && voiceValue < 17000.0) {
-            dialog_img.setImageResource(R.drawable.record_animate_10);
-        } else if (voiceValue > 17000.0 && voiceValue < 20000.0) {
-            dialog_img.setImageResource(R.drawable.record_animate_11);
-        } else if (voiceValue > 20000.0 && voiceValue < 24000.0) {
-            dialog_img.setImageResource(R.drawable.record_animate_12);
-        } else if (voiceValue > 24000.0 && voiceValue < 28000.0) {
-            dialog_img.setImageResource(R.drawable.record_animate_13);
-        } else if (voiceValue > 28000.0) {
-            dialog_img.setImageResource(R.drawable.record_animate_14);
-        }
-    }
-
-    private Runnable ImgThread = new Runnable() {
-
-        @Override
-        public void run() {
-            recodeTime = 0.0f;
-            while (RECODE_STATE == RECORD_ING) {
-                if (recodeTime >= MAX_TIME && MAX_TIME != 0) {
-                    imgHandle.sendEmptyMessage(0);
-                } else {
-                    try {
-                        Thread.sleep(200);
-                        recodeTime += 0.2;
-                        Log.i("song", "recodeTime" + recodeTime);
-                        if (RECODE_STATE == RECORD_ING) {
-                            voiceValue = mr.getAmplitude();
-                            imgHandle.sendEmptyMessage(1);
-                        }
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        }
-
-        Handler imgHandle = new Handler() {
-            @Override
-            public void handleMessage(Message msg) {
-
-                switch (msg.what) {
-                    case 0:
-                        if (RECODE_STATE == RECORD_ING) {
-                            RECODE_STATE = RECODE_ED;
-                            if (dialog.isShowing()) {
-                                dialog.dismiss();
-                            }
-                            try {
-                                mr.stop();
-                                voiceValue = 0.0;
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-
-                            if (recodeTime < 1.0) {
-                                showWarnToast();
-//                                record.setText("");
-                                RECODE_STATE = RECORD_NO;
-                            } else {
-//                                record.setText("");
-                            }
-                        }
-                        break;
-                    case 1:
-                        setDialogImage();
-                        break;
-                    default:
-                        break;
-                }
-
-            }
-        };
-    };
 
 }

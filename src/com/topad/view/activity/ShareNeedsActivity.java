@@ -56,7 +56,7 @@ public class ShareNeedsActivity extends BaseActivity implements View.OnClickList
         // 顶部布局
         mTitle = (TitleView) findViewById(R.id.title);
         // 设置顶部布局
-        mTitle.setTitle(getString(R.string.main_title));
+        mTitle.setTitle("发布需求");
         mTitle.setLeftClickListener(new TitleLeftOnClickListener());
 
     }
@@ -74,6 +74,8 @@ public class ShareNeedsActivity extends BaseActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
         Intent intent = new Intent(ShareNeedsActivity.this, NeedsListActivity.class);
+        TextView tv= (TextView) v;
+        intent.putExtra("title",tv.getText().toString());
         super.onClick(v);
         switch (v.getId()) {
             case R.id.tab01:
