@@ -5,12 +5,12 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.media.MediaPlayer;
-import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -20,8 +20,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.topad.R;
+import com.topad.view.interfaces.IRecordFinish;
 
-import java.io.File;
 import java.io.IOException;
 
 /**
@@ -45,24 +45,28 @@ public class RecordTools {
     private static double voiceValue = 0.0;
     private ImageView dialog_img;// ֵ
     private Thread recordThread;
-    String pathString = "ad/voice.amr";
     Context mContext;
+    IRecordFinish mRecordFinish;
 
-    public RecordTools(Context context) {
+    public RecordTools(Context context,IRecordFinish recordFinish) {
         mContext = context;
+        mRecordFinish = recordFinish;
     }
 
     /**
-     * 搜索以前的录音，删除
+     * //     * 搜索以前的录音，删除
+     * //
      */
-    void scanOldFile() {
-        File file = new File(Environment
-                .getExternalStorageDirectory(), pathString);
-        if (file.exists()) {
-            file.delete();
-        }
-    }
+//    void scanOldFile() {
+//        File file = new File(Environment
+//                .getExternalStorageDirectory(), pathString);
+//        if (file.exists()) {
+//            file.delete();
+//        }
+//    }
     TextView tv_time;
+
+
     /**
      * 弹出录音的dialog
      */
@@ -73,14 +77,14 @@ public class RecordTools {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         dialog.setContentView(R.layout.my_dialog);
         dialog_img = (ImageView) dialog.findViewById(R.id.dialog_img);
-         tv_time = (TextView) dialog.findViewById(R.id.tv_time);
+        tv_time = (TextView) dialog.findViewById(R.id.tv_time);
         final Button mConfirmBtn = (Button) dialog.findViewById(R.id.mConfirmBtn);
         mConfirmBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (RECODE_STATE != RECORD_ING) {
                     mConfirmBtn.setText("停止录音");
-                    scanOldFile();
+//                    scanOldFile();
                     mr = new AudioRecorder("voice");
                     RECODE_STATE = RECORD_ING;
                     try {
@@ -104,10 +108,16 @@ public class RecordTools {
                     }
 
                     if (recodeTime < MIX_TIME) {
-                        showWarnToast();
+                        showWarnToast("时间不能少于"+MIX_TIME+"s");
+//                        record.setText("按住说话");
+                        RECODE_STATE = RECORD_NO;
+                    }else  if (recodeTime > MAX_TIME) {
+                        showWarnToast("时间不能大于"+MAX_TIME+"s");
 //                        record.setText("按住说话");
                         RECODE_STATE = RECORD_NO;
                     } else {
+                        showWarnToast("录音成功");
+                        mRecordFinish.RecondSuccess(mr.getPath());
 //                        record.setText("按住说话");
                     }
                 }
@@ -136,11 +146,11 @@ public class RecordTools {
                     }
                 }
             }
-    });
+        });
         dialog.show();
     }
 
-    void showWarnToast() {
+    void showWarnToast(String tips) {
         Toast toast = new Toast(mContext);
         LinearLayout linearLayout = new LinearLayout(mContext);
         linearLayout.setOrientation(LinearLayout.VERTICAL);
@@ -150,13 +160,13 @@ public class RecordTools {
         imageView.setImageResource(R.drawable.voice_to_short);
 
         TextView mTv = new TextView(mContext);
-        mTv.setText("时间不能少于5s");
+        mTv.setText(tips);
         mTv.setTextSize(14);
         mTv.setTextColor(Color.WHITE);
         //mTv.setPadding(0, 10, 0, 0);
-
         linearLayout.addView(imageView);
-        linearLayout.addView(mTv);
+        LinearLayout.LayoutParams layoutParams=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        linearLayout.addView(mTv,layoutParams);
         linearLayout.setGravity(Gravity.CENTER);
         linearLayout.setBackgroundResource(R.drawable.record_bg);
 
@@ -165,16 +175,6 @@ public class RecordTools {
         toast.show();
     }
 
-    /**
-     * 获取录音路径
-     *
-     * @return
-     */
-    private String getAmrPath() {
-        File file = new File(Environment
-                .getExternalStorageDirectory(), pathString);
-        return file.getAbsolutePath();
-    }
 
     /**
      * 创建录音的线程
@@ -218,13 +218,14 @@ public class RecordTools {
             dialog_img.setImageResource(R.drawable.record_animate_14);
         }
     }
-   float lastrecodeTime;
+
+    float lastrecodeTime;
     private Runnable ImgThread = new Runnable() {
 
         @Override
         public void run() {
             recodeTime = 0.0f;
-            lastrecodeTime=0;
+            lastrecodeTime = 0;
             while (RECODE_STATE == RECORD_ING) {
                 if (recodeTime >= MAX_TIME && MAX_TIME != 0) {
                     imgHandle.sendEmptyMessage(0);
@@ -232,7 +233,7 @@ public class RecordTools {
                     try {
                         Thread.sleep(200);
                         recodeTime += 0.2;
-                        Log.i("song", "recodeTime" + recodeTime);
+                        LogUtil.d("ouou", "recodeTime" + recodeTime);
                         if (RECODE_STATE == RECORD_ING) {
                             voiceValue = mr.getAmplitude();
                             imgHandle.sendEmptyMessage(1);
@@ -241,7 +242,7 @@ public class RecordTools {
                         e.printStackTrace();
                     }
                 }
-                if(recodeTime-lastrecodeTime>=1) {
+                if (recodeTime - lastrecodeTime >= 1) {
                     imgHandle.sendEmptyMessage(2);
                 }
             }
@@ -265,8 +266,12 @@ public class RecordTools {
                                 e.printStackTrace();
                             }
 
-                            if (recodeTime < 1.0) {
-                                showWarnToast();
+                            if (recodeTime < MIX_TIME) {
+                                showWarnToast("时间不能小于"+MAX_TIME+"s");
+//                                record.setText("");
+                                RECODE_STATE = RECORD_NO;
+                            }else if (recodeTime >MAX_TIME) {
+                                showWarnToast("时间不能大于"+MAX_TIME+"s");
 //                                record.setText("");
                                 RECODE_STATE = RECORD_NO;
                             } else {
@@ -278,19 +283,19 @@ public class RecordTools {
                         setDialogImage();
                         break;
                     case 2:
-                        lastrecodeTime=recodeTime;
-                        int time= (int) recodeTime;
-                        int minute=time/60;
-                        int second=time%60;
-                        String minuteString=""+minute;
-                        if(minuteString.length()<2){
-                            minuteString="0"+minuteString;
+                        lastrecodeTime = recodeTime;
+                        int time = (int) recodeTime;
+                        int minute = time / 60;
+                        int second = time % 60;
+                        String minuteString = "" + minute;
+                        if (minuteString.length() < 2) {
+                            minuteString = "0" + minuteString;
                         }
-                        String secondString=""+second;
-                        if(secondString.length()<2){
-                            secondString="0"+secondString;
+                        String secondString = "" + second;
+                        if (secondString.length() < 2) {
+                            secondString = "0" + secondString;
                         }
-                        tv_time.setText(minuteString+":"+secondString);
+                        tv_time.setText(minuteString + ":" + secondString);
                         break;
                     default:
                         break;

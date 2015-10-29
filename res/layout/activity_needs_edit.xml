@@ -10,42 +10,42 @@
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-
+    <RelativeLayout
+        android:id="@+id/bottom_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="@color/dark_gray"
+        android:layout_alignParentBottom="true">
+        <TextView android:layout_width="wrap_content" android:layout_height="fill_parent"
+                  android:text="总价：￥0.0元"
+                  android:gravity="center_vertical"
+                  android:textColor="@color/white"
+                  android:textSize="@dimen/textsize_16"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="fill_parent"
+                  android:text="提交"
+                  android:gravity="center_vertical"
+                  android:layout_alignParentRight="true"
+                  android:textColor="@color/white"
+                  android:paddingLeft="@dimen/dimen_15"
+                  android:paddingRight="@dimen/dimen_15"
+                  android:background="@color/orange"
+                  android:textSize="@dimen/textsize_16"/>
+    </RelativeLayout>
     <!-- 内容 -->
     <ScrollView
         android:id="@+id/scroll_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="fill_parent"
         android:layout_below="@id/title"
+        android:layout_above="@id/bottom_layout"
         android:background="@color/app_bg"
         android:fillViewport="true">
         <RelativeLayout android:layout_width="fill_parent"
-                        android:layout_height="wrap_content">
-            <RelativeLayout
-                android:id="@+id/bottom_layout"
-                android:layout_width="fill_parent"
-                android:layout_height="50dp"
-                android:background="@color/dark_gray"
-                android:layout_alignParentBottom="true">
-                <TextView android:layout_width="wrap_content" android:layout_height="fill_parent"
-                          android:text="总价：￥0.0元"
-                          android:gravity="center_vertical"
-                          android:textColor="@color/white"
-                          android:textSize="@dimen/textsize_16"/>
-                <TextView android:layout_width="wrap_content" android:layout_height="fill_parent"
-                          android:text="提交"
-                          android:gravity="center_vertical"
-                          android:layout_alignParentRight="true"
-                          android:textColor="@color/white"
-                          android:paddingLeft="@dimen/dimen_15"
-                          android:paddingRight="@dimen/dimen_15"
-                          android:background="@color/orange"
-                          android:textSize="@dimen/textsize_16"/>
-            </RelativeLayout>
+                        android:layout_height="fill_parent">
+
 
             <LinearLayout android:layout_width="fill_parent"
                           android:layout_height="fill_parent"
-                          android:layout_above="@id/bottom_layout"
                           android:background="@color/app_bg"
                           android:orientation="vertical"
                           android:paddingLeft="@dimen/dimen_10"
@@ -144,56 +144,61 @@
                               android:layout_height="wrap_content"
                               android:layout_margin="@dimen/dimen_1"
                               android:layout_weight="1"
-                              android:drawableTop="@drawable/shiming"
+                              android:drawablePadding="@dimen/dimen_5"
+                              android:drawableTop="@drawable/shiming_normal"
                               android:paddingBottom="@dimen/dimen_10"
                               android:paddingTop="@dimen/dimen_10"
                               android:text="实名认证"
                               android:gravity="center_horizontal"
-                              android:textColor="@color/dark_gray"
+                              android:textColor="@color/dark_gray_text"
                               android:textSize="@dimen/textsize_14"/>
                     <TextView android:layout_width="wrap_content"
                               android:layout_height="wrap_content"
                               android:layout_margin="@dimen/dimen_1"
                               android:layout_weight="1"
+                              android:drawablePadding="@dimen/dimen_5"
                               android:gravity="center_horizontal"
-                              android:drawableTop="@drawable/shoujirenzheng"
+                              android:drawableTop="@drawable/shoujirenzheng_normal"
                               android:paddingBottom="@dimen/dimen_10"
                               android:paddingTop="@dimen/dimen_10"
                               android:text="手机认证"
-                              android:textColor="@color/dark_gray"
+                              android:textColor="@color/dark_gray_text"
                               android:textSize="@dimen/textsize_14"/>
                     <TextView android:layout_width="wrap_content"
                               android:layout_height="wrap_content"
                               android:layout_margin="@dimen/dimen_1"
                               android:layout_weight="1"
+                              android:drawablePadding="@dimen/dimen_5"
                               android:gravity="center_horizontal"
                               android:drawableTop="@drawable/baozhengwancheng"
                               android:paddingBottom="@dimen/dimen_10"
                               android:paddingTop="@dimen/dimen_10"
                               android:text="保证完成"
-                              android:textColor="@color/dark_gray"
+                              android:textColor="@color/dark_gray_text"
                               android:textSize="@dimen/textsize_14"/>
                     <TextView android:layout_width="wrap_content"
                               android:layout_height="wrap_content"
                               android:layout_margin="@dimen/dimen_1"
                               android:layout_weight="1"
+                              android:drawablePadding="@dimen/dimen_5"
                               android:gravity="center_horizontal"
                               android:drawableTop="@drawable/yuanchuang"
                               android:paddingBottom="@dimen/dimen_10"
                               android:paddingTop="@dimen/dimen_10"
                               android:text="保证原创"
-                              android:textColor="@color/dark_gray"
+                              android:textColor="@color/dark_gray_text"
                               android:textSize="@dimen/textsize_14"/>
                     <TextView android:layout_width="wrap_content"
                               android:layout_height="wrap_content"
                               android:layout_margin="@dimen/dimen_1"
                               android:layout_weight="1"
                               android:gravity="center_horizontal"
-                              android:drawableTop="@drawable/weihu"
+                              android:drawableTop="@drawable/weihu_normal"
                               android:paddingBottom="@dimen/dimen_10"
                               android:paddingTop="@dimen/dimen_10"
                               android:text="保证维护"
-                              android:textColor="@color/dark_gray"
+                              android:drawablePadding="@dimen/dimen_5"
+                              android:textColor="@color/dark_gray_text"
                               android:textSize="@dimen/textsize_14"/>
 
 

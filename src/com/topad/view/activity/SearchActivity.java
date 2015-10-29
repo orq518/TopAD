@@ -1,21 +1,10 @@
 package com.topad.view.activity;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
-import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.os.Environment;
-import android.os.Handler;
-import android.os.Message;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.KeyEvent;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -27,20 +16,19 @@ import android.widget.Toast;
 import com.topad.R;
 import com.topad.bean.SearchItemBean;
 import com.topad.bean.SearchListBean;
-import com.topad.util.AudioRecorder;
 import com.topad.util.LogUtil;
+import com.topad.util.RecordMediaPlayer;
 import com.topad.util.RecordTools;
 import com.topad.util.Utils;
 import com.topad.view.customviews.TitleView;
+import com.topad.view.interfaces.IRecordFinish;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 
 /**
  * 主界面
  */
-public class SearchActivity extends BaseActivity implements View.OnClickListener {
+public class SearchActivity extends BaseActivity implements IRecordFinish,View.OnClickListener{
 
     /**
      * title布局
@@ -55,7 +43,7 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
      * 选择好的条件
      */
     ArrayList<SearchItemBean> itemBeans = new ArrayList<SearchItemBean>();
-
+    LinearLayout voice_layout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -204,7 +192,7 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
                         break;
 
                 }
-
+                layout_keyboard.setVisibility(View.VISIBLE);
 
             }
         });
@@ -238,11 +226,11 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
         record.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                RecordTools recordTools=new RecordTools(SearchActivity.this);
+                RecordTools recordTools=new RecordTools(mContext,SearchActivity.this);
                 recordTools.showVoiceDialog();
             }
         });
-
+        voice_layout=(LinearLayout) findViewById(R.id.voice_layout);
     }
 
     @Override
@@ -413,6 +401,29 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
     public void onBack() {
         finish();
     }
+
+    @Override
+    public  void RecondSuccess(final String voicePath) {
+        final RelativeLayout voiceLayout = (RelativeLayout) getLayoutInflater().inflate(R.layout.media_layout, null);
+        voiceLayout.setTag(voicePath);
+        ImageView play= (ImageView) voiceLayout.findViewById(R.id.play);
+        play.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RecordMediaPlayer player=RecordMediaPlayer.getInstance();
+                player.play((String) voiceLayout.getTag());
+            }
+        });
+        ImageView delete= (ImageView) voiceLayout.findViewById(R.id.delete);
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            }
+        });
+        voice_layout.addView(voiceLayout);
+        layout_keyboard.setVisibility(View.GONE);
+    }
+
 
     /**
      * 设置底部布局
