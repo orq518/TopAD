@@ -142,7 +142,7 @@
                           android:onClick="onClick"
                           android:paddingBottom="@dimen/dimen_15"
                           android:paddingTop="@dimen/dimen_20"
-                          android:text="专业培训"
+                          android:text="专家培训"
                     />
                 <TextView android:id="@+id/tab08"
                           android:layout_width="fill_parent"
