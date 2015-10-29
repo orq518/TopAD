@@ -424,11 +424,6 @@ public class SearchActivity extends BaseActivity implements IRecordFinish,View.O
         layout_keyboard.setVisibility(View.GONE);
     }
 
-
-    /**
-     * 设置底部布局
-     */
-
     /**
      * 顶部布局--左按钮事件监听
      */
