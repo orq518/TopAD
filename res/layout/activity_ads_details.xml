@@ -25,7 +25,7 @@
         <!-- 收藏 -->
         <Button
             android:id="@+id/btn_collect"
-            style="@style/btn_bule_borad_style"
+            style="@style/btn_white_borad_style"
             android:layout_weight="1"
             android:focusable="false"
             android:drawableLeft="@drawable/adsd_button_collect"
@@ -35,7 +35,7 @@
         <!-- 联系服务商 -->
         <Button
             android:id="@+id/btn_call"
-            style="@style/btn_bule_borad_style"
+            style="@style/btn_white_borad_style"
             android:layout_weight="1"
             android:focusable="false"
             android:drawableLeft="@drawable/adsd_button_call"
