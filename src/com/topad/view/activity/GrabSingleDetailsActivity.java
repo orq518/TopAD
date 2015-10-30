@@ -12,8 +12,13 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.topad.R;
+import com.topad.bean.GrabSingleBean;
 import com.topad.view.customviews.MyGridView;
 import com.topad.view.customviews.TitleView;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * ${todo}<我要抢单详情页>
@@ -41,6 +46,8 @@ public class GrabSingleDetailsActivity extends BaseActivity implements View.OnCl
     private TextView mDetailsContent;
     /** 提交 **/
     private Button mSubmit;
+    /** 数据源 **/
+    private ArrayList<HashMap<String,String>> list;
 
     @Override
     public int setLayoutById() {
@@ -71,7 +78,7 @@ public class GrabSingleDetailsActivity extends BaseActivity implements View.OnCl
         mTitleView.setLeftClickListener(new TitleLeftOnClickListener());
 
         //为GridView设置适配器
-        mGridView.setAdapter(new MyAdapter(this));
+        mGridView.setAdapter(new MyAdapter(this, setData()));
 
     }
 
@@ -110,18 +117,15 @@ public class GrabSingleDetailsActivity extends BaseActivity implements View.OnCl
     class MyAdapter extends BaseAdapter {
         //上下文对象
         private Context context;
-        //图片数组
-        private Integer[] imgs = {
-                R.drawable.homepage_icon_manage, R.drawable.homepage_icon_manage, R.drawable.homepage_icon_manage,
-                R.drawable.homepage_icon_manage, R.drawable.homepage_icon_manage
-        };
+        ArrayList<HashMap<String,String>> list = new ArrayList<HashMap<String,String>>();
 
-        MyAdapter(Context context) {
+        MyAdapter(Context context, ArrayList<HashMap<String,String>> list) {
             this.context = context;
+            this.list = list;
         }
 
         public int getCount() {
-            return imgs.length;
+            return list.size();
         }
 
         public Object getItem(int item) {
@@ -134,32 +138,67 @@ public class GrabSingleDetailsActivity extends BaseActivity implements View.OnCl
 
         //创建View方法
         public View getView(int position, View convertView, ViewGroup parent) {
-            ImageView imageView;
-            if (convertView == null) {
-                imageView = new ImageView(context);
-                imageView.setLayoutParams(
-                        new GridView.LayoutParams(
-                                (int) (getResources().getDisplayMetrics().density*75),
-                                (int) (getResources().getDisplayMetrics().density*75)));//设置ImageView对象布局
-                imageView.setAdjustViewBounds(false);//设置边界对齐
-                imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);//设置刻度的类型
-                imageView.setPadding(8, 8, 8, 8);//设置间距
-            } else {
-                imageView = (ImageView) convertView;
-            }
-            imageView.setImageResource(imgs[position]);//为ImageView设置图片资源
-            return imageView;
-
-//            if(convertView == null){
-//                //根据布局文件获取View返回值
-//                convertView = LayoutInflater.from(getApplicationContext()).inflate(R.layout.activity_grab_single_details_item_layout, null);
+//            ImageView imageView;
+//            if (convertView == null) {
+//                imageView = new ImageView(context);
+//                imageView.setLayoutParams(
+//                        new GridView.LayoutParams(
+//                                (int) (getResources().getDisplayMetrics().density*75),
+//                                (int) (getResources().getDisplayMetrics().density*75)));//设置ImageView对象布局
+//                imageView.setAdjustViewBounds(false);//设置边界对齐
+//                imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);//设置刻度的类型
+//                imageView.setPadding(8, 8, 8, 8);//设置间距
+//            } else {
+//                imageView = (ImageView) convertView;
 //            }
-//            ImageView imageview = (ImageView) convertView.findViewById(R.id.icon);
-//            TextView name = (TextView) convertView.findViewById(R.id.tv_name);
-//
-//            imageview.setImageResource(images[position]);
-//            name.setText(name[position]);
-//            return convertView;
+//            imageView.setImageResource(imgs[position]);//为ImageView设置图片资源
+//            return imageView;
+
+            if(convertView == null){
+                //根据布局文件获取View返回值
+                convertView = LayoutInflater.from(getApplicationContext()).inflate(R.layout.activity_grab_single_details_item_layout, null);
+            }
+            ImageView imageview = (ImageView) convertView.findViewById(R.id.icon);
+            TextView name = (TextView) convertView.findViewById(R.id.tv_name);
+
+            imageview.setImageResource(Integer.parseInt(list.get(position).get("icon")));
+            name.setText( list.get(position).get("name"));
+            return convertView;
         }
+    }
+
+
+    /**
+     * 设置数据
+     */
+    private ArrayList<HashMap<String,String>> setData() {
+        list = new ArrayList<HashMap<String,String>>();
+
+        HashMap<String, String> map =  new HashMap<String,String>();
+        map.put("icon", String.valueOf(R.drawable.homepage_icon_manage));
+        map.put("name", "实名认证");
+        list.add(map);
+
+        HashMap<String, String> map2 =  new HashMap<String,String>();
+        map2.put("icon", String.valueOf(R.drawable.homepage_icon_manage));
+        map2.put("name", "手机认证");
+        list.add(map2);
+
+        HashMap<String, String> map3 =  new HashMap<String,String>();
+        map3.put("icon", String.valueOf(R.drawable.homepage_icon_manage));
+        map3.put("name", "保证完成");
+        list.add(map3);
+
+        HashMap<String, String> map4 =  new HashMap<String,String>();
+        map4.put("icon", String.valueOf(R.drawable.homepage_icon_manage));
+        map4.put("name", "保证原创");
+        list.add(map4);
+
+        HashMap<String, String> map5 =  new HashMap<String,String>();
+        map5.put("icon", String.valueOf(R.drawable.homepage_icon_manage));
+        map5.put("name", "保证维护");
+        list.add(map5);
+
+        return list;
     }
 }

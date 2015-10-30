@@ -228,7 +228,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_below="@id/tv_need_details"/>
 
-                <!-- 到期 -->
+                <!-- 提交 -->
                 <Button
                     android:id="@+id/btn_submit"
                     style="@style/btn_bule2_borad_style"

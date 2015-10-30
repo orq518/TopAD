@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    android:background="@color/gray_bg">
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,8 +15,8 @@
 
         <ImageView
             android:id="@+id/icon"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:background="@drawable/homepage_icon_manage"/>
 
         <TextView
@@ -26,7 +26,8 @@
             android:gravity="center_vertical|left"
             android:text="实名认证"
             android:textSize="16sp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
             android:textColor="@color/text_gray_bg"/>
 
     </LinearLayout>
