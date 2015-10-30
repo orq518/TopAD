@@ -21,7 +21,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private Context mContext;
     /** title布局 **/
     private TitleView mTitle;
-    /** 我的媒体 **/
+    /** 我有媒体 **/
     private ImageView mMyMedia;
     /** 发布需求 **/
     private ImageView mReleaseDemand;
@@ -159,7 +159,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 startActivity(intent);
                 break;
 
-            case R.id.my_media://我的媒体
+            case R.id.my_media://我有媒体
+                intent = new Intent(MainActivity.this, MyMediaActivity.class);
+                startActivity(intent);
                 break;
 
             case R.id.release_demand://发布需求

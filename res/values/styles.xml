@@ -86,6 +86,60 @@
         <item name="android:background">@drawable/common_btn_border_white</item>
     </style>
 
+    <!-- 电视 -->
+    <style name="btn_tv_borad_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:background">@drawable/common_btn_border_bule_tv</item>
+    </style>
+
+    <!-- 广播 -->
+    <style name="btn_radio_borad_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:background">@drawable/common_btn_border_orange_radio</item>
+    </style>
+
+    <!-- 报纸 -->
+    <style name="btn_newspaper_borad_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:background">@drawable/common_btn_border_powder_newspaper</item>
+    </style>
+
+    <!-- 户外 -->
+    <style name="btn_outdoor_borad_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:background">@drawable/common_btn_border_yellow_outdoor</item>
+    </style>
+
+    <!-- 杂志 -->
+    <style name="btn_mgz_borad_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:background">@drawable/common_btn_border_hot_mgz</item>
+    </style>
+
+    <!-- 网络 -->
+    <style name="btn_web_borad_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:background">@drawable/common_btn_border_green_web</item>
+    </style>
+
     <style name="dialogStyle" parent="@android:style/Theme.Dialog">
         <item name="android:windowFrame">@null</item>
         <item name="android:windowIsFloating">true</item>
