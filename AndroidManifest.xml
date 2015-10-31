@@ -157,6 +157,26 @@
             </intent-filter>
         </activity>
 
+        <!-- 我有媒体页 -->
+        <activity
+            android:name=".view.activity.MyMediaActivity"
+            android:theme="@style/FullBleedTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.readystatesoftware.systembartint.SAMPLE" />
+            </intent-filter>
+        </activity>
+
+        <!-- 媒体发布页 -->
+        <activity
+            android:name=".view.activity.MediaReleaseActivity"
+            android:theme="@style/FullBleedTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.readystatesoftware.systembartint.SAMPLE" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 

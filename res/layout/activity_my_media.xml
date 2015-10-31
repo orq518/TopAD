@@ -1,0 +1,239 @@
+<!-- 我有媒体 -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bule"
+    android:orientation="vertical">
+
+    <!-- 顶部标题 -->
+    <com.topad.view.customviews.TitleView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"/>
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:background="@color/app_bg"
+        android:layout_below="@id/title">
+
+        <LinearLayout
+            android:id="@+id/scroll_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <!-- 上 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="20dp">
+
+                <!-- 电视 -->
+                <LinearLayout
+                    android:id="@+id/media_icon_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/my_media_icon_tv"
+                        android:paddingTop="20dp"
+                        android:paddingBottom="25dp"
+                        style="@style/btn_tv_borad_style"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|left"
+                        android:text="电视"
+                        android:textSize="16sp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="@color/text_gray_bg"/>
+
+                </LinearLayout>
+
+                <!-- 广播 -->
+                <LinearLayout
+                    android:id="@+id/media_icon_radio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/my_media_icon_radio"
+                        android:paddingTop="20dp"
+                        android:paddingBottom="25dp"
+                        style="@style/btn_radio_borad_style"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|left"
+                        android:text="广播"
+                        android:textSize="16sp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="@color/text_gray_bg"/>
+
+                </LinearLayout>
+
+                <!-- 报纸 -->
+                <LinearLayout
+                    android:id="@+id/media_icon_newspaper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/icon"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/my_media_icon_newspaper"
+                        android:paddingTop="20dp"
+                        android:paddingBottom="25dp"
+                        style="@style/btn_newspaper_borad_style"/>
+
+                    <TextView
+                        android:id="@+id/tv_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|left"
+                        android:text="报纸"
+                        android:textSize="16sp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="@color/text_gray_bg"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- 下 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="30dp">
+
+                <!-- 户外 -->
+                <LinearLayout
+                    android:id="@+id/media_icon_outdoor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/my_media_icon_outdoor"
+                        android:paddingTop="20dp"
+                        android:paddingBottom="25dp"
+                        style="@style/btn_outdoor_borad_style"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|left"
+                        android:text="户外"
+                        android:textSize="16sp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="@color/text_gray_bg"/>
+
+                </LinearLayout>
+
+                <!-- 杂志 -->
+                <LinearLayout
+                    android:id="@+id/media_icon_mgz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/my_media_icon_mgz"
+                        android:paddingTop="20dp"
+                        android:paddingBottom="25dp"
+                        style="@style/btn_mgz_borad_style"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|left"
+                        android:text="杂志"
+                        android:textSize="16sp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="@color/text_gray_bg"/>
+
+                </LinearLayout>
+
+                <!-- 网络 -->
+                <LinearLayout
+                    android:id="@+id/media_icon_web"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/my_media_icon_web"
+                        android:paddingTop="20dp"
+                        android:paddingBottom="22dp"
+                        style="@style/btn_web_borad_style"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|left"
+                        android:text="网络"
+                        android:textSize="16sp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="@color/text_gray_bg"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

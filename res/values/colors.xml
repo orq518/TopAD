@@ -14,7 +14,12 @@
     <color name="hot">#FFDA0B31</color>
     <color name="text_bg">#ff444444</color>
     <color name="text_gray_bg">#ff9b9b9b</color>
-
+    <color name="tv_bule">#13b5ea</color>
+    <color name="orange_radio">#ffb74d</color>
+    <color name="powder_newspaper">#e2548d</color>
+    <color name="yellow_outdoor">#efde09</color>
+    <color name="hot_mgz">#ff5063</color>
+    <color name="green_web">#90d41d</color>
 
     <color name="title_bg">#ffffffff</color>
     <color name="dark_gray">#333333</color>
