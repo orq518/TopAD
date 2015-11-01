@@ -2,6 +2,7 @@ package com.topad.view.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 import com.topad.R;
 import com.topad.bean.NeedsListBean;
 import com.topad.bean.SearchListBean;
+import com.topad.util.SystemBarTintManager;
 import com.topad.util.Utils;
 import com.topad.view.customviews.TitleView;
 
@@ -79,8 +81,18 @@ public class NeedsListActivity extends BaseActivity implements View.OnClickListe
 
     String titleString = null;
 
+    /** 沉浸式状态栏 **/
+    private SystemBarTintManager mTintManager;
+    private void applySelectedColor() {
+        int color = Color.argb(0, Color.red(0), Color.green(0), Color.blue(0));
+        mTintManager.setTintColor(color);
+    }
     @Override
     public void initViews() {
+        mTintManager = new SystemBarTintManager(this);
+        mTintManager.setStatusBarTintEnabled(true);
+        mTintManager.setNavigationBarTintEnabled(true);
+        applySelectedColor();
         Intent intent = getIntent();
         titleString = intent.getStringExtra("title");
         type = intent.getIntExtra("type", 0);

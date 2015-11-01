@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.topad.R;
 import com.topad.util.AudioRecorder;
 import com.topad.util.LogUtil;
+import com.topad.util.SystemBarTintManager;
 import com.topad.view.customviews.TitleView;
 
 import java.io.File;
@@ -50,9 +51,14 @@ public class ShareNeedsActivity extends BaseActivity implements View.OnClickList
     public View setLayoutByView() {
         return null;
     }
-
+    /** 沉浸式状态栏 **/
+    private SystemBarTintManager mTintManager;
     @Override
     public void initViews() {
+        mTintManager = new SystemBarTintManager(this);
+        mTintManager.setStatusBarTintEnabled(true);
+        mTintManager.setNavigationBarTintEnabled(true);
+        applySelectedColor();
         // 顶部布局
         mTitle = (TitleView) findViewById(R.id.title);
         // 设置顶部布局
@@ -60,7 +66,10 @@ public class ShareNeedsActivity extends BaseActivity implements View.OnClickList
         mTitle.setLeftClickListener(new TitleLeftOnClickListener());
 
     }
-
+    private void applySelectedColor() {
+        int color = Color.argb(0, Color.red(0), Color.green(0), Color.blue(0));
+        mTintManager.setTintColor(color);
+    }
     @Override
     public void initData() {
 

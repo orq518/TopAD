@@ -1,12 +1,14 @@
 package com.topad.view.activity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 
 import com.topad.R;
 import com.topad.amap.PoiKeywordSearchActivity;
+import com.topad.util.SystemBarTintManager;
 import com.topad.view.customviews.TitleView;
 
 /**
@@ -30,9 +32,18 @@ public class ShareNeedsEditActivity extends BaseActivity implements View.OnClick
     public View setLayoutByView() {
         return null;
     }
-
+    private void applySelectedColor() {
+        int color = Color.argb(0, Color.red(0), Color.green(0), Color.blue(0));
+        mTintManager.setTintColor(color);
+    }
+    /** 沉浸式状态栏 **/
+    private SystemBarTintManager mTintManager;
     @Override
     public void initViews() {
+        mTintManager = new SystemBarTintManager(this);
+        mTintManager.setStatusBarTintEnabled(true);
+        mTintManager.setNavigationBarTintEnabled(true);
+        applySelectedColor();
         // 顶部布局
         mTitle = (TitleView) findViewById(R.id.title);
         // 设置顶部布局

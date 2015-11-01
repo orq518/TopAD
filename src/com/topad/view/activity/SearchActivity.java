@@ -2,6 +2,7 @@ package com.topad.view.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -19,6 +20,7 @@ import com.topad.bean.SearchListBean;
 import com.topad.util.LogUtil;
 import com.topad.util.RecordMediaPlayer;
 import com.topad.util.RecordTools;
+import com.topad.util.SystemBarTintManager;
 import com.topad.util.Utils;
 import com.topad.view.customviews.TitleView;
 import com.topad.view.interfaces.IRecordFinish;
@@ -38,7 +40,8 @@ public class SearchActivity extends BaseActivity implements IRecordFinish,View.O
     int searchType;
     Button record;
     ImageView add_type;
-
+    /** 沉浸式状态栏 **/
+    private SystemBarTintManager mTintManager;
     /**
      * 选择好的条件
      */
@@ -49,7 +52,10 @@ public class SearchActivity extends BaseActivity implements IRecordFinish,View.O
         super.onCreate(savedInstanceState);
         mContext = this;
     }
-
+    private void applySelectedColor() {
+        int color = Color.argb(0, Color.red(0), Color.green(0), Color.blue(0));
+        mTintManager.setTintColor(color);
+    }
     @Override
     public int setLayoutById() {
         return R.layout.activity_outdoor_search;
@@ -70,6 +76,12 @@ public class SearchActivity extends BaseActivity implements IRecordFinish,View.O
 
     @Override
     public void initViews() {
+        mTintManager = new SystemBarTintManager(this);
+        mTintManager.setStatusBarTintEnabled(true);
+        mTintManager.setNavigationBarTintEnabled(true);
+        applySelectedColor();
+
+        
         searchType = getIntent().getIntExtra("searchtype", 0);
         LogUtil.d("ouou", "searchType:" + searchType);
         // 顶部布局

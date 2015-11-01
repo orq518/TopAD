@@ -3,13 +3,14 @@ package com.topad.view.activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.ActivityInfo;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
-
+import com.topad.util.SystemBarTintManager;
 import com.topad.R;
 import com.topad.bean.BaseBean;
 import com.topad.net.HttpCallback;
@@ -23,10 +24,10 @@ import com.topad.view.customviews.CircleProgressDialog;
 /**
  * orq--kb2
  */
+
 public abstract class BaseActivity extends FragmentActivity implements OnClickListener {
     public BaseBean base;
     public CircleProgressDialog mReadingProgress;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
@@ -41,7 +42,6 @@ public abstract class BaseActivity extends FragmentActivity implements OnClickLi
         } else {
             setContentView(setLayoutByView());
         }
-
 
         initViews();
 
