@@ -37,8 +37,6 @@ public class GrabSingleFragment extends BaseFragment implements PullToRefreshVie
 	private static final String LTAG = GrabSingleFragment.class.getSimpleName();
 	/** 上下文 **/
 	private Context mContext;
-	/** 顶部布局 **/
-	private TitleView mTitleView;
 	/** 根view布局 **/
 	private View mRootView;
 	/** 下载更多 **/
@@ -68,10 +66,6 @@ public class GrabSingleFragment extends BaseFragment implements PullToRefreshVie
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		if (null == mRootView) {
 			mRootView = getLayoutInflater(savedInstanceState).inflate(R.layout.fargment_grab_single, null);
-			TitleView mTitleView = (TitleView) mRootView.findViewById(R.id.title);
-			mTitleView.setTitle("生活");
-			mTitleView.setLeftVisiable(false);
-
 		}
 		return mRootView;
 	}

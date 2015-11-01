@@ -1,0 +1,175 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bule"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="false"
+        android:background="@color/gray_bg">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp">
+
+                <!-- 全部 -->
+                <Button
+                    android:id="@+id/btn_all"
+                    style="@style/btn_white_borad_style"
+                    android:layout_weight="1"
+                    android:focusable="false"
+                    android:text="全部"
+                    android:textColor="@color/text_gray_bg"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"/>
+
+                <!-- 已托管 -->
+                <Button
+                    android:id="@+id/btn_trusteeship"
+                    style="@style/btn_white_borad_style"
+                    android:layout_weight="1"
+                    android:focusable="false"
+                    android:text="已托管"
+                    android:textColor="@color/hot"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"/>
+
+                <!-- 未托管 -->
+                <Button
+                    android:id="@+id/btn_not_trusteeship"
+                    style="@style/btn_white_borad_style"
+                    android:layout_weight="1"
+                    android:focusable="false"
+                    android:text="未托管"
+                    android:textColor="@color/text_gray_bg"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp">
+
+                <!-- 全部 -->
+                <Button
+                    android:id="@+id/btn_all_money"
+                    style="@style/btn_white_borad_style"
+                    android:layout_weight="1"
+                    android:focusable="false"
+                    android:text="全部"
+                    android:textColor="@color/text_gray_bg"/>
+
+                <!-- 100元以下 -->
+                <Button
+                    android:id="@+id/btn_100"
+                    style="@style/btn_white_borad_style"
+                    android:layout_weight="1"
+                    android:focusable="false"
+                    android:text="100元以下"
+                    android:textColor="@color/hot"/>
+
+                <!-- 101-300元 -->
+                <Button
+                    android:id="@+id/btn_101_300"
+                    style="@style/btn_white_borad_style"
+                    android:layout_weight="1"
+                    android:focusable="false"
+                    android:text="101-300元"
+                    android:textColor="@color/text_gray_bg"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal" >
+
+                <!-- 301-1000元 -->
+                <Button
+                    android:id="@+id/btn_301_1000"
+                    style="@style/btn_white_borad_style"
+                    android:layout_weight="1"
+                    android:focusable="false"
+                    android:text="301-1000元"
+                    android:textColor="@color/text_gray_bg"/>
+
+                <!-- 1000-1万元 -->
+                <Button
+                    android:id="@+id/btn_1000_1w"
+                    style="@style/btn_white_borad_style"
+                    android:layout_weight="1"
+                    android:focusable="false"
+                    android:text="1000-1万元"
+                    android:textColor="@color/text_gray_bg"/>
+
+                <!-- 1万元及以上 -->
+                <Button
+                    android:id="@+id/btn_1w"
+                    style="@style/btn_white_borad_style"
+                    android:layout_weight="1"
+                    android:focusable="false"
+                    android:text="1万元及以上"
+                    android:textColor="@color/text_gray_bg"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="项目类别"
+                android:textSize="18sp"
+                android:textColor="@color/text_bg"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="10dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/gray"/>
+
+            <com.topad.view.customviews.CustomExpandableListView
+                android:id="@+id/listView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="@color/gray"
+                android:dividerHeight="0.5dp">
+            </com.topad.view.customviews.CustomExpandableListView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/gray"/>
+
+            <!-- 确定 -->
+            <Button
+                android:id="@+id/btn_submit"
+                style="@style/btn_bule2_borad_style"
+                android:layout_weight="1"
+                android:focusable="false"
+                android:text="确定"
+                android:textColor="@color/white"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="80dp"
+                android:layout_marginLeft="80dp"
+                android:layout_below="@id/tv_need_details_content"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

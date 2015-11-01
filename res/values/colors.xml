@@ -4,7 +4,7 @@
     <color name="white">#ffffff</color>
     <color name="black">#ff000000</color>
     <color name="gray">#ded6d6</color>
-    <color name="gray_bg">#dddde2</color>
+    <color name="gray_bg">#f3f3f3</color>
     <color name="green">#FF74DC3C</color>
     <color name="bule">#343c60</color>
     <color name="bule2">#0861b9</color>
@@ -14,7 +14,12 @@
     <color name="hot">#FFDA0B31</color>
     <color name="text_bg">#ff444444</color>
     <color name="text_gray_bg">#ff9b9b9b</color>
-
+    <color name="tv_bule">#13b5ea</color>
+    <color name="orange_radio">#ffb74d</color>
+    <color name="powder_newspaper">#e2548d</color>
+    <color name="yellow_outdoor">#efde09</color>
+    <color name="hot_mgz">#ff5063</color>
+    <color name="green_web">#90d41d</color>
 
     <color name="title_bg">#ffffffff</color>
     <color name="dark_gray">#333333</color>

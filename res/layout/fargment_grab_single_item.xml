@@ -98,7 +98,7 @@
         <!-- 时间 -->
         <Button
             android:id="@+id/btn_time"
-            style="@style/btn_bule_borad_style"
+            style="@style/btn_white_borad_style"
             android:layout_weight="1"
             android:focusable="false"
             android:drawableLeft="@drawable/adsd_button_collect"
@@ -110,7 +110,7 @@
         <!-- 到期 -->
         <Button
             android:id="@+id/btn_countdown"
-            style="@style/btn_bule_borad_style"
+            style="@style/btn_white_borad_style"
             android:layout_weight="1"
             android:focusable="false"
             android:drawableLeft="@drawable/adsd_button_collect"
