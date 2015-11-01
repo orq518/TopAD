@@ -122,7 +122,7 @@
         </activity>
         <activity android:name=".view.activity.ShareNeedsEditActivity"
                   android:configChanges="orientation|keyboardHidden"
-                  android:windowSoftInputMode="adjustUnspecified|stateHidden"
+                  android:windowSoftInputMode="adjustPan|stateHidden"
                   android:theme="@style/FullBleedTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -218,7 +218,14 @@
                 <category android:name="com.readystatesoftware.systembartint.SAMPLE" />
             </intent-filter>
         </activity>
-
+        <activity
+            android:name=".view.activity.SelectPicPopupWindow"
+            android:theme="@style/MyDialogStyleBottom">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.readystatesoftware.systembartint.SAMPLE" />
+            </intent-filter>
+        </activity>
     </application>
 
 

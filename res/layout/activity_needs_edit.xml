@@ -81,6 +81,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:padding="@dimen/dimen_10"
+                        android:onClick="onClick"
                         android:src="@drawable/needs_bt_carame"/>
                     <ImageView
                         android:id="@+id/voice"
@@ -89,6 +90,7 @@
                         android:layout_centerVertical="true"
                         android:layout_toLeftOf="@id/carame"
                         android:padding="@dimen/dimen_10"
+                        android:onClick="onClick"
                         android:src="@drawable/needs_bt_voice"/>
                 </RelativeLayout>
                 <EditText android:layout_width="fill_parent"
