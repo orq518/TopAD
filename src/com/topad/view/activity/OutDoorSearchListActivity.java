@@ -33,6 +33,7 @@ import com.topad.R;
 import com.topad.bean.SearchListBean;
 import com.topad.util.AudioRecorder;
 import com.topad.util.LogUtil;
+import com.topad.util.SystemBarTintManager;
 import com.topad.util.Utils;
 import com.topad.view.customviews.TitleView;
 
@@ -69,8 +70,17 @@ public class OutDoorSearchListActivity extends BaseActivity implements View.OnCl
         return null;
     }
 
+    /** 沉浸式状态栏 **/
+    private SystemBarTintManager mTintManager;
+    private void applySelectedColor() {
+        int color = Color.argb(0, Color.red(0), Color.green(0), Color.blue(0));
+        mTintManager.setTintColor(color);
+    }
     @Override
     public void initViews() {
+        mTintManager = new SystemBarTintManager(this);
+        mTintManager.setStatusBarTintEnabled(true);
+        mTintManager.setNavigationBarTintEnabled(true);
         Resources res = getResources();
         String[] huwaiString = res.getStringArray(R.array.huwai);
         //测试数据

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.http.SslError;
 import android.view.KeyEvent;
 import android.view.View;
@@ -16,6 +17,7 @@ import android.webkit.WebViewClient;
 
 import com.topad.R;
 import com.topad.util.LogUtil;
+import com.topad.util.SystemBarTintManager;
 import com.topad.util.Utils;
 import com.topad.view.customviews.CircleProgressDialog;
 import com.topad.view.customviews.TitleView;
@@ -75,9 +77,19 @@ public class WebViewActivity extends BaseActivity {
     public View setLayoutByView() {
         return null;
     }
-
+    /** 沉浸式状态栏 **/
+    private SystemBarTintManager mTintManager;
+    private void applySelectedColor() {
+        int color = Color.argb(0, Color.red(0), Color.green(0), Color.blue(0));
+        mTintManager.setTintColor(color);
+    }
     @Override
     public void initViews() {
+        mTintManager = new SystemBarTintManager(this);
+        mTintManager.setStatusBarTintEnabled(true);
+        mTintManager.setNavigationBarTintEnabled(true);
+        applySelectedColor();
+
         title = getIntent().getStringExtra("title");
         mTitleView = (TitleView) findViewById(R.id.title);
         mTitleView.setTitle(title);
