@@ -75,24 +75,8 @@ public class TopADApplication extends Application {
     }
 
 
-    public void setFragmentManager(FragmentManager mFragmentManager) {
-        this.mFragmentManager = mFragmentManager;
-    }
 
 
-    /**
-     * 设置首页几个页面需要刷新
-     */
-    public void setHomeFragmentRefresh() {
-        if (mFragmentManager != null) {
-            List<Fragment> fragmentsList = mFragmentManager.getFragments();
-            for (int i = 0; i < fragmentsList.size(); i++) {
-                BaseFragment baseFragment = (BaseFragment) fragmentsList.get(i);
-                if (null != baseFragment)
-                    baseFragment.isNeedRefresh = true;
-            }
-        }
-    }
 
 
 }

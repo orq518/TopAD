@@ -38,7 +38,7 @@
     <!-- 透明色 -->
     <color name="fuxk_settle_black_mark">#55000000</color>
     <color name="toast_bg">#99000000</color><!-- 60%透明色 -->
-
+    <color name="touming_bg">#00000000</color><!-- 60%透明色 -->
     <!-- 分割线 -->
     <color name="fuxk_base_divide_line_color">#dcdcdc</color>
 

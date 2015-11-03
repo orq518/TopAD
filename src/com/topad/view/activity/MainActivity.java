@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.widget.DrawerLayout;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -38,6 +40,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     /** 沉浸式状态栏 **/
     private SystemBarTintManager mTintManager;
 
+    private DrawerLayout mDrawerLayout;
+    private ActionBarDrawerToggle mDrawerToggle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +49,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     public int setLayoutById() {
-        return R.layout.activity_home;
+        return R.layout.activity_main_drawer;
     }
 
     @Override
@@ -82,6 +86,27 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mTVC.setOnClickListener(this);
         mAnimeCreate.setOnClickListener(this);
 
+
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        // Set the list's click listener
+//        mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
+                R.drawable.record_animate_01, R.string.app_name,R.string.app_name) {
+
+            /** Called when a drawer has settled in a completely closed state. */
+            public void onDrawerClosed(View view) {
+                invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
+            }
+
+            /** Called when a drawer has settled in a completely open state. */
+            public void onDrawerOpened(View drawerView) {
+                invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
+            }
+        };
+//
+//        // Set the drawer toggle as the DrawerListener
+//        mDrawerLayout.setDrawerListener(mDrawerToggle);
     }
 
     @Override
