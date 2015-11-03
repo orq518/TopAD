@@ -1,20 +1,33 @@
 package com.topad.view.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.Picture;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.topad.R;
 import com.topad.amap.PoiKeywordSearchActivity;
+import com.topad.util.RecordMediaPlayer;
 import com.topad.util.RecordTools;
 import com.topad.util.SystemBarTintManager;
 import com.topad.view.customviews.TitleView;
 import com.topad.view.interfaces.IRecordFinish;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 发布需求编辑界面
@@ -25,7 +38,7 @@ public class ShareNeedsEditActivity extends BaseActivity implements IRecordFinis
      * title布局
      **/
     private TitleView mTitle;
-
+    MediaAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +58,7 @@ public class ShareNeedsEditActivity extends BaseActivity implements IRecordFinis
         int color = Color.argb(0, Color.red(0), Color.green(0), Color.blue(0));
         mTintManager.setTintColor(color);
     }
-
+    GridView add_detail_gridview;
     /**
      * 沉浸式状态栏
      **/
@@ -69,6 +82,9 @@ public class ShareNeedsEditActivity extends BaseActivity implements IRecordFinis
                 startActivity(intent);
             }
         }, R.drawable.bt_search);
+        add_detail_gridview= (GridView) findViewById(R.id.add_detail_gridview);
+        adapter=new MediaAdapter(this);
+        add_detail_gridview.setAdapter(adapter);
     }
 
     @Override
@@ -180,4 +196,94 @@ public class ShareNeedsEditActivity extends BaseActivity implements IRecordFinis
 
         }
     }
+
+
+    class  MeidaType{
+        String type;
+        Bitmap bitmap;
+        String pathString;
+    }
+    //自定义适配器
+    class MediaAdapter extends BaseAdapter {
+        private LayoutInflater inflater;
+        private List<MeidaType> meidaTypeList;
+
+        public MediaAdapter(Context context)
+        {
+            super();
+            meidaTypeList = new ArrayList<MeidaType>();
+            inflater = LayoutInflater.from(context);
+        }
+
+        @Override
+        public int getCount()
+        {
+            if (null != meidaTypeList)
+            {
+                return 5;
+            } else
+            {
+                return 0;
+            }
+        }
+
+        @Override
+        public Object getItem(int position)
+        {
+            return meidaTypeList.get(position);
+        }
+
+        @Override
+        public long getItemId(int position)
+        {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent)
+        {
+            ViewHolder viewHolder;
+            if (convertView == null)
+            {
+                convertView = inflater.inflate(R.layout.media_layout, null);
+                viewHolder = new ViewHolder();
+                viewHolder.play = (ImageView) convertView.findViewById(R.id.play);
+                viewHolder.delete = (ImageView) convertView.findViewById(R.id.delete);
+                convertView.setTag(viewHolder);
+            } else
+            {
+                viewHolder = (ViewHolder) convertView.getTag();
+            }
+//            viewHolder.title.setText(pictures.get(position).getTitle());
+//            viewHolder.image.setImageResource(pictures.get(position).getImageId());
+//-----------------
+//            final RelativeLayout voiceLayout = (RelativeLayout) getLayoutInflater().inflate(R.layout.media_layout, null);
+//            voiceLayout.setTag(voicePath);
+//            ImageView play= (ImageView) voiceLayout.findViewById(R.id.play);
+//            play.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    RecordMediaPlayer player=RecordMediaPlayer.getInstance();
+//                    player.play((String) voiceLayout.getTag());
+//                }
+//            });
+//            ImageView delete= (ImageView) voiceLayout.findViewById(R.id.delete);
+//            delete.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                }
+//            });
+
+            return convertView;
+        }
+
+    }
+
+    class ViewHolder
+    {
+        public ImageView play;
+        public ImageView delete;
+    }
 }
+
+
