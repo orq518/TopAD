@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.topad.R;
 import com.topad.util.Utils;
+import com.topad.view.activity.LoginActivity;
 
 
 /**
@@ -75,6 +76,9 @@ public class TitleView extends RelativeLayout {
 
     public void setLeftVisiable(boolean visible) {
         mLeft.setVisibility(visible ? View.VISIBLE : View.GONE);
+    }
+    public void setRightVisiable(boolean visible) {
+        mRigh.setVisibility(visible ? View.VISIBLE : View.GONE);
     }
 
     public void setRightClickListener(OnClickListener lis, String text) {
@@ -188,5 +192,6 @@ public class TitleView extends RelativeLayout {
     public void setBottomLineState(int status){
         findViewById(R.id.view_bottom_line).setVisibility(status);
     }
+
 
 }
