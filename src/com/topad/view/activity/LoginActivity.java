@@ -151,13 +151,16 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
     }
 
     /**
-     * 顶部布局--按钮事件监听
+     * 顶部布局--注册按钮事件监听
      */
     public class TitleRightOnClickListener implements View.OnClickListener {
 
         @Override
         public void onClick(View v) {
-
+            // 注册
+            Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+            startActivity(intent);
+            finish();
         }
 
     }

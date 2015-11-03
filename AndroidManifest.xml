@@ -235,6 +235,31 @@
                 <category android:name="com.readystatesoftware.systembartint.SAMPLE" />
             </intent-filter>
         </activity>
+        <!-- 注册页 -->
+        <activity
+            android:name=".view.activity.RegisterActivity"
+            android:hardwareAccelerated="true"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/FullBleedTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.readystatesoftware.systembartint.SAMPLE" />
+            </intent-filter>
+        </activity>
+
+        <!-- 重置密码 -->
+        <activity
+            android:name=".view.activity.ResetPasswordActivity"
+            android:hardwareAccelerated="true"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/FullBleedTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.readystatesoftware.systembartint.SAMPLE" />
+            </intent-filter>
+        </activity>
 
     </application>
 
