@@ -2,7 +2,7 @@
 <manifest package="com.topad"
           xmlns:android="http://schemas.android.com/apk/res/android"
           android:versionCode="1"
-          android:versionName="notonline">
+          android:versionName="0.9">
 
     <uses-sdk
         android:minSdkVersion="14"
