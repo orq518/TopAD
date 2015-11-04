@@ -63,7 +63,6 @@
                 <category android:name="com.readystatesoftware.systembartint.SAMPLE" />
             </intent-filter>
         </activity>
-
         <!-- 首页 -->
         <activity
             android:name=".view.activity.MainActivity"
@@ -76,7 +75,6 @@
                 <category android:name="com.readystatesoftware.systembartint.SAMPLE" />
             </intent-filter>
         </activity>
-
         <activity android:name=".view.activity.WebViewActivity"
                   android:theme="@style/FullBleedTheme">
             <intent-filter>
