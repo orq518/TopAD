@@ -34,7 +34,7 @@ public class NeedsListActivity extends BaseActivity implements View.OnClickListe
     int[] pingmiansheji_ic = new int[]{R.drawable.vi_logo_design, R.drawable.vi_design, R.drawable.vi_cis_design, R.drawable.vi_ui_design, R.drawable.vi_baozhuang_design, R.drawable.vi_haibao_design, R.drawable.vi_zhuangxiu_design};
     String[] yingxiaotuiguang = new String[]{"营销方案", "产品定位", "渠道建设", "网络营销", "终端促销", "新闻传播"};
     int[] yingxiaotuiguang_ic = new int[]{R.drawable.sales_idea, R.drawable.sales_dingwei, R.drawable.sales_qudao, R.drawable.sales_wangluo, R.drawable.sales_cuxiao, R.drawable.sales_news};
-    String[] yingshidongman = new String[]{"广告片拍摄", "影视后期", "宣传片制作", "广告配音/配乐", "动漫创作", "微电影拍摄", "寻找代言人", "MV 创作", "创意脚本", "创意策略", "广告语", "广告摄影"};
+    String[] yingshidongman = new String[]{"广告片拍摄", "影视后期", "宣传片制作", "广告配音/配乐", "动漫创作", "微电影拍摄", "寻找代言人", "MV 创作"};
     int[] yingshidongman_ic = new int[]{R.drawable.comic_paishe, R.drawable.comic_houqi, R.drawable.comic_xuanchuan, R.drawable.comic_peiyue, R.drawable.comic_dongman, R.drawable.comic_weidiany, R.drawable.comic_daiyan, R.drawable.comic_mv};
     String[] wenancehua = new String[]{"活动策划", "软文创作", "公文写作", "英文翻译", "网店文案", "品牌策划"};
     int[] wenancehua_ic = new int[]{R.drawable.write_huodong, R.drawable.write_ruanwen, R.drawable.write_gongwen, R.drawable.write_etranslat, R.drawable.write_wangdian, R.drawable.write_pinpai};

@@ -11,20 +11,17 @@
         android:background="@color/bule"
         android:gravity="top">
 
-        <TextView
+        <ImageView
             android:id="@+id/tv_back"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/title_height"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:clickable="true"
-            android:drawableLeft="@drawable/left_back_selector"
-            android:drawablePadding="5dp"
             android:gravity="center_vertical"
-            android:paddingLeft="8dp"
-            android:paddingRight="2dp"
-            android:text="     "
-            android:textColor="@color/dark_gray"
+            android:paddingLeft="@dimen/dimen_10"
+            android:paddingRight="@dimen/dimen_10"
+            android:src="@drawable/left_back_selector"
             android:textSize="15sp"/>
 
 
