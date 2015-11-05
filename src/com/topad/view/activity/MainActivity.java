@@ -350,8 +350,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                     ((ImageView) (v.findViewById(R.id.im_quit))).setImageResource(R.drawable.left_zhux);
                     ((TextView) (v.findViewById(R.id.tv_quit))).setTextColor(getResources().getColor(R.color.white));
                     break;
-
             }
+            leftMenuClick(v);
         }
 
     }
