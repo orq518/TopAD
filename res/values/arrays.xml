@@ -7,6 +7,7 @@
         <item>发布需求</item>
         <item>我要抢单</item>
     </string-array>
+
     <!-- 首页导航 -->
     <string-array name="huwai">
         <!--机场、高铁、火车站、地铁、公交、城市大牌、特定场所、 楼宇电梯-->
@@ -19,6 +20,7 @@
         <item>特定场所</item>
         <item>楼宇电梯</item>
     </string-array>
+
     <string-array name="jichang">
         <!--机场高速、机场灯箱、机场包柱、机场电视、机场吊旗、机场收费站、机场 LED、
 机场刷屏机、机场推车、飞机内电视、其他-->
@@ -34,6 +36,7 @@
         <item>机内电视</item>
         <item>其他</item>
     </string-array>
+
     <string-array name="gaotie">
         <!--候车室灯箱、候车室电视、进站通道灯箱、出站通道灯箱、吊旗、刷屏机、高铁
 LED、座椅、出站门头、检票口门头灯箱、玻璃贴、高铁内电视、高铁内枕套、
@@ -54,6 +57,7 @@ LED、座椅、出站门头、检票口门头灯箱、玻璃贴、高铁内电�
         <item>高铁内小桌板</item>
         <item>其他</item>
     </string-array>
+
     <string-array name="huochezhan">
         <!--候车室灯箱、候车室电视、进站通道灯箱、出站通道灯箱、吊旗、刷屏机、 LED、
 座椅、出站门头、检票口门头灯箱、玻璃贴、火车内电视、火车内枕套、火车内
@@ -74,6 +78,7 @@ LED、座椅、出站门头、检票口门头灯箱、玻璃贴、高铁内电�
         <item>火车内小桌板</item>
         <item>其他</item>
     </string-array>
+
     <string-array name="ditie">
         <!--地铁电视、地铁包柱、地铁海报、地铁墙体、地铁扶梯、地铁车内广告、安全门
 广告、地铁 LED、地铁站灯箱、地铁出入口灯箱、其他-->
@@ -89,6 +94,7 @@ LED、座椅、出站门头、检票口门头灯箱、玻璃贴、高铁内电�
         <item>地铁出入口灯箱</item>
         <item>其他</item>
     </string-array>
+
     <string-array name="gongjiao">
         <!--公交电视、公交站牌、公交车身、公交车内、公交候车亭、公交站台、长途汽车
 站、其他-->
@@ -101,6 +107,7 @@ LED、座椅、出站门头、检票口门头灯箱、玻璃贴、高铁内电�
         <item>长途汽车站</item>
         <item>其他</item>
     </string-array>
+
     <string-array name="chengshidapai">
         <!--环路立柱、高速立柱、高速大牌、楼体大牌、城市 LED 大屏、楼顶围挡、桥体广
 告、其他-->
@@ -113,6 +120,7 @@ LED、座椅、出站门头、检票口门头灯箱、玻璃贴、高铁内电�
         <item>桥体广告</item>
         <item>其他</item>
     </string-array>
+
     <string-array name="gidingchangsuo">
         <!--医院、学校、 宾馆、 公园、加油站、电影院、娱乐场所、卫生间、健身会所、高
 尔夫、体育场中心、商场超市、停车场、农村墙体、门头店招、其他-->
@@ -133,6 +141,7 @@ LED、座椅、出站门头、检票口门头灯箱、玻璃贴、高铁内电�
         <item>门头店招</item>
         <item>其他</item>
     </string-array>
+
     <string-array name="louyudianti">
         <!--办公楼电梯口视频、办公楼电梯内框架、办公楼电梯内视频、办公楼刷屏机、社
 区楼宇视频、社区 LED、社区灯箱、其他-->
@@ -168,6 +177,7 @@ LED、座椅、出站门头、检票口门头灯箱、玻璃贴、高铁内电�
         <item>军事</item>
         <item>其他</item>
     </string-array>
+
     <string-array name="zazhi">
         <!--时尚、交通、文学、军事、故事、小说、生活、行业期刊、农业、 DM、其他-->
         <item>时尚</item>
@@ -182,6 +192,7 @@ LED、座椅、出站门头、检票口门头灯箱、玻璃贴、高铁内电�
         <item>DM</item>
         <item>其他</item>
     </string-array>
+
     <string-array name="wangluo">
         <!--门户网站、社交网站、 BBS、微博、微信、 APP、邮箱、网络视频、手机、
 购物网站、行业网站、电视台网、广播网、报网、城市网、婚恋网、招聘网、
@@ -205,6 +216,7 @@ LED、座椅、出站门头、检票口门头灯箱、玻璃贴、高铁内电�
         <item>招聘网</item>
         <item>其他</item>
     </string-array>
+
     <string-array name="dianshi">
         <!--中央电视台、卫视、省级电视台、城市电视台、教育电视台、有线数字
     电视台、县级电视台-->
@@ -216,6 +228,7 @@ LED、座椅、出站门头、检票口门头灯箱、玻璃贴、高铁内电�
         <item>有线数字电视台</item>
         <item>县级电视台</item>
     </string-array>
+
     <string-array name="guangbo">
         <!--中央人民广播电台、省级广播电台、城市广播电台、县级广播电台-->
         <item>中央人民广播电台</item>

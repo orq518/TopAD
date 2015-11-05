@@ -81,7 +81,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginBottom="5dp">
 
                 <ImageView
@@ -91,11 +91,12 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="5dp"
                     />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="我需要媒体资源"
-                    android:textColor="@color/black"
+                    android:textColor="@color/text_bg"
                     android:textSize="16sp"/>
 
             </LinearLayout>
@@ -228,7 +229,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginBottom="5dp">
 
                 <ImageView
@@ -242,7 +243,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="我需要广告服务"
-                    android:textColor="@color/black"
+                    android:textColor="@color/text_bg"
                     android:textSize="16sp"/>
 
             </LinearLayout>
@@ -334,7 +335,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginBottom="5dp">
 
                 <ImageView
@@ -348,7 +349,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="我需要平面设计"
-                    android:textColor="@color/black"
+                    android:textColor="@color/text_bg"
                     android:textSize="16sp"/>
 
             </LinearLayout>
@@ -478,7 +479,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginBottom="5dp">
 
                 <ImageView
@@ -493,7 +494,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="我需要其他服务"
-                    android:textColor="@color/black"
+                    android:textColor="@color/text_bg"
                     android:textSize="16sp"/>
 
             </LinearLayout>
@@ -517,19 +518,18 @@
                     android:layout_weight="1"
                     android:padding="5dp">
 
-                    <ImageView
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/homepage_icon_service" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:drawableTop="@drawable/homepage_icon_service"
                         android:text="公关服务"
-                        android:textColor="@color/black"
+                        android:textColor="@color/text_bg"
                         android:layout_marginTop="5dp"
+                        android:drawablePadding="5dp"
+                        android:layout_marginBottom="5dp"
                         android:textSize="16sp"
-                        android:gravity="center" />
+                        android:gravity="center"
+                        android:background="#93d4dc"/>
 
                 </LinearLayout>
 
@@ -544,21 +544,18 @@
                     android:layout_weight="1"
                     android:padding="5dp">
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/homepage_icon_manage"
-
-                        />
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:drawableTop="@drawable/homepage_icon_manage"
                         android:text="管理咨询"
-                        android:textColor="@color/black"
+                        android:textColor="@color/text_bg"
                         android:layout_marginTop="5dp"
+                        android:drawablePadding="5dp"
+                        android:layout_marginBottom="5dp"
                         android:textSize="16sp"
-                        android:gravity="center"/>
+                        android:gravity="center"
+                        android:background="#fda57e"/>
 
                 </LinearLayout>
 
@@ -573,20 +570,18 @@
                     android:layout_weight="1"
                     android:padding="5dp">
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/homepage_icon_network"
-                        />
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:drawableTop="@drawable/homepage_icon_network"
                         android:text="网络营销"
-                        android:textColor="@color/black"
+                        android:textColor="@color/text_bg"
                         android:layout_marginTop="5dp"
+                        android:drawablePadding="5dp"
+                        android:layout_marginBottom="5dp"
                         android:textSize="16sp"
-                        android:gravity="center"/>
+                        android:gravity="center"
+                        android:background="#93d4dc"/>
 
                 </LinearLayout>
 
@@ -601,20 +596,18 @@
                     android:layout_weight="1"
                     android:padding="5dp">
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/homepage_icon_education"
-                        />
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:drawableTop="@drawable/homepage_icon_education"
                         android:text="专业培训"
-                        android:textColor="@color/black"
+                        android:textColor="@color/text_bg"
                         android:layout_marginTop="5dp"
+                        android:drawablePadding="5dp"
+                        android:layout_marginBottom="5dp"
                         android:textSize="16sp"
-                        android:gravity="center"/>
+                        android:gravity="center"
+                        android:background="#fda57e"/>
 
                 </LinearLayout>
 
@@ -625,7 +618,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:background="@color/white"
-                android:padding="5dp">
+                android:padding="5dp"
+                android:layout_marginTop="10dp">
 
                 <!-- 广告检测 -->
                 <LinearLayout
@@ -649,7 +643,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="广告检测"
-                        android:textColor="@color/black"
+                        android:textColor="@color/text_bg"
                         android:layout_marginTop="5dp"
                         android:textSize="16sp"
                         android:gravity="center"/>
@@ -677,7 +671,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="商务报告"
-                        android:textColor="@color/black"
+                        android:textColor="@color/text_bg"
                         android:layout_marginTop="5dp"
                         android:textSize="16sp"
                         android:gravity="center"/>
@@ -705,7 +699,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="设备租赁"
-                        android:textColor="@color/black"
+                        android:textColor="@color/text_bg"
                         android:layout_marginTop="5dp"
                         android:textSize="16sp"
                         android:gravity="center"/>
@@ -733,7 +727,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="会议会展"
-                        android:textColor="@color/black"
+                        android:textColor="@color/text_bg"
                         android:layout_marginTop="5dp"
                         android:textSize="16sp"
                         android:gravity="center"/>
@@ -747,7 +741,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:background="@color/gray_bg"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginBottom="10dp">
 
                 <!-- 法律服务 -->

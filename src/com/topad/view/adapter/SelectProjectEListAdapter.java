@@ -7,11 +7,13 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.CheckBox;
 import android.widget.ExpandableListView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.topad.R;
 import com.topad.bean.ChildBean;
 import com.topad.bean.GroupBean;
+import com.topad.view.customviews.CustomExpandableListView;
 
 import java.util.ArrayList;
 
@@ -24,10 +26,12 @@ import java.util.ArrayList;
 public class SelectProjectEListAdapter extends BaseExpandableListAdapter implements ExpandableListView.OnChildClickListener {
     private Context context;
     private ArrayList<GroupBean> groups;
+    private CustomExpandableListView listView;
 
-    public SelectProjectEListAdapter(Context context, ArrayList<GroupBean> groups) {
+    public SelectProjectEListAdapter(Context context, ArrayList<GroupBean> groups,CustomExpandableListView listView ) {
         this.context = context;
         this.groups = groups;
+        this.listView = listView;
     }
 
     public Object getChild(int groupPosition, int childPosition) {
@@ -76,33 +80,50 @@ public class SelectProjectEListAdapter extends BaseExpandableListAdapter impleme
 
         // 重新產生 CheckBox 時，將存起來的 isChecked 狀態重新設定
         CheckBox checkBox = (CheckBox) convertView.findViewById(R.id.chbGroup);
+        ImageView icon = (ImageView) convertView.findViewById(R.id.icon);
+        if(groupPosition == 0){
+            checkBox.setVisibility(View.VISIBLE);
+            icon.setVisibility(View.GONE);
+        }else{
+            checkBox.setVisibility(View.GONE);
+            icon.setVisibility(View.VISIBLE);
+        }
+
         checkBox.setChecked(group.getChecked());
 
         // 點擊 CheckBox 時，將狀態存起來
-        checkBox.setOnClickListener(new Group_CheckBox_Click(groupPosition));
+        checkBox.setOnClickListener(new Group_CheckBox_Click());
 
+
+        if(isExpanded){
+            icon.setImageResource(R.drawable.select_project_up);
+        }else{
+            icon.setImageResource(R.drawable.select_project_down);
+        }
         return convertView;
     }
 
     /** 勾選 Group CheckBox 時，存 Group CheckBox 的狀態，以及改變 Child CheckBox 的狀態 */
     class Group_CheckBox_Click implements View.OnClickListener {
-        private int groupPosition;
 
-        Group_CheckBox_Click(int groupPosition) {
-            this.groupPosition = groupPosition;
+        Group_CheckBox_Click() {
         }
 
         public void onClick(View v) {
-            groups.get(groupPosition).toggle();
+            for(int i = 0; i < groups.size(); i++){
+                groups.get(i).toggle();
 
-            // 將 Children 的 isChecked 全面設成跟 Group 一樣
-            int childrenCount = groups.get(groupPosition).getChildrenCount();
-            boolean groupIsChecked = groups.get(groupPosition).getChecked();
-            for (int i = 0; i < childrenCount; i++)
-                groups.get(groupPosition).getChildItem(i).setChecked(groupIsChecked);
+                // 將 Children 的 isChecked 全面設成跟 Group 一樣
+                int childrenCount = groups.get(i).getChildrenCount();
+                boolean groupIsChecked = groups.get(i).getChecked();
+                for (int j = 0; j < childrenCount; j++)
+                    groups.get(i).getChildItem(j).setChecked(groupIsChecked);
 
-            // 注意，一定要通知 ExpandableListView 資料已經改變，ExpandableListView 會重新產生畫面
-            notifyDataSetChanged();
+                // 注意，一定要通知 ExpandableListView 資料已經改變，ExpandableListView 會重新產生畫面
+                notifyDataSetChanged();
+                listView.expandGroup(i);
+            }
+
         }
     }
 
