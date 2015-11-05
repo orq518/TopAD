@@ -12,6 +12,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -90,6 +91,20 @@ public class ShareNeedsEditActivity extends BaseActivity implements IRecordFinis
         add_detail_gridview = (GridView) findViewById(R.id.add_detail_gridview);
         adapter = new MediaAdapter(this);
         add_detail_gridview.setAdapter(adapter);
+        add_detail_gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                MeidaType meidaType = meidaTypeList.get(position);
+                if (meidaType.type.equals("1")) {//图片
+                    Intent intent = new Intent(ShareNeedsEditActivity.this, PicLookActivity.class);
+                    intent.putExtra("picpath", meidaType.pathString);
+                    startActivity(intent);
+                } else {
+                    RecordMediaPlayer player = RecordMediaPlayer.getInstance();
+                    player.play(meidaType.pathString);
+                }
+            }
+        });
     }
 
     @Override
@@ -144,7 +159,11 @@ public class ShareNeedsEditActivity extends BaseActivity implements IRecordFinis
      */
     @Override
     public void RecondSuccess(String voicePath) {
-
+        MeidaType meidaType = new MeidaType();
+        meidaType.type = "2";
+        meidaType.pathString = voicePath;
+        meidaTypeList.add(meidaType);
+        adapter.notifyDataSetChanged();
     }
 
     /**
@@ -172,13 +191,14 @@ public class ShareNeedsEditActivity extends BaseActivity implements IRecordFinis
                 if (data != null) {
                     LogUtil.d("ouou", "#####path:" + data.getStringExtra("path"));
                     String picPath = data.getStringExtra("path");
-                    if(!Utils.isEmpty(picPath)) {
+                    if (!Utils.isEmpty(picPath)) {
                         Bitmap image = PictureUtil
                                 .getSmallBitmap(picPath);
                         if (image != null) {
                             MeidaType meidaType = new MeidaType();
                             meidaType.type = "1";
                             meidaType.bitmap = image;
+                            meidaType.pathString = picPath;
                             meidaTypeList.add(meidaType);
                             adapter.notifyDataSetChanged();
                         }
@@ -255,26 +275,31 @@ public class ShareNeedsEditActivity extends BaseActivity implements IRecordFinis
             } else {
                 viewHolder.play.setImageResource(R.drawable.voice_play);
             }
+            viewHolder.delete.setTag(meidaType.pathString);
+            viewHolder.delete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String tag = (String) v.getTag();
+                    int index = -1;
+                    MeidaType curType=null;
+                    for (int i = 0; i < meidaTypeList.size(); i++) {
+                        if (tag.equals(meidaTypeList.get(i).pathString)) {
+                            curType=meidaTypeList.get(i);
+                            index = i;
 
-//            viewHolder.title.setText(pictures.get(position).getTitle());
-//            viewHolder.image.setImageResource(pictures.get(position).getImageId());
-//-----------------
-//            final RelativeLayout voiceLayout = (RelativeLayout) getLayoutInflater().inflate(R.layout.media_layout, null);
-//            voiceLayout.setTag(voicePath);
-//            ImageView play= (ImageView) voiceLayout.findViewById(R.id.play);
-//            play.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    RecordMediaPlayer player=RecordMediaPlayer.getInstance();
-//                    player.play((String) voiceLayout.getTag());
-//                }
-//            });
-//            ImageView delete= (ImageView) voiceLayout.findViewById(R.id.delete);
-//            delete.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                }
-//            });
+                            break;
+                        }
+                    }
+                    if (curType!=null&&index>=0&&curType.type.equals("2")) {
+                        RecordMediaPlayer player = RecordMediaPlayer.getInstance();
+                        player.deleteFile(curType.pathString);
+                    }
+                    meidaTypeList.remove(index);
+                    adapter.notifyDataSetChanged();
+
+
+                }
+            });
 
             return convertView;
         }

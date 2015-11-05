@@ -3,7 +3,9 @@ package com.topad.util;
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.os.Environment;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 
@@ -44,5 +46,13 @@ public class RecordMediaPlayer {
     public void stop() {
         mediaPlayer.stop();
         mediaPlayer.release();
+    }
+
+    public void deleteFile(String path) {
+        File file = new File(Environment
+                .getExternalStorageDirectory(), path);
+        if (file.exists()) {
+            file.delete();
+        }
     }
 }
