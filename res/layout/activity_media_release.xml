@@ -200,13 +200,14 @@
                 android:layout_height="0.5dp"
                 android:background="@color/gray"/>
 
+            <!-- 描述 －键盘 -->
             <LinearLayout
                 android:id="@+id/layout_keyboard"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dimen_15"
                 android:layout_marginRight="@dimen/dimen_15"
-                android:layout_marginTop="@dimen/dimen_15"
+                android:layout_marginTop="@dimen/dimen_10"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:visibility="gone">
@@ -218,19 +219,21 @@
                     android:clickable="true"
                     android:onClick="onClick"
                     android:src="@drawable/keyboard_change_bg"/>
+
                 <Button
                     android:id="@+id/record_bt"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:layout_marginLeft="@dimen/dimen_10"
                     android:background="@drawable/btn_bg_white"
                     android:hint="按住说话"
-                    android:padding="@dimen/dimen_10"
-                    android:textSize="@dimen/textsize_16"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_gray_bg"
                     />
+
             </LinearLayout>
 
-            <!-- 描述 -->
+            <!-- 描述－语音 -->
             <LinearLayout
                 android:id="@+id/layout_voice"
                 android:layout_width="fill_parent"
@@ -252,13 +255,22 @@
                 <EditText
                     android:id="@+id/et_details"
                     android:layout_width="fill_parent"
-                    android:layout_height="35dp"
+                    android:layout_height="40dp"
                     android:layout_marginLeft="@dimen/dimen_10"
                     android:background="@drawable/btn_board_gray"
                     android:hint="请输入详细描述"
                     android:textColorHint="@color/text_gray_bg"
                     android:textSize="14sp"
                     />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/voice_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_15"
+                android:layout_marginRight="@dimen/dimen_15"
+                android:orientation="horizontal">
             </LinearLayout>
 
             <!-- 添加条件 -->
