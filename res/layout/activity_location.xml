@@ -1,0 +1,23 @@
+<!-- 服务类表页 -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bule"
+    android:orientation="vertical">
+
+    <!-- 顶部标题 -->
+    <com.topad.view.customviews.TitleView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"/>
+
+    <com.amap.api.maps2d.MapView
+        android:id="@+id/map"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/title"/>
+
+</RelativeLayout>

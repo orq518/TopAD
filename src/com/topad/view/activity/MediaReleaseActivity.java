@@ -7,11 +7,15 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.topad.R;
+import com.topad.util.RecordMediaPlayer;
+import com.topad.util.RecordTools;
 import com.topad.util.Utils;
 import com.topad.view.customviews.TitleView;
+import com.topad.view.interfaces.IRecordFinish;
 
 /**
  * ${todo}<媒体发布>
@@ -19,7 +23,7 @@ import com.topad.view.customviews.TitleView;
  * @author lht
  * @data: on 15/10/30 16:09
  */
-public class MediaReleaseActivity extends BaseActivity implements OnClickListener{
+public class MediaReleaseActivity extends BaseActivity implements OnClickListener, IRecordFinish {
     private static final String LTAG = MediaReleaseActivity.class.getSimpleName();
     /** 上下文 **/
     private Context mContext;
@@ -31,6 +35,12 @@ public class MediaReleaseActivity extends BaseActivity implements OnClickListene
     private RelativeLayout mLayAddressMedia;
     /** 地址 **/
     private RelativeLayout mLayProveMedia;
+    /** 语音 **/
+    private LinearLayout mLayVoice;
+    /** 键盘 **/
+    private LinearLayout mLayKeyboard;
+    /** 语音播放 **/
+    private LinearLayout mVoiceLayout;
     /** 户外 **/
     private EditText mETOutdoor;
     /** 电视台 **/
@@ -43,11 +53,14 @@ public class MediaReleaseActivity extends BaseActivity implements OnClickListene
     private EditText mETDetails;
     /** 添加 **/
     private ImageView mETAdd;
-    /** 添加 **/
-    private ImageView mETVoice;
+    /** 语音 **/
+    private ImageView mIVVoice;
+    /** 键盘 **/
+    private ImageView mIVKeyboard;
     /** 提交 **/
     private Button mETSubmit;
-
+    /** 录音 **/
+    private Button mRecord;
 
     /** 类别 **/
     private String category;
@@ -77,14 +90,19 @@ public class MediaReleaseActivity extends BaseActivity implements OnClickListene
         mLaySelectMedia = (RelativeLayout) findViewById(R.id.lay_select_media);
         mLayAddressMedia = (RelativeLayout) findViewById(R.id.lay_address_media);
         mLayProveMedia = (RelativeLayout) findViewById(R.id.lay_prove_media);
+        mLayVoice = (LinearLayout) findViewById(R.id.layout_voice);
+        mLayKeyboard = (LinearLayout) findViewById(R.id.layout_keyboard);
+        mVoiceLayout = (LinearLayout) findViewById(R.id.voice_layout);
         mETOutdoor = (EditText) findViewById(R.id.et_outdoor);
         mETTV = (EditText) findViewById(R.id.et_tv);
         mETColumn = (EditText) findViewById(R.id.et_column);
         mETNewpager = (EditText) findViewById(R.id.et_newpager);
         mETDetails = (EditText) findViewById(R.id.et_details);
         mETAdd = (ImageView) findViewById(R.id.iv_add);
-        mETVoice = (ImageView) findViewById(R.id.ic_voice);
+        mIVVoice = (ImageView) findViewById(R.id.ic_voice);
+        mIVKeyboard = (ImageView) findViewById(R.id.ic_keyboard);
         mETSubmit = (Button) findViewById(R.id.bt_submit_release);
+        mRecord = (Button) findViewById(R.id.record_bt);
 
         if(!Utils.isEmpty(category)){
             if(category.equals("1")){
@@ -129,18 +147,48 @@ public class MediaReleaseActivity extends BaseActivity implements OnClickListene
         mTitleView.setLeftClickListener(new TitleLeftOnClickListener());
 
 
-
+        mLayVoice.setOnClickListener(this);
+        mLayKeyboard.setOnClickListener(this);
         mLaySelectMedia.setOnClickListener(this);
         mLayAddressMedia.setOnClickListener(this);
         mLayProveMedia.setOnClickListener(this);
         mETAdd.setOnClickListener(this);
         mETSubmit.setOnClickListener(this);
-        mETVoice.setOnClickListener(this);
+        mIVVoice.setOnClickListener(this);
+        mIVKeyboard.setOnClickListener(this);
+        mRecord.setOnClickListener(this);
     }
 
     @Override
     public void initData() {
 
+    }
+
+    /**
+     * 录音成功
+     * @param voicePath
+     */
+    @Override
+    public void RecondSuccess(String voicePath) {
+        final RelativeLayout voiceLayout = (RelativeLayout) getLayoutInflater().inflate(R.layout.media_layout, null);
+        voiceLayout.setTag(voicePath);
+        ImageView play= (ImageView) voiceLayout.findViewById(R.id.play);
+        play.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RecordMediaPlayer player = RecordMediaPlayer.getInstance();
+                player.play((String) voiceLayout.getTag());
+            }
+        });
+        ImageView delete= (ImageView) voiceLayout.findViewById(R.id.delete);
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            }
+        });
+
+        mVoiceLayout.addView(voiceLayout);
+        mLayKeyboard.setVisibility(View.GONE);
     }
 
 
@@ -164,26 +212,46 @@ public class MediaReleaseActivity extends BaseActivity implements OnClickListene
             case R.id.lay_select_media:
 
                 break;
-            // 地址
+            // 地址-- 定位进入地图
             case R.id.lay_address_media:
-
+                Intent intent = new Intent(MediaReleaseActivity.this, LocationMapActivity.class);
+                startActivity(intent);
                 break;
+
+            // 键盘
+            case R.id.ic_keyboard:
+                mLayKeyboard.setVisibility(View.GONE);
+                mLayVoice.setVisibility(View.VISIBLE);
+                mRecord.setText("按住说话");
+                break;
+
             // 证明
             case R.id.lay_prove_media:
 
                 break;
+
             // 语音
             case R.id.ic_voice:
-
+                mLayVoice.setVisibility(View.GONE);
+                mLayKeyboard.setVisibility(View.VISIBLE);
                 break;
+
+            // 录音
+            case R.id.record_bt:
+                RecordTools recordTools = new RecordTools(mContext, MediaReleaseActivity.this);
+                recordTools.showVoiceDialog();
+                break;
+
             // 添加
             case R.id.iv_add:
 
                 break;
+
             // 提交
             case R.id.bt_submit_release:
 
                 break;
+
             default:
                 break;
         }
