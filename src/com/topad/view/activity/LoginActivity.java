@@ -56,7 +56,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
 
         mBTLogin.setOnClickListener(this);
         // 设置登录按钮
-        setNextBtnState(false);
+        setNextBtnState(true);
     }
 
     @Override

@@ -17,22 +17,37 @@
         android:layout_alignParentLeft="true">
     </TextView>
 
-
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <CheckBox
+        android:id="@+id/chbChild"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:focusable="false"
         android:gravity="center"
+        android:background="@drawable/checkbox"
+        android:layout_marginTop="10dp"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="15dp">
+        android:layout_marginRight="15dp"/>
 
-        <CheckBox
-            android:id="@+id/chbChild"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="false"
-            android:focusable="false"
-            android:layout_marginTop="5dp"/>
-    </LinearLayout>
+    <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:gravity="center"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_marginRight="15dp">-->
+
+        <!--<CheckBox-->
+            <!--android:id="@+id/chbChild"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:clickable="false"-->
+            <!--android:focusable="false"-->
+            <!--android:gravity="center"-->
+            <!--android:background="@drawable/checkbox"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_marginRight="15dp"/>-->
+    <!--</LinearLayout>-->
 
 
 </RelativeLayout>
