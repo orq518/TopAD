@@ -112,3 +112,12 @@
 }
 -keep class com.topad.bean.** {*;}
 -keep class com.topad.view.** {*;}
+
+
+# amap
+-dontwarn com.amap.api.**
+-dontwarn com.a.a.**
+-dontwarn com.autonavi.**
+-keep class com.amap.api.**  {*;}
+-keep class com.autonavi.**  {*;}
+-keep class com.a.a.**  {*;}
