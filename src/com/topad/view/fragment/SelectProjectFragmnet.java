@@ -87,7 +87,7 @@ public class SelectProjectFragmnet extends BaseFragment {
 		groups = new ArrayList<GroupBean>();
 		getData();
 		listView = (CustomExpandableListView) mRootView.findViewById(R.id.listView);
-		adapter = new SelectProjectEListAdapter(mContext, groups);
+		adapter = new SelectProjectEListAdapter(mContext, groups, listView);
 		listView.setAdapter(adapter);
 		listView.setOnChildClickListener(adapter);
 		listView.setGroupIndicator(null);
@@ -103,7 +103,7 @@ public class SelectProjectFragmnet extends BaseFragment {
 		}
 	}
 
-	/** 解悉 JSON 字串 */
+	/** 初始化数据 */
 	private void getData() {
 		String[] group = new String[]{"全部", "广告创意", "平面设计", "营销推广", "影视动漫", "文案策划", "广告监测", "公关服务", "网站软件", "管理咨询", "其他服务"};
 		String[] guanggaochuangyi = new String[]{"创意文案", "创意脚本", "创意策略", "广告语", "广告摄影"};

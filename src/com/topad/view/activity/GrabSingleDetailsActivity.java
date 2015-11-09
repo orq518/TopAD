@@ -175,27 +175,27 @@ public class GrabSingleDetailsActivity extends BaseActivity implements View.OnCl
         list = new ArrayList<HashMap<String,String>>();
 
         HashMap<String, String> map =  new HashMap<String,String>();
-        map.put("icon", String.valueOf(R.drawable.homepage_icon_manage));
+        map.put("icon", String.valueOf(R.drawable.shiming_normal));
         map.put("name", "实名认证");
         list.add(map);
 
         HashMap<String, String> map2 =  new HashMap<String,String>();
-        map2.put("icon", String.valueOf(R.drawable.homepage_icon_manage));
+        map2.put("icon", String.valueOf(R.drawable.shoujirenzheng_normal));
         map2.put("name", "手机认证");
         list.add(map2);
 
         HashMap<String, String> map3 =  new HashMap<String,String>();
-        map3.put("icon", String.valueOf(R.drawable.homepage_icon_manage));
+        map3.put("icon", String.valueOf(R.drawable.baozhengwancheng));
         map3.put("name", "保证完成");
         list.add(map3);
 
         HashMap<String, String> map4 =  new HashMap<String,String>();
-        map4.put("icon", String.valueOf(R.drawable.homepage_icon_manage));
+        map4.put("icon", String.valueOf(R.drawable.yuanchuang));
         map4.put("name", "保证原创");
         list.add(map4);
 
         HashMap<String, String> map5 =  new HashMap<String,String>();
-        map5.put("icon", String.valueOf(R.drawable.homepage_icon_manage));
+        map5.put("icon", String.valueOf(R.drawable.weihu_normal));
         map5.put("name", "保证维护");
         list.add(map5);
 

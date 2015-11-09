@@ -16,20 +16,52 @@
         android:paddingBottom="15dp"
         android:layout_alignParentLeft="true"></TextView>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="15dp">
 
-        <CheckBox
-            android:id="@+id/chbGroup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="false"
-            android:focusable="false"
-            android:layout_marginTop="5dp"/>
-    </LinearLayout>
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="17dp"
+        android:layout_height="17dp"
+        android:src="@drawable/select_project_up"
+        android:layout_marginTop="15dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="22dp"/>
+
+    <CheckBox
+        android:id="@+id/chbGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:focusable="false"
+        android:background="@drawable/checkbox"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="15dp"
+        android:visibility="gone"/>
+
+    <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:gravity="center"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_marginRight="20dp">-->
+
+        <!--&lt;!&ndash;<CheckBox&ndash;&gt;-->
+            <!--&lt;!&ndash;android:id="@+id/chbGroup"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:clickable="false"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:focusable="false"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_marginTop="5dp"/>&ndash;&gt;-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/icon"-->
+            <!--android:layout_width="17dp"-->
+            <!--android:layout_height="17dp"-->
+            <!--android:src="@drawable/select_project_up"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_marginRight="20dp"/>-->
+
+    <!--</LinearLayout>-->
 
 </RelativeLayout>
