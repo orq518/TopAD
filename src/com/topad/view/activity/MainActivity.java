@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.topad.R;
+import com.topad.util.LogUtil;
 import com.topad.util.SystemBarTintManager;
 import com.topad.view.customviews.TitleView;
 
@@ -250,14 +251,35 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         finish();
     }
 
+    float moveXY;
+    float lastX = 0.0f;
+    float lastY = 0.0f;
+    boolean isNeedUp;
+
     @Override
     public boolean onTouch(View v, MotionEvent event) {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
+                isNeedUp = true;
+                lastX = event.getX();
+                lastY = event.getY();
                 leftMenuTouch(v, true);
                 break;
+            case MotionEvent.ACTION_MOVE:
+                float cx = event.getX();
+                float cy = event.getY();
+                moveXY = Math.abs(cx - lastX) + Math.abs(cy - lastY);
+                LogUtil.d("moveXY:"+moveXY);
+                if (moveXY > 30) {
+                    leftMenuTouch(v, false);
+                    isNeedUp = false;
+                }
+
+                break;
             case MotionEvent.ACTION_UP:
-                leftMenuTouch(v, false);
+                if (isNeedUp) {
+                    leftMenuTouch(v, false);
+                }
                 break;
         }
         return false;
