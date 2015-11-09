@@ -30,7 +30,7 @@ import java.util.ArrayList;
 /**
  * 主界面
  */
-public class SearchActivity extends BaseActivity implements IRecordFinish,View.OnClickListener{
+public class SearchActivity extends BaseActivity implements IRecordFinish, View.OnClickListener {
 
     /**
      * title布局
@@ -40,22 +40,28 @@ public class SearchActivity extends BaseActivity implements IRecordFinish,View.O
     int searchType;
     Button record;
     ImageView add_type;
-    /** 沉浸式状态栏 **/
+    TextView locationTV;
+    /**
+     * 沉浸式状态栏
+     **/
     private SystemBarTintManager mTintManager;
     /**
      * 选择好的条件
      */
     ArrayList<SearchItemBean> itemBeans = new ArrayList<SearchItemBean>();
     LinearLayout voice_layout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mContext = this;
     }
+
     private void applySelectedColor() {
         int color = Color.argb(0, Color.red(0), Color.green(0), Color.blue(0));
         mTintManager.setTintColor(color);
     }
+
     @Override
     public int setLayoutById() {
         return R.layout.activity_outdoor_search;
@@ -81,7 +87,7 @@ public class SearchActivity extends BaseActivity implements IRecordFinish,View.O
         mTintManager.setNavigationBarTintEnabled(true);
         applySelectedColor();
 
-        
+
         searchType = getIntent().getIntExtra("searchtype", 0);
         LogUtil.d("ouou", "searchType:" + searchType);
         // 顶部布局
@@ -129,7 +135,7 @@ public class SearchActivity extends BaseActivity implements IRecordFinish,View.O
                         if (Utils.isEmpty(curItem.name)) {
                             Toast.makeText(mContext, "请输入电视台名称", Toast.LENGTH_SHORT).show();
                             return;
-                        }else if (Utils.isEmpty(curItem.type)) {
+                        } else if (Utils.isEmpty(curItem.type)) {
                             Toast.makeText(mContext, "请输入栏目名称", Toast.LENGTH_SHORT).show();
                             return;
                         }
@@ -191,12 +197,12 @@ public class SearchActivity extends BaseActivity implements IRecordFinish,View.O
 
                             refreshSelectedData();
 
-                            TextView city = (TextView) outdoor_search_layout.findViewById(R.id.city_name);
+//                            locationTV = (TextView) outdoor_search_layout.findViewById(R.id.city_name);
                             TextView media_name = (TextView) outdoor_search_layout.findViewById(R.id.media_name);
                             TextView media_type = (TextView) outdoor_search_layout.findViewById(R.id.media_type);
                             media_name.setText("媒体名称");
                             media_type.setText("媒体类型");
-                            city.setText("选择城市");
+                            locationTV.setText("选择城市");
                             curItem.name = "";
                             curItem.type = "";
                         }
@@ -218,17 +224,15 @@ public class SearchActivity extends BaseActivity implements IRecordFinish,View.O
                 outdoor_search_layout = (LinearLayout) getLayoutInflater().inflate(R.layout.tv_search_item, null);
                 break;
             case 2://报纸
+            case 4://杂志
+            case 5://网络
                 outdoor_search_layout = (LinearLayout) getLayoutInflater().inflate(R.layout.baozhi_search_item, null);
                 break;
             case 3://户外
                 outdoor_search_layout = (LinearLayout) getLayoutInflater().inflate(R.layout.outdoor_search_item, null);
+                locationTV = (TextView) outdoor_search_layout.findViewById(R.id.city_name);
                 break;
-            case 4://杂志
-                outdoor_search_layout = (LinearLayout) getLayoutInflater().inflate(R.layout.baozhi_search_item, null);
-                break;
-            case 5://网络
-                outdoor_search_layout = (LinearLayout) getLayoutInflater().inflate(R.layout.baozhi_search_item, null);
-                break;
+
         }
         outdoor_search_item.addView(outdoor_search_layout);
 
@@ -238,11 +242,11 @@ public class SearchActivity extends BaseActivity implements IRecordFinish,View.O
         record.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                RecordTools recordTools=new RecordTools(mContext,SearchActivity.this);
+                RecordTools recordTools = new RecordTools(mContext, SearchActivity.this);
                 recordTools.showVoiceDialog();
             }
         });
-        voice_layout=(LinearLayout) findViewById(R.id.voice_layout);
+        voice_layout = (LinearLayout) findViewById(R.id.voice_layout);
     }
 
     @Override
@@ -340,6 +344,8 @@ public class SearchActivity extends BaseActivity implements IRecordFinish,View.O
     int OUTDOORLIST = 1;
     int BAOZHILIST = 2;
     int TVLIST = 3;
+    final int PICKCITY = 121;
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == OUTDOORLIST && resultCode == RESULT_OK && data != null) {
@@ -360,14 +366,25 @@ public class SearchActivity extends BaseActivity implements IRecordFinish,View.O
             curItem.type = mediaType;
 
 
+        } else if (requestCode == PICKCITY && resultCode == RESULT_OK && data != null) {
+            if(locationTV!=null) {
+                String cityString = data.getStringExtra("city");
+                locationTV.setText(cityString);
+            }
+
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
+
 
     @Override
     public void onClick(View v) {
         super.onClick(v);
         switch (v.getId()) {
+            case R.id.city_layout:
+                Intent cityIntent = new Intent(SearchActivity.this, CitySelectActivity.class);
+                startActivityForResult(cityIntent, PICKCITY);
+                break;
             case R.id.select_media_type:
                 if (searchType == 3) {//户外
                     Intent intent = new Intent(SearchActivity.this, OutDoorSearchListActivity.class);
@@ -415,18 +432,18 @@ public class SearchActivity extends BaseActivity implements IRecordFinish,View.O
     }
 
     @Override
-    public  void RecondSuccess(final String voicePath) {
+    public void RecondSuccess(final String voicePath) {
         final RelativeLayout voiceLayout = (RelativeLayout) getLayoutInflater().inflate(R.layout.media_layout, null);
         voiceLayout.setTag(voicePath);
-        ImageView play= (ImageView) voiceLayout.findViewById(R.id.play);
+        ImageView play = (ImageView) voiceLayout.findViewById(R.id.play);
         play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                RecordMediaPlayer player=RecordMediaPlayer.getInstance();
+                RecordMediaPlayer player = RecordMediaPlayer.getInstance();
                 player.play((String) voiceLayout.getTag());
             }
         });
-        ImageView delete= (ImageView) voiceLayout.findViewById(R.id.delete);
+        ImageView delete = (ImageView) voiceLayout.findViewById(R.id.delete);
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

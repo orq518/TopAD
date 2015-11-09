@@ -19,6 +19,8 @@ dependencies {
     //    compile 'com.umeng.analytics:analytics:latest.integration'
     compile 'com.android.support:support-v4:21.0.0'
     compile files('libs/AMap_Services_V2.5.0.jar')
+    compile files('libs/android-support-v4.jar')
+    compile files('libs/pinyin4android1.0.jar')
 }
 
 android {

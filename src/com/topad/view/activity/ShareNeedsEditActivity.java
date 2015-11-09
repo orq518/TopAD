@@ -12,6 +12,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -20,9 +21,12 @@ import android.widget.TextView;
 
 import com.topad.R;
 import com.topad.amap.PoiKeywordSearchActivity;
+import com.topad.util.LogUtil;
+import com.topad.util.PictureUtil;
 import com.topad.util.RecordMediaPlayer;
 import com.topad.util.RecordTools;
 import com.topad.util.SystemBarTintManager;
+import com.topad.util.Utils;
 import com.topad.view.customviews.TitleView;
 import com.topad.view.interfaces.IRecordFinish;
 
@@ -32,13 +36,14 @@ import java.util.List;
 /**
  * 发布需求编辑界面
  */
-public class ShareNeedsEditActivity extends BaseActivity implements IRecordFinish,View.OnClickListener {
+public class ShareNeedsEditActivity extends BaseActivity implements IRecordFinish, View.OnClickListener {
 
     /**
      * title布局
      **/
     private TitleView mTitle;
     MediaAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +63,7 @@ public class ShareNeedsEditActivity extends BaseActivity implements IRecordFinis
         int color = Color.argb(0, Color.red(0), Color.green(0), Color.blue(0));
         mTintManager.setTintColor(color);
     }
+
     GridView add_detail_gridview;
     /**
      * 沉浸式状态栏
@@ -82,9 +88,23 @@ public class ShareNeedsEditActivity extends BaseActivity implements IRecordFinis
                 startActivity(intent);
             }
         }, R.drawable.bt_search);
-        add_detail_gridview= (GridView) findViewById(R.id.add_detail_gridview);
-        adapter=new MediaAdapter(this);
+        add_detail_gridview = (GridView) findViewById(R.id.add_detail_gridview);
+        adapter = new MediaAdapter(this);
         add_detail_gridview.setAdapter(adapter);
+        add_detail_gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                MeidaType meidaType = meidaTypeList.get(position);
+                if (meidaType.type.equals("1")) {//图片
+                    Intent intent = new Intent(ShareNeedsEditActivity.this, PicLookActivity.class);
+                    intent.putExtra("picpath", meidaType.pathString);
+                    startActivity(intent);
+                } else {
+                    RecordMediaPlayer player = RecordMediaPlayer.getInstance();
+                    player.play(meidaType.pathString);
+                }
+            }
+        });
     }
 
     @Override
@@ -118,7 +138,7 @@ public class ShareNeedsEditActivity extends BaseActivity implements IRecordFinis
                 startActivityForResult(intent1, PICKPHOTO);
                 break;
             case R.id.voice:
-                RecordTools recordTools=new RecordTools(ShareNeedsEditActivity.this,ShareNeedsEditActivity.this);
+                RecordTools recordTools = new RecordTools(ShareNeedsEditActivity.this, ShareNeedsEditActivity.this);
                 recordTools.showVoiceDialog();
                 break;
 
@@ -134,11 +154,16 @@ public class ShareNeedsEditActivity extends BaseActivity implements IRecordFinis
 
     /**
      * 录音完成
+     *
      * @param voicePath
      */
     @Override
     public void RecondSuccess(String voicePath) {
-
+        MeidaType meidaType = new MeidaType();
+        meidaType.type = "2";
+        meidaType.pathString = voicePath;
+        meidaTypeList.add(meidaType);
+        adapter.notifyDataSetChanged();
     }
 
     /**
@@ -162,33 +187,22 @@ public class ShareNeedsEditActivity extends BaseActivity implements IRecordFinis
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         switch (resultCode) {
-            case 1:
+            case PICKPHOTO:
                 if (data != null) {
-                    //取得返回的Uri,基本上选择照片的时候返回的是以Uri形式，但是在拍照中有得机子呢Uri是空的，所以要特别注意
-                    Uri mImageCaptureUri = data.getData();
-                    //返回的Uri不为空时，那么图片信息数据都会在Uri中获得。如果为空，那么我们就进行下面的方式获取
-                    if (mImageCaptureUri != null) {
-                        Bitmap image;
-                        try {
-                            //这个方法是根据Uri获取Bitmap图片的静态方法
-                            image = MediaStore.Images.Media.getBitmap(this.getContentResolver(), mImageCaptureUri);
-//                            if (image != null) {
-//                                photo.setImageBitmap(image);
-//                            }
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    } else {
-                        Bundle extras = data.getExtras();
-                        if (extras != null) {
-                            //这里是有些拍照后的图片是直接存放到Bundle中的所以我们可以从这里面获取Bitmap图片
-                            Bitmap image = extras.getParcelable("data");
-//                            if (image != null) {
-//                                photo.setImageBitmap(image);
-//                            }
+                    LogUtil.d("ouou", "#####path:" + data.getStringExtra("path"));
+                    String picPath = data.getStringExtra("path");
+                    if (!Utils.isEmpty(picPath)) {
+                        Bitmap image = PictureUtil
+                                .getSmallBitmap(picPath);
+                        if (image != null) {
+                            MeidaType meidaType = new MeidaType();
+                            meidaType.type = "1";
+                            meidaType.bitmap = image;
+                            meidaType.pathString = picPath;
+                            meidaTypeList.add(meidaType);
+                            adapter.notifyDataSetChanged();
                         }
                     }
-
                 }
                 break;
             default:
@@ -197,90 +211,102 @@ public class ShareNeedsEditActivity extends BaseActivity implements IRecordFinis
         }
     }
 
+//public void addpic(Bitmap bitmap){
 
-    class  MeidaType{
+    //
+//
+//}
+    class MeidaType {
+        /**
+         * 1：图片  2：语音
+         */
         String type;
         Bitmap bitmap;
         String pathString;
     }
+
+    private List<MeidaType> meidaTypeList = new ArrayList<MeidaType>();
+
     //自定义适配器
     class MediaAdapter extends BaseAdapter {
         private LayoutInflater inflater;
-        private List<MeidaType> meidaTypeList;
 
-        public MediaAdapter(Context context)
-        {
+
+        public MediaAdapter(Context context) {
             super();
-            meidaTypeList = new ArrayList<MeidaType>();
+
             inflater = LayoutInflater.from(context);
         }
 
         @Override
-        public int getCount()
-        {
-            if (null != meidaTypeList)
-            {
-                return 5;
-            } else
-            {
+        public int getCount() {
+            if (null != meidaTypeList) {
+                return meidaTypeList.size();
+            } else {
                 return 0;
             }
         }
 
         @Override
-        public Object getItem(int position)
-        {
+        public Object getItem(int position) {
             return meidaTypeList.get(position);
         }
 
         @Override
-        public long getItemId(int position)
-        {
+        public long getItemId(int position) {
             return position;
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent)
-        {
+        public View getView(int position, View convertView, ViewGroup parent) {
             ViewHolder viewHolder;
-            if (convertView == null)
-            {
+            if (convertView == null) {
                 convertView = inflater.inflate(R.layout.media_layout, null);
                 viewHolder = new ViewHolder();
                 viewHolder.play = (ImageView) convertView.findViewById(R.id.play);
                 viewHolder.delete = (ImageView) convertView.findViewById(R.id.delete);
                 convertView.setTag(viewHolder);
-            } else
-            {
+            } else {
                 viewHolder = (ViewHolder) convertView.getTag();
             }
-//            viewHolder.title.setText(pictures.get(position).getTitle());
-//            viewHolder.image.setImageResource(pictures.get(position).getImageId());
-//-----------------
-//            final RelativeLayout voiceLayout = (RelativeLayout) getLayoutInflater().inflate(R.layout.media_layout, null);
-//            voiceLayout.setTag(voicePath);
-//            ImageView play= (ImageView) voiceLayout.findViewById(R.id.play);
-//            play.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    RecordMediaPlayer player=RecordMediaPlayer.getInstance();
-//                    player.play((String) voiceLayout.getTag());
-//                }
-//            });
-//            ImageView delete= (ImageView) voiceLayout.findViewById(R.id.delete);
-//            delete.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                }
-//            });
+            MeidaType meidaType = meidaTypeList.get(position);
+            if (meidaType.type.equals("1")) {//图片
+                viewHolder.play.setImageBitmap(meidaType.bitmap);
+            } else {
+                viewHolder.play.setImageResource(R.drawable.voice_play);
+            }
+            viewHolder.delete.setTag(meidaType.pathString);
+            viewHolder.delete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String tag = (String) v.getTag();
+                    int index = -1;
+                    MeidaType curType=null;
+                    for (int i = 0; i < meidaTypeList.size(); i++) {
+                        if (tag.equals(meidaTypeList.get(i).pathString)) {
+                            curType=meidaTypeList.get(i);
+                            index = i;
+
+                            break;
+                        }
+                    }
+                    if (curType!=null&&index>=0&&curType.type.equals("2")) {
+                        RecordMediaPlayer player = RecordMediaPlayer.getInstance();
+                        player.deleteFile(curType.pathString);
+                    }
+                    meidaTypeList.remove(index);
+                    adapter.notifyDataSetChanged();
+
+
+                }
+            });
 
             return convertView;
         }
 
     }
 
-    class ViewHolder
-    {
+    class ViewHolder {
         public ImageView play;
         public ImageView delete;
     }

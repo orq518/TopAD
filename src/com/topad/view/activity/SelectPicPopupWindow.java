@@ -1,8 +1,11 @@
 package com.topad.view.activity;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.MotionEvent;
@@ -13,6 +16,13 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.topad.R;
+import com.topad.util.LogUtil;
+import com.topad.util.PictureUtil;
+
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class SelectPicPopupWindow extends Activity implements OnClickListener {
 
@@ -58,28 +68,85 @@ public class SelectPicPopupWindow extends Activity implements OnClickListener {
 		if (resultCode != RESULT_OK) {
 			return;
 		}
-		//选择完或者拍完照后会在这里处理，然后我们继续使用setResult返回Intent以便可以传递数据和调用
-		if (data.getExtras() != null)
-			intent.putExtras(data.getExtras());
-		if (data.getData()!= null)
-			intent.setData(data.getData());
+		LogUtil.d("##data:"+data);
+		if(data==null){
+			PictureUtil.galleryAddPic(this, mCurrentPhotoPath);
+			intent.putExtra("path",mCurrentPhotoPath);
+		}else {
+			Uri mImageCaptureUri = data.getData();
+			intent.putExtra("path",getAbsoluteImagePath(mImageCaptureUri));
+			//选择完或者拍完照后会在这里处理，然后我们继续使用setResult返回Intent以便可以传递数据和调用
+//			if (data.getExtras() != null)
+//				intent.putExtras(data.getExtras());
+//			if (data.getData() != null)
+//				intent.setData(data.getData());
+		}
 		setResult(1, intent);
 		finish();
 
 	}
+	String mCurrentPhotoPath;
+	protected String getAbsoluteImagePath(Uri uri)
+	{
+		// can post image
+		String [] proj={MediaStore.Images.Media.DATA};
+		Cursor cursor = managedQuery( uri,
+				proj,                 // Which columns to return
+				null,       // WHERE clause; which rows to return (all rows)
+				null,       // WHERE clause selection arguments (none)
+				null);                 // Order-by clause (ascending by name)
 
+		int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+		cursor.moveToFirst();
+
+		return cursor.getString(column_index);
+	}
+	/**
+	 * 拍照
+	 */
+	private void takePhoto() {
+		Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+		try {
+			// 指定存放拍摄照片的位置
+			File f = createImageFile();
+			takePictureIntent
+					.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(f));
+			startActivityForResult(takePictureIntent, 1);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	/**
+	 * 把程序拍摄的照片放到 SD卡的 Pictures目录中 sheguantong 文件夹中
+	 * 照片的命名规则为：sheqing_20130125_173729.jpg
+	 *
+	 * @return
+	 * @throws IOException
+	 */
+	@SuppressLint("SimpleDateFormat")
+	private File createImageFile() throws IOException {
+
+		SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd_HHmmss");
+		String timeStamp = format.format(new Date());
+		String imageFileName = "topad" + timeStamp + ".jpg";
+
+		File image = new File(PictureUtil.getAlbumDir(), imageFileName);
+		mCurrentPhotoPath = image.getAbsolutePath();
+		return image;
+	}
 	public void onClick(View v) {
 		switch (v.getId()) {
 			case R.id.btn_take_photo:
-				try {
-					//拍照我们用Action为MediaStore.ACTION_IMAGE_CAPTURE，
-					//有些人使用其他的Action但我发现在有些机子中会出问题，所以优先选择这个
-					Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-					intent.setAction(MediaStore.ACTION_IMAGE_CAPTURE);
-					startActivityForResult(intent, 1);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+				takePhoto();
+//				try {
+//					//拍照我们用Action为MediaStore.ACTION_IMAGE_CAPTURE，
+//					//有些人使用其他的Action但我发现在有些机子中会出问题，所以优先选择这个
+//					Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//					intent.setAction(MediaStore.ACTION_IMAGE_CAPTURE);
+//					startActivityForResult(intent, 1);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
 				break;
 			case R.id.btn_pick_photo:
 				try {
