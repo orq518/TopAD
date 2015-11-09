@@ -86,7 +86,7 @@
                     android:layout_marginLeft="@dimen/dimen_10"
                     android:background="@drawable/btn_bg_white"
                     android:hint="按住说话"
-                    android:padding="@dimen/dimen_10"
+                    android:padding="@dimen/dimen_5"
                     android:textSize="@dimen/textsize_16"
                     />
             </LinearLayout>
@@ -125,7 +125,7 @@
             </LinearLayout>
             <Button
                 android:id="@+id/bt_identity_next_step"
-                style="@style/ucf_btn_red_style"
+                style="@style/btn_bule2_borad_style"
                 android:layout_marginLeft="@dimen/dimen_20"
                 android:layout_marginRight="@dimen/dimen_20"
                 android:layout_marginTop="@dimen/dimen_30"

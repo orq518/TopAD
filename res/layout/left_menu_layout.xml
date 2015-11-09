@@ -13,8 +13,8 @@
             <LinearLayout android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
                           android:layout_gravity="center_horizontal"
-                          android:gravity="center"
                           android:layout_marginTop="@dimen/dimen_20"
+                          android:gravity="center"
                           android:orientation="horizontal"
                           android:padding="@dimen/dimen_10">
 
@@ -33,202 +33,252 @@
                 android:id="@+id/csmm"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:clickable="true"
+                android:background="@drawable/left_menu_bg_selector"
                 android:gravity="center_vertical"
                 android:paddingBottom="@dimen/dimen_10"
                 android:paddingLeft="@dimen/dimen_20"
                 android:paddingTop="@dimen/dimen_10">
 
                 <ImageView
+                    android:id="@+id/im_csmm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/left_rewrite"/>
-                <TextView android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:layout_marginLeft="@dimen/dimen_5"
-                          android:text="重设密码"
-                          android:textColor="@color/white"
-                          android:textSize="@dimen/textsize_18"/>
+                <TextView
+                    android:id="@+id/tv_csmm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_5"
+                    android:text="重设密码"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/textsize_18"/>
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/wszl"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:clickable="true"
                 android:gravity="center_vertical"
+                android:background="@drawable/left_menu_bg_selector"
                 android:paddingBottom="@dimen/dimen_10"
                 android:paddingLeft="@dimen/dimen_20"
                 android:paddingTop="@dimen/dimen_10">
 
                 <ImageView
+                    android:id="@+id/im_wszl"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/left_rewrite"/>
-                <TextView android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:layout_marginLeft="@dimen/dimen_5"
-                          android:text="完善资料"
-                          android:textColor="@color/white"
-                          android:textSize="@dimen/textsize_18"/>
+                    android:src="@drawable/left_qiangdan"/>
+                <TextView
+                    android:id="@+id/tv_wszl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_5"
+                    android:text="完善资料"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/textsize_18"/>
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/gsrz"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:clickable="true"
+                android:background="@drawable/left_menu_bg_selector"
                 android:gravity="center_vertical"
                 android:paddingBottom="@dimen/dimen_10"
                 android:paddingLeft="@dimen/dimen_20"
                 android:paddingTop="@dimen/dimen_10">
 
                 <ImageView
+                    android:id="@+id/im_gsrz"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/left_rewrite"/>
-                <TextView android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:layout_marginLeft="@dimen/dimen_5"
-                          android:text="公司认证"
-                          android:textColor="@color/white"
-                          android:textSize="@dimen/textsize_18"/>
+                    android:src="@drawable/left_renzheng"/>
+                <TextView
+                    android:id="@+id/tv_gsrz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_5"
+                    android:text="公司认证"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/textsize_18"/>
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/cpsj"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:clickable="true"
+                android:background="@drawable/left_menu_bg_selector"
                 android:gravity="center_vertical"
                 android:paddingBottom="@dimen/dimen_10"
                 android:paddingLeft="@dimen/dimen_20"
                 android:paddingTop="@dimen/dimen_10">
 
                 <ImageView
+                    android:id="@+id/im_cpsj"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/left_rewrite"/>
-                <TextView android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:layout_marginLeft="@dimen/dimen_5"
-                          android:text="我的服务产品设计"
-                          android:textColor="@color/white"
-                          android:textSize="@dimen/textsize_18"/>
+                    android:src="@drawable/left_products"/>
+                <TextView
+                    android:id="@+id/tv_cpsj"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_5"
+                    android:text="我的服务产品设计"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/textsize_18"/>
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/wdqd"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:clickable="true"
+                android:background="@drawable/left_menu_bg_selector"
                 android:gravity="center_vertical"
                 android:paddingBottom="@dimen/dimen_10"
                 android:paddingLeft="@dimen/dimen_20"
                 android:paddingTop="@dimen/dimen_10">
 
                 <ImageView
+                    android:id="@+id/im_wdqd"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/left_rewrite"/>
-                <TextView android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:layout_marginLeft="@dimen/dimen_5"
-                          android:text="我的抢单"
-                          android:textColor="@color/white"
-                          android:textSize="@dimen/textsize_18"/>
+                    android:src="@drawable/left_qiangdan"/>
+                <TextView
+                    android:id="@+id/tv_wdqd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_5"
+                    android:text="我的抢单"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/textsize_18"/>
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/wdxq"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:clickable="true"
                 android:gravity="center_vertical"
+                android:background="@drawable/left_menu_bg_selector"
                 android:paddingBottom="@dimen/dimen_10"
                 android:paddingLeft="@dimen/dimen_20"
                 android:paddingTop="@dimen/dimen_10">
 
                 <ImageView
+                    android:id="@+id/im_wdxq"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/left_rewrite"/>
-                <TextView android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:layout_marginLeft="@dimen/dimen_5"
-                          android:text="我的需求"
-                          android:textColor="@color/white"
-                          android:textSize="@dimen/textsize_18"/>
+                    android:src="@drawable/left_demands"/>
+                <TextView
+                    android:id="@+id/tv_wdxq"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_5"
+                    android:text="我的需求"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/textsize_18"/>
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/fbmt"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:clickable="true"
+                android:background="@drawable/left_menu_bg_selector"
                 android:gravity="center_vertical"
                 android:paddingBottom="@dimen/dimen_10"
                 android:paddingLeft="@dimen/dimen_20"
                 android:paddingTop="@dimen/dimen_10">
 
                 <ImageView
+                    android:id="@+id/im_fbmt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/left_rewrite"/>
-                <TextView android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:layout_marginLeft="@dimen/dimen_5"
-                          android:text="我发布的媒体"
-                          android:textColor="@color/white"
-                          android:textSize="@dimen/textsize_18"/>
+                    android:src="@drawable/left_media"/>
+                <TextView
+                    android:id="@+id/tv_fbmt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_5"
+                    android:text="我发布的媒体"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/textsize_18"/>
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/wdqb"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:clickable="true"
+                android:background="@drawable/left_menu_bg_selector"
                 android:gravity="center_vertical"
                 android:paddingBottom="@dimen/dimen_10"
                 android:paddingLeft="@dimen/dimen_20"
                 android:paddingTop="@dimen/dimen_10">
 
                 <ImageView
+                    android:id="@+id/im_wdqb"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/left_rewrite"/>
-                <TextView android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:layout_marginLeft="@dimen/dimen_5"
-                          android:text="我的钱包"
-                          android:textColor="@color/white"
-                          android:textSize="@dimen/textsize_18"/>
+                    android:src="@drawable/left_wallet"/>
+                <TextView
+                    android:id="@+id/tv_wdqb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_5"
+                    android:text="我的钱包"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/textsize_18"/>
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/xtxx"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:clickable="true"
                 android:gravity="center_vertical"
                 android:paddingBottom="@dimen/dimen_10"
+                android:background="@drawable/left_menu_bg_selector"
                 android:paddingLeft="@dimen/dimen_20"
                 android:paddingTop="@dimen/dimen_10">
 
                 <ImageView
+                    android:id="@+id/im_xtxx"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/left_rewrite"/>
-                <TextView android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:layout_marginLeft="@dimen/dimen_5"
-                          android:text="系统消息"
-                          android:textColor="@color/white"
-                          android:textSize="@dimen/textsize_18"/>
+                    android:src="@drawable/left_message"/>
+                <TextView
+                    android:id="@+id/tv_xtxx"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_5"
+                    android:text="系统消息"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/textsize_18"/>
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/quit"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dimen_20"
+                android:clickable="true"
+                android:background="@drawable/left_menu_bg_selector"
                 android:gravity="center_vertical"
                 android:paddingBottom="@dimen/dimen_10"
                 android:paddingLeft="@dimen/dimen_20"
                 android:paddingTop="@dimen/dimen_10">
 
                 <ImageView
+                    android:id="@+id/im_quit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/left_rewrite"/>
-                <TextView android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:layout_marginLeft="@dimen/dimen_5"
-                          android:text="注销"
-                          android:textColor="@color/white"
-                          android:textSize="@dimen/textsize_18"/>
+                    android:src="@drawable/left_zhux"/>
+                <TextView
+                    android:id="@+id/tv_quit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_5"
+                    android:text="注销"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/textsize_18"/>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
