@@ -13,6 +13,7 @@ buildscript {
         classpath 'com.android.tools.build:gradle:1.2.3'
     }
 }
+
 apply plugin: 'com.android.application'
 dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')
@@ -90,6 +91,7 @@ android {
             minifyEnabled true
             proguardFile 'proguard-project-gradle.txt'
             signingConfig signingConfigs.release
+            shrinkResources true  //去除无用资源
         }
         debug{
             signingConfig signingConfigs.debug
