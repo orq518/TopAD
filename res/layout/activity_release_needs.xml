@@ -52,7 +52,7 @@
                           android:background="@color/white"
                           android:clickable="true"
                           android:drawablePadding="@dimen/dimen_10"
-                          android:drawableTop="@drawable/icon_vis"
+                          android:drawableTop="@drawable/icon_vi"
                           android:gravity="center_horizontal"
                           android:onClick="onClick"
                           android:paddingBottom="@dimen/dimen_15"
