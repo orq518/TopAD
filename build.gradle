@@ -88,7 +88,7 @@ android {
     buildTypes{
         //Release版指定signingConfig的release信息
         release{
-            minifyEnabled true
+            minifyEnabled false
             proguardFile 'proguard-project-gradle.txt'
             signingConfig signingConfigs.release
             shrinkResources true  //去除无用资源
