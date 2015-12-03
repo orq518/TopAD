@@ -8,6 +8,7 @@ import android.graphics.Picture;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,7 +28,9 @@ import com.topad.util.RecordMediaPlayer;
 import com.topad.util.RecordTools;
 import com.topad.util.SystemBarTintManager;
 import com.topad.util.Utils;
+import com.topad.view.customviews.PickDatePopwindow;
 import com.topad.view.customviews.TitleView;
+import com.topad.view.interfaces.IDatePick;
 import com.topad.view.interfaces.IRecordFinish;
 
 import java.util.ArrayList;
@@ -36,13 +39,15 @@ import java.util.List;
 /**
  * 发布需求编辑界面
  */
-public class ShareNeedsEditActivity extends BaseActivity implements IRecordFinish, View.OnClickListener {
+public class ShareNeedsEditActivity extends BaseActivity implements IRecordFinish, View.OnClickListener, IDatePick {
 
     /**
      * title布局
      **/
     private TitleView mTitle;
     MediaAdapter adapter;
+    TextView data_pic;
+    RelativeLayout bottom_layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,6 +110,8 @@ public class ShareNeedsEditActivity extends BaseActivity implements IRecordFinis
                 }
             }
         });
+        bottom_layout = (RelativeLayout) findViewById(R.id.bottom_layout);
+        data_pic = (TextView) findViewById(R.id.data_pic);
     }
 
     @Override
@@ -141,7 +148,12 @@ public class ShareNeedsEditActivity extends BaseActivity implements IRecordFinis
                 RecordTools recordTools = new RecordTools(ShareNeedsEditActivity.this, ShareNeedsEditActivity.this);
                 recordTools.showVoiceDialog();
                 break;
-
+            case R.id.data_pic:
+                PickDatePopwindow datePick = new PickDatePopwindow(ShareNeedsEditActivity.this);
+                datePick.registeDatePick(this);
+                datePick.showAtLocation(bottom_layout,
+                        Gravity.BOTTOM, 0, 0);
+                break;
             default:
                 break;
         }
@@ -164,6 +176,13 @@ public class ShareNeedsEditActivity extends BaseActivity implements IRecordFinis
         meidaType.pathString = voicePath;
         meidaTypeList.add(meidaType);
         adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void setDate(String dateString) {
+        if (!Utils.isEmpty(dateString)) {
+            data_pic.setText(dateString);
+        }
     }
 
     /**
@@ -281,16 +300,16 @@ public class ShareNeedsEditActivity extends BaseActivity implements IRecordFinis
                 public void onClick(View v) {
                     String tag = (String) v.getTag();
                     int index = -1;
-                    MeidaType curType=null;
+                    MeidaType curType = null;
                     for (int i = 0; i < meidaTypeList.size(); i++) {
                         if (tag.equals(meidaTypeList.get(i).pathString)) {
-                            curType=meidaTypeList.get(i);
+                            curType = meidaTypeList.get(i);
                             index = i;
 
                             break;
                         }
                     }
-                    if (curType!=null&&index>=0&&curType.type.equals("2")) {
+                    if (curType != null && index >= 0 && curType.type.equals("2")) {
                         RecordMediaPlayer player = RecordMediaPlayer.getInstance();
                         player.deleteFile(curType.pathString);
                     }
