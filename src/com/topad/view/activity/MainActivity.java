@@ -71,6 +71,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        try {
+            LogUtil.d("获得点击的连接全部内容", getIntent().getDataString());
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            LogUtil.d("e.printStackTrace()", "擦，哥哥不是从短链接进来的！");
+        }
     }
 
     @Override
@@ -379,9 +385,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     }
 
     public void leftMenuClick(View v) {
+        Intent intent;
         switch (v.getId()) {
             case R.id.csmm://重设密码
+                intent = new Intent(MainActivity.this, ResetPasswordActivity.class);
+                startActivity(intent);
                 break;
+
             case R.id.wszl://完善资料
                 break;
             case R.id.gsrz://公司认证
@@ -395,8 +405,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
             case R.id.fbmt://我发布的媒体
                 break;
             case R.id.wdqb://我的钱包
+                intent = new Intent(MainActivity.this, MyWalletActivity.class);
+                startActivity(intent);
                 break;
             case R.id.xtxx://系统消息
+                intent = new Intent(MainActivity.this, SystemNewsActivity.class);
+                startActivity(intent);
                 break;
             case R.id.quit://注销
                 break;

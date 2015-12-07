@@ -78,6 +78,7 @@
                 <category android:name="com.readystatesoftware.systembartint.SAMPLE" />
             </intent-filter>
         </activity>
+
         <!-- 首页 -->
         <activity
             android:name=".view.activity.MainActivity"
@@ -88,6 +89,12 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.readystatesoftware.systembartint.SAMPLE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:pathPrefix="/a" android:host="www.qq.com" android:scheme="http"/>
             </intent-filter>
         </activity>
         <activity android:name=".view.activity.WebViewActivity"
@@ -300,7 +307,27 @@
                 <category android:name="com.readystatesoftware.systembartint.SAMPLE" />
             </intent-filter>
         </activity>
-    </application>
 
+        <!-- 我的钱包 -->
+        <activity
+            android:name=".view.activity.MyWalletActivity"
+            android:theme="@style/FullBleedTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.readystatesoftware.systembartint.SAMPLE" />
+            </intent-filter>
+        </activity>
+
+        <!-- 系统消息 -->
+        <activity
+            android:name=".view.activity.SystemNewsActivity"
+            android:theme="@style/FullBleedTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.readystatesoftware.systembartint.SAMPLE" />
+            </intent-filter>
+        </activity>
+
+    </application>
 
 </manifest>
