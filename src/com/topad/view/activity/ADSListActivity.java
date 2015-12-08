@@ -223,6 +223,20 @@ public class ADSListActivity extends BaseActivity implements View.OnClickListene
             }
 
             holder.name.setText(bankList.get(position).name);
+//            switch (position){
+//                case 0:
+//                    holder.icon.setImageDrawable(getDrawable(R.drawable.product0));
+//                    break;
+//                case 1:
+//                    holder.icon.setImageDrawable(getDrawable(R.drawable.product1));
+//                    break;
+//                case 2:
+//                    holder.icon.setImageDrawable(getDrawable(R.drawable.product2));
+//                    break;
+//                case 3:
+//                    holder.icon.setImageDrawable(getDrawable(R.drawable.product3));
+//                    break;
+//            }
             return convertView;
         }
 
