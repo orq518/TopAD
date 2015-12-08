@@ -18,14 +18,19 @@
                           android:orientation="horizontal"
                           android:padding="@dimen/dimen_10">
 
-                <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                           android:src="@drawable/app_icon"/>
-                <TextView android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:layout_marginLeft="@dimen/dimen_5"
-                          android:text="xxxxxx关高哦公司"
-                          android:textColor="@color/white"
-                          android:textSize="@dimen/textsize_18"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/company_logo"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_5"
+                    android:text="中广托普广\n告传媒公司"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/textsize_18"/>
+
             </LinearLayout>
             <View android:layout_width="fill_parent" android:layout_height="1dp"
                   android:background="@color/text_bg"/>
@@ -49,7 +54,7 @@
                     android:id="@+id/tv_csmm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dimen_5"
+                    android:layout_marginLeft="@dimen/dimen_10"
                     android:text="重设密码"
                     android:textColor="@color/white"
                     android:textSize="@dimen/textsize_18"/>
@@ -74,7 +79,7 @@
                     android:id="@+id/tv_wszl"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dimen_5"
+                    android:layout_marginLeft="@dimen/dimen_10"
                     android:text="完善资料"
                     android:textColor="@color/white"
                     android:textSize="@dimen/textsize_18"/>
@@ -99,7 +104,7 @@
                     android:id="@+id/tv_gsrz"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dimen_5"
+                    android:layout_marginLeft="@dimen/dimen_10"
                     android:text="公司认证"
                     android:textColor="@color/white"
                     android:textSize="@dimen/textsize_18"/>
@@ -124,7 +129,7 @@
                     android:id="@+id/tv_cpsj"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dimen_5"
+                    android:layout_marginLeft="@dimen/dimen_10"
                     android:text="我的服务产品设计"
                     android:textColor="@color/white"
                     android:textSize="@dimen/textsize_18"/>
@@ -149,7 +154,7 @@
                     android:id="@+id/tv_wdqd"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dimen_5"
+                    android:layout_marginLeft="@dimen/dimen_10"
                     android:text="我的抢单"
                     android:textColor="@color/white"
                     android:textSize="@dimen/textsize_18"/>
@@ -174,7 +179,7 @@
                     android:id="@+id/tv_wdxq"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dimen_5"
+                    android:layout_marginLeft="@dimen/dimen_10"
                     android:text="我的需求"
                     android:textColor="@color/white"
                     android:textSize="@dimen/textsize_18"/>
@@ -199,7 +204,7 @@
                     android:id="@+id/tv_fbmt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dimen_5"
+                    android:layout_marginLeft="@dimen/dimen_10"
                     android:text="我发布的媒体"
                     android:textColor="@color/white"
                     android:textSize="@dimen/textsize_18"/>
@@ -224,7 +229,7 @@
                     android:id="@+id/tv_wdqb"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dimen_5"
+                    android:layout_marginLeft="@dimen/dimen_10"
                     android:text="我的钱包"
                     android:textColor="@color/white"
                     android:textSize="@dimen/textsize_18"/>
@@ -249,7 +254,7 @@
                     android:id="@+id/tv_xtxx"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dimen_5"
+                    android:layout_marginLeft="@dimen/dimen_10"
                     android:text="系统消息"
                     android:textColor="@color/white"
                     android:textSize="@dimen/textsize_18"/>
@@ -275,7 +280,7 @@
                     android:id="@+id/tv_quit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dimen_5"
+                    android:layout_marginLeft="@dimen/dimen_10"
                     android:text="注销"
                     android:textColor="@color/white"
                     android:textSize="@dimen/textsize_18"/>

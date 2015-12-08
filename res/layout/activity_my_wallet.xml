@@ -1,0 +1,76 @@
+<!-- 服务类表页 -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bule"
+    android:orientation="vertical">
+
+    <!-- 顶部标题 -->
+    <com.topad.view.customviews.TitleView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="15dp"
+        android:paddingLeft="15dp"
+        android:layout_marginTop="20dp"/>
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:background="@color/app_bg"
+        android:layout_below="@id/title">
+
+        <LinearLayout
+            android:id="@+id/scroll_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/gray_bg"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/my_wallet"/>
+
+            <TextView
+                android:id="@+id/tv_money"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="￥3691.66"
+                android:textSize="16sp"
+                android:layout_marginTop="20dp"/>
+
+            <!-- 提现 -->
+            <Button
+                android:id="@+id/btn_cash"
+                style="@style/btn_bule2_borad_style"
+                android:focusable="false"
+                android:text="提现"
+                android:textColor="@color/white"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/tv_need_details_content"/>
+
+            <!-- 充值 -->
+            <Button
+                android:id="@+id/btn_recharge"
+                style="@style/btn_red_my_wallet_borad_style"
+                android:focusable="false"
+                android:text="充值"
+                android:textColor="@color/white"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/tv_need_details_content"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
