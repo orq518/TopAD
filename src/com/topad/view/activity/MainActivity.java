@@ -71,12 +71,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        try {
-            LogUtil.d("获得点击的连接全部内容", getIntent().getDataString());
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            LogUtil.d("e.printStackTrace()", "擦，哥哥不是从短链接进来的！");
-        }
     }
 
     @Override
