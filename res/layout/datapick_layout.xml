@@ -11,38 +11,27 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/bithday_layout"
-        android:background="#ff424542"
+        android:background="@drawable/blue_bg"
         android:orientation="horizontal"
     >
 
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_gravity="center"
-            android:gravity="center_horizontal"
-            android:text="日期"
-            android:textColor="@android:color/white"/>
         <Button
             android:id="@+id/cancel"
-            android:layout_width="80dip"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="35dp"
             android:layout_alignParentLeft="true"
-            android:background="@drawable/mm_title_btn_right"
+            android:background="@drawable/blue_bg"
             android:text="取消"
             android:textColor="@android:color/white"
-
         />
-
-
         <Button
             android:id="@+id/submit"
-            android:layout_width="80dip"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="35dp"
             android:layout_alignParentRight="true"
             android:layout_gravity="right"
-            android:background="@drawable/mm_title_act_btn"
-            android:text="完成"
+            android:background="@drawable/blue_bg"
+            android:text="确定"
             android:textColor="@android:color/white"
         />
     </RelativeLayout>
@@ -52,6 +41,7 @@
         android:layout_height="220dip"
         android:layout_alignParentBottom="true"
         android:gravity="center"
+        android:background="@color/white"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -84,11 +74,11 @@
             />
         </LinearLayout>
 
-        <FrameLayout
+       <!-- <FrameLayout
             android:layout_width="fill_parent"
             android:layout_height="220.0dip"
             android:layout_gravity="center"
             android:background="@drawable/com_ttshrk_view_scroll_picker_background">
-        </FrameLayout>
+        </FrameLayout>-->
     </RelativeLayout>
 </LinearLayout>

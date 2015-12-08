@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">TopAD</string>
-    <string name="main_title">TopAD广告</string>
+    <string name="app_name">集客</string>
+    <string name="main_title">集客广告</string>
     <string name="ads_advertising_creative_title">广告创意</string>
     <string name="ads_marketing_strategy_title">营销策略</string>
     <string name="ads_tvc_title">影视广告</string>
