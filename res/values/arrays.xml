@@ -238,4 +238,18 @@ LED、座椅、出站门头、检票口门头灯箱、玻璃贴、高铁内电�
         <item>县级广播电台</item>
     </string-array>
 
+        <declare-styleable name="SwipeLayout">
+            <attr name="drag_edge" format="enum">
+                <enum name="left" value="0"/>
+                <enum name="right" value="1"/>
+                <enum name="top" value="2"/>
+                <enum name="bottom" value="3"/>
+            </attr>
+            <attr name="show_mode" format="enum">
+                <enum name="lay_down" value="0"/>
+                <enum name="pull_out" value="1"/>
+            </attr>
+        </declare-styleable>
+ 
+
 </resources>

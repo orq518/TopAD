@@ -2,6 +2,9 @@ package com.topad.view.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
+import android.os.Looper;
+import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,14 +13,22 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.topad.R;
 import com.topad.bean.AdServiceBean;
 import com.topad.util.Utils;
 import com.topad.view.customviews.PTRListView;
 import com.topad.view.customviews.PullToRefreshView;
 import com.topad.view.customviews.TitleView;
+import com.topad.view.customviews.mylist.BaseSwipeAdapter;
+import com.topad.view.customviews.mylist.MyListView;
+import com.topad.view.customviews.mylist.SimpleSwipeListener;
+import com.topad.view.customviews.mylist.SwipeLayout;
 
 import java.util.ArrayList;
+import java.util.logging.Handler;
+import java.util.logging.LogRecord;
 
 /**
  * ${todo}<广告服务－广告创意、营销策略、影视广告、动漫创作>
@@ -25,16 +36,16 @@ import java.util.ArrayList;
  * @author lht
  * @data: on 15/10/26 11:06
  */
-public class ADSListActivity extends BaseActivity implements View.OnClickListener, PullToRefreshView.OnFooterRefreshListener {
+public class ADSListActivity extends BaseActivity implements View.OnClickListener {
     private static final String LTAG = ADSListActivity.class.getSimpleName();
     /** 上下文 **/
     private Context mContext;
     /** 顶部布局 **/
     private TitleView mTitleView;
-    /** 下载更多 **/
-    private PullToRefreshView mPullToRefreshView;
     /** listView **/
-    private PTRListView mListView;
+    private MyListView mListView;
+    /** 只是用来模拟异步获取数据 **/
+    private Handler handler;
     /** 适配器 **/
     private ListAdapter adapter;
     /** 数据源 **/
@@ -44,6 +55,22 @@ public class ADSListActivity extends BaseActivity implements View.OnClickListene
     private LinearLayout view;
     /** 类别 **/
     private String category;
+
+    private final int MSG_REFRESH = 1000;
+    private final int MSG_LOADMORE = 2000;
+    protected android.os.Handler mHandler = new android.os.Handler() {
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case MSG_REFRESH:
+
+                    break;
+
+                case MSG_LOADMORE:
+
+                    break;
+            }
+        }
+    };
 
     @Override
     public int setLayoutById() {
@@ -80,23 +107,9 @@ public class ADSListActivity extends BaseActivity implements View.OnClickListene
         }
         mTitleView.setLeftClickListener(new TitleLeftOnClickListener());
 
-        mPullToRefreshView = (PullToRefreshView) view.findViewById(R.id.main_pull_refresh_view);
-//        mPullToRefreshView.hideHeader();
-        mListView = (PTRListView) view.findViewById(R.id.listview);
+        // listview
+        mListView = (MyListView) findViewById(R.id.listview);
 
-        adapter = new ListAdapter();
-        mListView.setAdapter(adapter);
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                Intent intent = new Intent(ADSListActivity.this, ADSDetailsActivity.class);
-                intent.putExtra("title",bankList.get(position).name);
-                startActivity(intent);
-            }
-        });
-
-        initData();
     }
 
     /**
@@ -132,6 +145,58 @@ public class ADSListActivity extends BaseActivity implements View.OnClickListene
 //        }, BankListModel.class);
 
          setData();
+
+        // 设置listview可以加载、刷新
+        mListView.setPullLoadEnable(true);
+        mListView.setPullRefreshEnable(true);
+        // 设置适配器
+        adapter = new ListAdapter(mContext);
+        mListView.setAdapter(adapter);
+
+        // listview单击
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                Intent intent = new Intent(ADSListActivity.this, ADSDetailsActivity.class);
+                intent.putExtra("title",bankList.get(position).name);
+                startActivity(intent);
+            }
+        });
+
+        // 设置回调函数
+        mListView.setMyListViewListener(new MyListView.IMyListViewListener() {
+
+            @Override
+            public void onRefresh() {
+                // 模拟刷新数据，1s之后停止刷新
+                mHandler.postDelayed(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        mListView.stopRefresh();
+                        Toast.makeText(ADSListActivity.this, "refresh",
+                                Toast.LENGTH_SHORT).show();
+                        mHandler.sendEmptyMessage(MSG_REFRESH);
+                    }
+                }, 1000);
+            }
+
+            @Override
+            public void onLoadMore() {
+                mHandler.postDelayed(new Runnable() {
+                    // 模拟加载数据，1s之后停止加载
+                    @Override
+                    public void run() {
+                        mListView.stopLoadMore();
+                        Toast.makeText(ADSListActivity.this, "loadMore",
+                                Toast.LENGTH_SHORT).show();
+                        mHandler.sendEmptyMessage(MSG_LOADMORE);
+                    }
+                }, 1000);
+            }
+        });
+
     }
 
     @Override
@@ -148,24 +213,6 @@ public class ADSListActivity extends BaseActivity implements View.OnClickListene
     }
 
     /**
-     * 下拉监听
-     * @param view
-     */
-    @Override
-    public void onFooterRefresh(PullToRefreshView view) {
-        mPullToRefreshView.postDelayed(new Runnable() {
-
-            @Override
-            public void run() {
-                mPullToRefreshView.onFooterRefreshComplete();
-                Utils.showToast(mContext, "加载更多数据!");
-            }
-
-        }, 2000);
-
-    }
-
-    /**
      * 顶部布局--左按钮事件监听
      */
     public class TitleLeftOnClickListener implements View.OnClickListener {
@@ -177,79 +224,115 @@ public class ADSListActivity extends BaseActivity implements View.OnClickListene
 
     }
 
-    private class ListAdapter extends BaseAdapter {
-        private LayoutInflater mInflater;
+    public class ListAdapter extends BaseSwipeAdapter {
+        // 上下文对象
+        private Context mContext;
+        private ImageView icon;
+        private TextView name;
+        private TextView money;
+        private TextView count;
+        private TextView praise;
+        private TextView companyName;
 
-        public ListAdapter() {
-            mInflater = LayoutInflater.from(mContext);
+        // 构造函数
+        public ListAdapter(Context mContext) {
+            this.mContext = mContext;
+        }
+
+        // SwipeLayout的布局id
+        @Override
+        public int getSwipeLayoutResourceId(int position) {
+            return R.id.swipe;
+        }
+
+        @Override
+        public View generateView(final int position, ViewGroup parent) {
+            View v = LayoutInflater.from(mContext).inflate(R.layout.activity_ad_service_item, parent, false);
+            final SwipeLayout swipeLayout = (SwipeLayout) v.findViewById(getSwipeLayoutResourceId(position));
+
+            // 当隐藏的删除menu被打开的时候的回调函数
+            swipeLayout.addSwipeListener(new SimpleSwipeListener() {
+                @Override
+                public void onOpen(SwipeLayout layout) {
+                    Toast.makeText(mContext, "Open", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            // 双击的回调函数
+            swipeLayout.setOnDoubleClickListener(new SwipeLayout.DoubleClickListener() {
+                        @Override
+                        public void onDoubleClick(SwipeLayout layout,
+                                                  boolean surface) {
+                            Toast.makeText(mContext, "DoubleClick",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+            // 添加删除布局的点击事件
+            v.findViewById(R.id.ll_menu).setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View arg0) {
+                    Toast.makeText(mContext, "delete", Toast.LENGTH_SHORT).show();
+                    // 点击完成之后，关闭删除menu
+                    swipeLayout.close();
+                    bankList.remove(position);
+                    notifyDataSetChanged();
+        }
+    });
+
+            return v;
+        }
+
+        // 对控件的填值操作独立出来了，我们可以在这个方法里面进行item的数据赋值
+        @Override
+        public void fillValues(int position, View convertView) {
+
+            icon = (ImageView) convertView.findViewById(R.id.ads_icon);
+            name = (TextView) convertView.findViewById(R.id.tv_name);
+            money = (TextView) convertView.findViewById(R.id.tv_money);
+            count = (TextView) convertView.findViewById(R.id.tv_count);
+            praise = (TextView) convertView.findViewById(R.id.tv_praise);
+            companyName = (TextView) convertView.findViewById(R.id.tv_companyName);
+
+            name.setText(bankList.get(position).name);
+            money.setText(bankList.get(position).money);
+            count.setText(bankList.get(position).count);
+            praise.setText(bankList.get(position).praise);
+            companyName.setText(bankList.get(position).companyName);
+
+            switch (position){
+                case 0:
+                    icon.setImageResource(R.drawable.product0);
+                    break;
+                case 1:
+                    icon.setImageResource(R.drawable.product1);
+                    break;
+                case 2:
+                    icon.setImageResource(R.drawable.product2);
+                    break;
+                case 3:
+                    icon.setImageResource(R.drawable.product3);
+                    break;
+            }
+
         }
 
         @Override
         public int getCount() {
-            // TODO Auto-generated method stub
             return bankList.size();
         }
 
         @Override
-        public Object getItem(int arg0) {
-            // TODO Auto-generated method stub
-            return bankList.get(arg0);
+        public Object getItem(int position) {
+            return bankList.get(position);
         }
 
         @Override
-        public long getItemId(int arg0) {
-            // TODO Auto-generated method stub
-            return arg0;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            ViewHolder holder = null;
-            if (convertView == null) {
-                convertView = mInflater.inflate((R.layout.activity_ad_service_item_layout), null);
-                holder = new ViewHolder();
-                holder.icon = (ImageView) convertView.findViewById(R.id.ads_icon);
-                holder.name = (TextView) convertView .findViewById(R.id.tv_name);
-                holder.money = (TextView) convertView .findViewById(R.id.tv_money);
-                holder.count = (TextView) convertView .findViewById(R.id.tv_count);
-                holder.praise = (TextView) convertView .findViewById(R.id.tv_praise);
-                holder.companyName = (TextView) convertView .findViewById(R.id.tv_companyName);
-
-
-
-                convertView.setTag(holder);
-            } else {
-                holder = (ViewHolder) convertView.getTag();
-            }
-
-            holder.name.setText(bankList.get(position).name);
-//            switch (position){
-//                case 0:
-//                    holder.icon.setImageDrawable(getDrawable(R.drawable.product0));
-//                    break;
-//                case 1:
-//                    holder.icon.setImageDrawable(getDrawable(R.drawable.product1));
-//                    break;
-//                case 2:
-//                    holder.icon.setImageDrawable(getDrawable(R.drawable.product2));
-//                    break;
-//                case 3:
-//                    holder.icon.setImageDrawable(getDrawable(R.drawable.product3));
-//                    break;
-//            }
-            return convertView;
-        }
-
-        class ViewHolder {
-            ImageView icon;
-            TextView name;
-            TextView money;
-            TextView count;
-            TextView praise;
-            TextView companyName;
+        public long getItemId(int position) {
+            return position;
         }
     }
-
     /**
      * 设置数据--测试
      */
@@ -295,3 +378,4 @@ public class ADSListActivity extends BaseActivity implements View.OnClickListene
         bankList.add(bModel4);
     }
 }
+

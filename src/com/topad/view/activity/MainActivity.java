@@ -416,6 +416,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                 startActivity(intent);
                 break;
             case R.id.quit://注销
+                intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
                 break;
 
         }

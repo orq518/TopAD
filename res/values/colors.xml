@@ -4,7 +4,7 @@
     <color name="white">#ffffff</color>
     <color name="black">#ff000000</color>
     <color name="gray">#ded6d6</color>
-    <color name="gray_bg">#f3f3f3</color>
+    <color name="gray_bg">#f8f8f8</color>
     <color name="green">#FF74DC3C</color>
     <color name="bule">#343c60</color>
     <color name="bule2">#0861b9</color>
@@ -13,6 +13,7 @@
     <color name="powder">#FFDA2982</color>
     <color name="yellow">#FFD9D926</color>
     <color name="hot">#FFDA0B31</color>
+    <color name="hots">#FFD91D0C</color>
     <color name="text_bg">#ff444444</color>
     <color name="text_gray_bg">#ff9b9b9b</color>
     <color name="tv_bule">#13b5ea</color>
@@ -24,7 +25,7 @@
 
     <color name="title_bg">#ffffffff</color>
     <color name="dark_gray">#333333</color>
-    <color name="dark_gray_text">#555555</color>
+    <color name="dark_gray_text">#dddddd</color>
     <color name="app_bg">#f5f5f9</color>
     <color name="tab_item_default">#fafafa</color>
     <color name="tab_item_selected">#f0f1f2</color>
