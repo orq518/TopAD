@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.topad.R;
 import com.topad.util.LogUtil;
+import com.topad.util.PickPicture;
 import com.topad.util.PictureUtil;
 
 import java.io.File;
@@ -74,7 +75,7 @@ public class SelectPicPopupWindow extends Activity implements OnClickListener {
 			intent.putExtra("path",mCurrentPhotoPath);
 		}else {
 			Uri mImageCaptureUri = data.getData();
-			intent.putExtra("path",getAbsoluteImagePath(mImageCaptureUri));
+			intent.putExtra("path", PickPicture.getImageAbsolutePath(SelectPicPopupWindow.this,mImageCaptureUri));
 			//选择完或者拍完照后会在这里处理，然后我们继续使用setResult返回Intent以便可以传递数据和调用
 //			if (data.getExtras() != null)
 //				intent.putExtras(data.getExtras());
@@ -86,21 +87,6 @@ public class SelectPicPopupWindow extends Activity implements OnClickListener {
 
 	}
 	String mCurrentPhotoPath;
-	protected String getAbsoluteImagePath(Uri uri)
-	{
-		// can post image
-		String [] proj={MediaStore.Images.Media.DATA};
-		Cursor cursor = managedQuery( uri,
-				proj,                 // Which columns to return
-				null,       // WHERE clause; which rows to return (all rows)
-				null,       // WHERE clause selection arguments (none)
-				null);                 // Order-by clause (ascending by name)
-
-		int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-		cursor.moveToFirst();
-
-		return cursor.getString(column_index);
-	}
 	/**
 	 * 拍照
 	 */
