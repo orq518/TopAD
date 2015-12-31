@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+
+   
+    <!-- 中间的背景色 -->
+    <solid android:color="@color/bule" />
+    <!-- 设置四个角的角度 -->
+    <corners
+        android:topRightRadius="0dp"
+        android:topLeftRadius="0dp"
+        android:bottomLeftRadius="0dp"
+        android:bottomRightRadius="0dp" />
+
+</shape>

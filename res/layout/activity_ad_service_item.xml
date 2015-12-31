@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="15dp"
+    android:background="@color/gray_bg">
+
+    <com.topad.view.customviews.mylist.SwipeLayout
+        android:id="@+id/swipe"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <!-- 广告服务列表item,删除 -->
+        <LinearLayout
+            android:id="@+id/ll_menu"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/holo_red_light"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="删除"
+                android:textColor="#ffffff"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <!-- 广告服务列表item -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/dark_gray_text"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:background="@color/white">
+
+                <!-- 左 -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_weight="2"
+                    android:layout_marginLeft="15dp">
+
+                    <ImageView
+                        android:id="@+id/ads_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="15dp"
+                        android:src="@drawable/product0"
+                        android:layout_alignParentRight="true"/>
+
+                    <ImageView
+                        android:id="@+id/ads_auth_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:background="@drawable/ads_icon_rz_ok"
+                        android:layout_below="@id/ads_icon"
+                        android:layout_alignParentRight="true"/>
+
+                </RelativeLayout>
+
+                <!-- 右 -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tv_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|left"
+                        android:text="名字山东科技发达是克己复礼看电视减肥了可是当减肥了看电视"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_money"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|left"
+                        android:text="￥50000/单品"
+                        android:textSize="16sp"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/hot"
+                        android:layout_below="@id/tv_name"/>
+
+                    <RelativeLayout
+                        android:id="@+id/layout_count"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_money"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:id="@+id/tv_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical|left"
+                            android:text="已出售：15笔"
+                            android:textSize="16sp"
+                            android:layout_alignParentLeft="true"
+                            android:textColor="@color/text_gray_bg"/>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@id/tv_count"
+                            android:layout_alignParentRight="true">
+
+
+                            <TextView
+                                android:id="@+id/tv_praise"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical|right"
+                                android:text="100%"
+                                android:textSize="16sp"
+                                android:layout_alignParentRight="true"
+                                android:textColor="@color/text_gray_bg"/>
+
+                            <ImageView
+                                android:id="@+id/ads_good_icon"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/ads_icon_good"
+                                android:layout_toLeftOf="@id/tv_praise"
+                                android:layout="@id/tv_praise"
+                                android:layout_marginRight="5dp"/>
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/tv_companyName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|left"
+                        android:text="公司名"
+                        android:textSize="16sp"
+                        android:layout_marginTop="10dp"
+                        android:layout_below="@id/layout_count"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/dark_gray_text" />
+
+        </LinearLayout>
+
+    </com.topad.view.customviews.mylist.SwipeLayout>
+
+</LinearLayout>

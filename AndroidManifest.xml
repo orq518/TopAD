@@ -65,10 +65,11 @@
             android:name="com.amap.api.v2.apikey"
             android:value="050d29edd4e2174008315b46165a39d9"/>
 
-        <!-- 登录页 -->
+
+        <!-- 闪屏页 -->
         <activity
-            android:name=".view.activity.LoginActivity"
-            android:theme="@style/AppTheme">
+            android:name=".view.activity.LaunchActivity"
+            android:theme="@style/FullBleedTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
@@ -76,6 +77,16 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="com.readystatesoftware.systembartint.SAMPLE"/>
+            </intent-filter>
+        </activity>
+
+        <!-- 登录页 -->
+        <activity
+            android:name=".view.activity.LoginActivity"
+            android:theme="@style/FullBleedTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.readystatesoftware.systembartint.SAMPLE" />
             </intent-filter>
         </activity>
 
