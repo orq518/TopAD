@@ -1,4 +1,4 @@
-<!-- 服务类表页 -->
+<!-- 登录页 -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -35,43 +35,78 @@
                 android:orientation="vertical"
                 android:background="@color/white">
 
-                <EditText
-                    android:id="@+id/et_username"
-                    android:layout_width="fill_parent"
-                    android:layout_height="48dp"
-                    android:background="@drawable/bg_edittext"
-                    android:drawableLeft="@drawable/login_register_mobile"
-                    android:drawablePadding="15dp"
-                    android:paddingLeft="15dp"
-                    android:textColorHint="#AAAAAA"
-                    android:textSize="15dp"
-                    android:singleLine="true"
-                    android:hint="输入手机号码"
-                    android:layout_marginTop="50dp"
-                    android:layout_marginBottom="20dp"
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:inputType="number"
-                    android:completionThreshold="1"
-                    android:maxLength="11"/>
+                    android:layout_marginTop="20dp">
 
-                <EditText
-                    android:id="@+id/et_password"
-                    android:layout_width="fill_parent"
-                    android:layout_height="48dp"
-                    android:background="@drawable/bg_edittext"
-                    android:drawableLeft="@drawable/login_register_key"
-                    android:drawablePadding="15dp"
-                    android:paddingLeft="15dp"
-                    android:textColorHint="#AAAAAA"
-                    android:textSize="15dip"
-                    android:singleLine="true"
-                    android:hint="设置密码"
-                    android:layout_marginBottom="50dp"
+                    <TextView
+                        android:layout_width="50dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/login_edit_left"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:layout_alignParentLeft="true"
+                        android:visibility="visible"/>
+
+                    <EditText
+                        android:id="@+id/et_username"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/login_edit"
+                        android:drawableLeft="@drawable/login_register_mobile"
+                        android:drawablePadding="15dp"
+                        android:paddingLeft="15dp"
+                        android:textColorHint="#AAAAAA"
+                        android:textSize="15dp"
+                        android:singleLine="true"
+                        android:hint="&#160;&#160;输入手机号码"
+                        android:inputType="number"
+                        android:completionThreshold="1"
+                        android:maxLength="11"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:maxLength="20"
-                    android:inputType="textPassword"/>
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="50dp">
+
+                    <TextView
+                        android:layout_width="50dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/login_edit_left"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:layout_alignParentLeft="true"
+                        android:visibility="visible"/>
+
+                    <EditText
+                        android:id="@+id/et_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/bg_edittext"
+                        android:drawableLeft="@drawable/login_register_key"
+                        android:drawablePadding="15dp"
+                        android:paddingLeft="15dp"
+                        android:textColorHint="#AAAAAA"
+                        android:textSize="15dp"
+                        android:singleLine="true"
+                        android:hint="&#160;设置密码"
+                        android:inputType="textPassword"
+                        android:completionThreshold="1"
+                        android:maxLength="20"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"/>
+
+                </RelativeLayout>
 
             </LinearLayout>
 
