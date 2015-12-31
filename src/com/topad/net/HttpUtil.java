@@ -114,7 +114,7 @@ public class HttpUtil {
                             final LoadingDialogCalback loadingDialogCallback,
                             final boolean needResultCode) {
 
-        rp.add("t_channel", Constants.T_CHANNEL);
+//        rp.add("t_channel", Constants.T_CHANNEL);
 
         LogUtil.d("-------------post--------------------");
 
@@ -152,7 +152,7 @@ public class HttpUtil {
             LogUtil.d("###加密后data:" + data);
 
         }
-        rp.add("ver", Utils.softVersion(ctx));
+//        rp.add("ver", Utils.softVersion(ctx));
         LogUtil.d("###地址参数->：" + rp.toString());
 
         final long aes_end = System.currentTimeMillis();
@@ -182,52 +182,43 @@ public class HttpUtil {
                     long decode = System.currentTimeMillis();
                     LogUtil.d("post elapse", "decode time is: " + (decode - success));
 
+                    // 解析错误码请求
+                    int status = 0;// 状态码
+                    String msg = null;// 错误信息
+
                     try {
-                        // 解析错误码请求
                         final JSONObject respObj = new JSONObject(decodedStr);
-                        final String errno = respObj.optString("errno");// 状态码
-                        final String error = respObj.optString("error");// 错误信息
-                        final String data = respObj.optString("data");// 数据
+                        status = respObj.optInt("status");// 状态码
+                        msg = respObj.optString("msg");// 错误信息
 
+                        T model = JSONUtils.fromJson(decodedStr, clazz);
 
-                        LogUtil.d("errno: " + (errno));
-                        LogUtil.d("error: " + error);
-                        LogUtil.d("data:" + (data));
-
+                        // Json解析时出错
+                        if (null == model) {
+                            BaseBean b = new BaseBean();
+                            b.setStatus(-1);
+                            b.setMsg("数据解析错误");
+                            callback.onFailure(b);
+                        }
 
                         // 成功
-                        if (("0".equals(errno))) {
+                        if (status == 10000) {
                             loadingDialogCallback.closeDialog();
-
-                            if (TextUtils.isEmpty(data)) {   //操作成功，data为空不需要有值，只需要respStatusCode，eg;注册操作
-                                callback.onModel(errno, error, null);
-                                return;
-                            }
-
-                            T model = JSONUtils.fromJson(data, clazz);
-
-                            if (null == model) {//Json解析时出错
-                                BaseBean b = new BaseBean();
-                                b.setRespStatusCode(errno);
-                                b.setRespErrorMsg("数据解析错误");
-                                callback.onFailure(b);
-                            } else {
-
-                                callback.onModel(errno, error, model);
-                            }
+                            callback.onModel(status, msg, model);
                         }
                         // 失败
                         else {
                             loadingDialogCallback.closeDialog();
-                            String finalRespErrorMsg = error;
-                            if (Utils.isEmpty(error)) {
+
+                            String finalRespErrorMsg = msg;
+                            if (Utils.isEmpty(msg)) {
                                 finalRespErrorMsg = "未知错误";
                             }
 
                             final String finalRespErrorMsg1 = finalRespErrorMsg;
                             final BaseBean b = new BaseBean();
-                            b.setRespStatusCode(errno);
-                            b.setRespErrorMsg(finalRespErrorMsg1);
+                            b.setStatus(status);
+                            b.setMsg(finalRespErrorMsg1);
 
                             // 失败时，返回code码
                             if (needResultCode) {
@@ -236,25 +227,17 @@ public class HttpUtil {
                             }
                             // 不返回code，弹出统一对话框
                             else {
-//                                DialogManager.showDialog(ctx,"提示", error, "", "我知道了" ,null, new OnClickListener() {
-//                                    @Override
-//                                    public void onClick(View v) {
-//                                        loadingDialogCallback.closeDialog();
-//                                        callback.onFailure(b);
-//                                    }
-//                                },false, null);
                                 loadingDialogCallback.closeDialog();
                                 callback.onFailure(b);
-                                Utils.showToast(ctx, error);
+                                Utils.showToast(ctx, msg);
                             }
-
-
                         }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+                        long json_time = System.currentTimeMillis();
+                        LogUtil.d("post elapse", "create json time is: " + (json_time - decode));
+                    } catch (Exception e) {
+                        loadingDialogCallback.closeDialog();
                     }
-                    long json_time = System.currentTimeMillis();
-                    LogUtil.d("post elapse", "create json time is: " + (json_time - decode));
+
                 } else {
                     LogUtil.d("obj is null or empty!");
                 }
@@ -275,24 +258,9 @@ public class HttpUtil {
                     rString = "未知错误";
                 }
                 final String tmpStr = rString;
-//                DialogManager.showDialog(ctx,"提示",tmpStr,"","我知道了",null,new OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        BaseBean b = new BaseBean();
-//                        b.setRespStatusCode(statusCode + "");
-//                        b.setRespErrorMsg(tmpStr);
-//                        loadingDialogCallback.closeDialog();
-//                        callback.onFailure(b);
-//                    }
-//                },false, new OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//
-//                    }
-//                });
                 BaseBean b = new BaseBean();
-                b.setRespStatusCode(statusCode + "");
-                b.setRespErrorMsg(tmpStr);
+                b.setStatus(statusCode);
+                b.setMsg(tmpStr);
                 loadingDialogCallback.closeDialog();
                 callback.onFailure(b);
                 Utils.showToast(ctx, tmpStr);
@@ -302,24 +270,9 @@ public class HttpUtil {
                 LogUtil.d("ERR_SERVER_ERROR failed code->" + statusCode);
                 if (ctx != null) {
                     String msg = ctx.getString(R.string.connect_error);
-//                    DialogManager.showDialog(ctx,"提示",msg,"","我知道了",null,new OnClickListener() {
-//                        @Override
-//                        public void onClick(View v) {
-//                            BaseBean b = new BaseBean();
-//                            b.setRespStatusCode(ErrorCode.ERR_SERVER_ERROR + "");
-//                            b.setRespErrorMsg(ctx.getString(R.string.connect_error));
-//                            loadingDialogCallback.closeDialog();
-//                            callback.onFailure(b);
-//                        }
-//                    },false, new OnClickListener() {
-//                        @Override
-//                        public void onClick(View view) {
-//
-//                        }
-//                    });
                     BaseBean b = new BaseBean();
-                    b.setRespStatusCode(ErrorCode.ERR_SERVER_ERROR + "");
-                    b.setRespErrorMsg(ctx.getString(R.string.connect_error));
+                    b.setStatus(ErrorCode.ERR_SERVER_ERROR);
+                    b.setMsg(ctx.getString(R.string.connect_error));
                     loadingDialogCallback.closeDialog();
                     callback.onFailure(b);
                     Utils.showToast(ctx, msg);
@@ -329,27 +282,9 @@ public class HttpUtil {
             public void onTimeout() {
                 if (ctx != null) {
                     String msg = ctx.getString(R.string.connect_timeout);
-
-//                    DialogManager.showDialog(ctx,"提示",msg,"","我知道了",null,new OnClickListener() {
-//                        @Override
-//                        public void onClick(View v) {
-//                            BaseBean b = new BaseBean();
-//                            b.setRespStatusCode(ErrorCode.ERR_HTTP_TIMEOUT
-//                                    + "");
-//                            b.setRespErrorMsg(ctx.getString(R.string.connect_timeout));
-//                            loadingDialogCallback.closeDialog();
-//                            callback.onFailure(b);
-//                        }
-//                    },false, new OnClickListener() {
-//                        @Override
-//                        public void onClick(View view) {
-//
-//                        }
-//                    });
                     BaseBean b = new BaseBean();
-                    b.setRespStatusCode(ErrorCode.ERR_HTTP_TIMEOUT
-                            + "");
-                    b.setRespErrorMsg(ctx.getString(R.string.connect_timeout));
+                    b.setStatus(ErrorCode.ERR_HTTP_TIMEOUT);
+                    b.setMsg(ctx.getString(R.string.connect_timeout));
                     loadingDialogCallback.closeDialog();
                     callback.onFailure(b);
                     Utils.showToast(ctx, msg);

@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 import com.topad.R;
 
-
 /**
  * ${todo}<loading进度条>
  *
@@ -54,7 +53,7 @@ public class CircleProgressDialog extends Dialog {
         // 不能取消
         this.setCancelable(false);
         // 按搜索键也不会影响进度条显示
-        this.setOnKeyListener(new DialogInterface.OnKeyListener() {
+        this.setOnKeyListener(new OnKeyListener() {
 
             public boolean onKey(DialogInterface dialog, int keyCode,
                                  KeyEvent event) {

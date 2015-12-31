@@ -144,7 +144,7 @@ public class ADSListActivity extends BaseActivity implements View.OnClickListene
 //            }
 //        }, BankListModel.class);
 
-         setData();
+        setData();
 
         // 设置listview可以加载、刷新
         mListView.setPullLoadEnable(true);

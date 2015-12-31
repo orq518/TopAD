@@ -13,90 +13,29 @@ public class Constants {
     // 登录
     public static final String URL_LOGIN = "/user/login";
     // 注册
-    public static final String URL_REGISTER = "/register/post";
-    // 获取手机绑定的邀请码
-    public static final String URL_REGISTER_INVITE_CODE = "/register/invite_code";
-    // 邀请首页
-    public static final String URL_INVITE_INDEX = "/invite/index";
-    // 忘记密码设置登录密码
-    public static final String URL_PASSWORD_SET = "/password/set";
-    // 注册设置登录密码
-    public static final String URL_SET_LOGIN_PASSWORD = "/register/set_password";
-    // 忘记密码
-    public static final String URL_FORGET_PASSWORD = "/password/find";
-    // 首页（理财）
-    public static final String URL_INDEX = "/index/index";
-    // 理财预约购买
-    public static final String URL_PRE_POST = "/pre/post";
-    // 理财预约购买确认页
-    public static final String URL_PRE_CONFIRM = "/pre/confirm";
-    // 赎回
-    public static final String URL_REDEEM_POST = "/redeem/post";
-    // 发送验证码
-    public static final String URL_REGISTET_SEND_CODE = "/register/send_vcode";
-    public static final String URL_PASSWORD_SEND_CODE = "/password/send_vcode";
-    // 验证验证码
-    public static final String URL_REGISTET_CODE_VERIFY = "/register/check_vcode";
-    public static final String URL_PASSWORD_CODE_VERIFY = "/password/check_vcode";
-    // 充值
-    public static final String URL_RECHARGE = "/charge/post";
-    // 认购协议
-    public static final String URL_TENDER_AGREEMENT = "/tender/agreement";
-    // 财富
-    public static final String URL_WEALTH = "/account/info";
-    // 实名认证
-    public static final String URL_AUTH = "/user/auth";
-    // 提现
-    public static final String URL_WITHDRAW_CASH = "/cash/post";
-    // 已购债权
-    public static final String URL_TENDER_DEBTS = "/tender/debts";
-    // 预约债权
-    public static final String URL_PRE_LIST = "/pre/list";
-    // 资金记录
-    public static final String URL_ACCOUNT_LOG = "/account/log";
-    // 修改登录密码
-    public static final String URL_CHANGE_LOGIN_PWD = "/user/chg_pwd";
-    // 关于我们
-    public static final String URL_ABOUT_US = "/about/us";
-    // 常见问题
-    public static final String URL_ABOUT_FAQ = "/about/faq";
-    // 注册协议
-    public static final String URL_REGISTER_AGREEMENT = "/register/agreement";
-    // 活期详情
-    public static final String URL_TENDER_DETAIL = "/tender/detail";
-    //launch页图片
-    public static final String URL_INDEX_START = "/index/start";
-    // 钱包登陆信息
-    public static final String URL_WALLET_LOGIN = "/wallet/login";
-    // 活动规则
-    public static final String URL_INVITE_RULE = "/invite/rule";
-    // 我的邀请
-    public static final String URL_INVITE_LIST = "/invite/list";
-    //业务的url拼接
-    public static final String URL_BANK_LINES_LIST = "/bankLimitList.html";
-    // 关于活期
-    public static final String URL_ABOUT_HUOQI = "/tender/introduce";
-    //版本更新
-    public static final String URL_VERSION_UPDATE = "/about/version_update";
+    public static final String URL_REGISTER = "/user/register";
+    // 获取验证码
+    public static final String URL_GETCODE = "/user/getcode";
+
     /********* END *********/
 
     /**
      * 测试环境
      */
-    public static final String URL_TEST = "http://test3.api.mantoulicai.com";
+    public static final String URL_TEST = "http://topad.uput.cn/";
     /**
      * 生产环境
      */
-    public static final String URL_PUBLISH = "http://api.hongdoulicai.com";
+    public static final String URL_PUBLISH = "http://topad.uput.cn/";
 
 
     // 当前环境，默认测试环境
-    public static String CURR_URL = URL_PUBLISH;
+    public static String CURR_URL = URL_TEST;
 
     // 钱包的环境  true 表示线上环境  false 测试环境
-    public static boolean WALLET_ONLINE = true;
+    public static boolean WALLET_ONLINE = false;
     // 支付的环境  true 表示线上环境  false 测试环境
-    public static boolean PAY_ONLINE = true;
+    public static boolean PAY_ONLINE = false;
 
     /**
      * 获取当前环境
