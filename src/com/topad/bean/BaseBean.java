@@ -15,37 +15,25 @@ public class BaseBean implements Serializable {
     /**
      * 状态码
      */
-    protected String respStatusCode;
+    protected int status;
     /**
      * error信息
      */
-    protected String respErrorMsg;
-    /**
-     * 数据
-     */
-    protected String respData;
+    protected String msg;
 
-    public void setRespData(String respData) {
-        this.respData = respData;
+    public int getStatus() {
+        return status;
     }
 
-    public void setRespStatusCode(String respStatusCode) {
-        this.respStatusCode = respStatusCode;
+    public void setStatus(int status) {
+        this.status = status;
     }
 
-    public void setRespErrorMsg(String respErrorMsg) {
-        this.respErrorMsg = respErrorMsg;
+    public String getMsg() {
+        return msg;
     }
 
-    public String getRespStatusCode() {
-        return respStatusCode;
-    }
-
-    public String getRespData() {
-        return respData;
-    }
-
-    public String getRespErrorMsg() {
-        return respErrorMsg;
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 }

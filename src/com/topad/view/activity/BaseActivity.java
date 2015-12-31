@@ -123,7 +123,7 @@ public abstract class BaseActivity extends FragmentActivity implements OnClickLi
             if(base == null){
                 base = new BaseBean();
             }
-            base.setRespStatusCode("-1");
+            base.setStatus(-1);
             callback.onFailure(base);
 
             Utils.showToast(this, getString(R.string.no_connection));
@@ -155,7 +155,7 @@ public abstract class BaseActivity extends FragmentActivity implements OnClickLi
                 base = new BaseBean();
             }
             Utils.showToast(this, this.getString(R.string.no_connection));
-            base.setRespStatusCode("-1");
+            base.setStatus(-1);
             callback.onFailure(base);
             return ;
         }
@@ -184,8 +184,8 @@ public abstract class BaseActivity extends FragmentActivity implements OnClickLi
             }
             closeProgressDialog();
             Utils.showToast(this, getString(R.string.no_connection));
-            base.setRespStatusCode("-1");
-            base.setRespErrorMsg(getString(R.string.no_connection));
+            base.setStatus(-1);
+            base.setMsg(getString(R.string.no_connection));
             callback.onFailure(base);
             return ;
         }

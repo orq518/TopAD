@@ -14,7 +14,7 @@ public abstract class HttpCallback {
 	 * @param t    				模板model类
 	 * @param <T>
 	 */
-	public abstract <T> void onModel(String respStatusCode, String respErrorMsg, T t);
+	public abstract <T> void onModel(int respStatusCode, String respErrorMsg, T t);
 
 	/**
 	 * 

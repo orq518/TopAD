@@ -6,7 +6,7 @@ public class LogUtil {
 
 	public static final boolean showDebug = true;
 
-	private static final String TAG = "wallet";
+	private static final String TAG = "TopAD";
 
 
 	/**

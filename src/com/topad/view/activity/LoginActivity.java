@@ -9,6 +9,13 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.topad.R;
+import com.topad.amap.ToastUtil;
+import com.topad.bean.BaseBean;
+import com.topad.bean.LoginBean;
+import com.topad.net.HttpCallback;
+import com.topad.net.http.RequestParams;
+import com.topad.util.Constants;
+import com.topad.util.Md5;
 import com.topad.util.Utils;
 import com.topad.view.customviews.TitleView;
 
@@ -55,13 +62,13 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
         mBTLogin = (Button) findViewById(R.id.btn_login);
 
         mBTLogin.setOnClickListener(this);
+
         // 设置登录按钮
-        setNextBtnState(true);
+        setNextBtnState(false);
     }
 
     @Override
     public void initData() {
-
         showView();
     }
 
@@ -171,14 +178,41 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
         switch (v.getId()) {
             // 登录
             case R.id.btn_login:
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
+
+                // 拼接url
+                StringBuffer sb = new StringBuffer();
+                sb.append(Constants.getCurrUrl()).append(Constants.URL_LOGIN).append("?");
+                String url = sb.toString();
+                RequestParams rp=new RequestParams();
+                rp.add("mobile", mUserName);
+                rp.add("pwd",  Md5.md5s(mPassword));
+
+                postWithLoading(url, rp, false, new HttpCallback() {
+                    @Override
+                    public <T> void onModel(int respStatusCode, String respErrorMsg, T t) {
+
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+
+                    @Override
+                    public void onFailure(BaseBean base) {
+                        int status = base.getStatus();// 状态码
+                        String msg = base.getMsg();// 错误信息
+                        ToastUtil.show(mContext, "status = " + status + "\n"
+                                + "msg = " + msg);
+                    }
+                }, LoginBean.class);
+
+
                 break;
             default:
                 break;
         }
     }
+
+
 
     /**
      * 去除EditText的空格

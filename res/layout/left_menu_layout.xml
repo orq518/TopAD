@@ -1,22 +1,27 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="@color/toast_bg"
-              android:orientation="vertical">
-    <ScrollView android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:background="@color/touming_bg">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/toast_bg"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/touming_bg">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-            <LinearLayout android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:layout_gravity="center_horizontal"
-                          android:layout_marginTop="@dimen/dimen_20"
-                          android:gravity="center"
-                          android:orientation="horizontal"
-                          android:padding="@dimen/dimen_10">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/dimen_20"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="@dimen/dimen_10">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -32,8 +37,12 @@
                     android:textSize="@dimen/textsize_18"/>
 
             </LinearLayout>
-            <View android:layout_width="fill_parent" android:layout_height="1dp"
-                  android:background="@color/text_bg"/>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="@color/text_bg"/>
+
             <LinearLayout
                 android:id="@+id/csmm"
                 android:layout_width="fill_parent"
@@ -59,6 +68,7 @@
                     android:textColor="@color/white"
                     android:textSize="@dimen/textsize_18"/>
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/wszl"
                 android:layout_width="fill_parent"
@@ -75,6 +85,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/left_qiangdan"/>
+
                 <TextView
                     android:id="@+id/tv_wszl"
                     android:layout_width="wrap_content"
@@ -83,7 +94,9 @@
                     android:text="完善资料"
                     android:textColor="@color/white"
                     android:textSize="@dimen/textsize_18"/>
+
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/gsrz"
                 android:layout_width="fill_parent"
@@ -100,6 +113,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/left_renzheng"/>
+
                 <TextView
                     android:id="@+id/tv_gsrz"
                     android:layout_width="wrap_content"
@@ -108,7 +122,9 @@
                     android:text="公司认证"
                     android:textColor="@color/white"
                     android:textSize="@dimen/textsize_18"/>
+
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/cpsj"
                 android:layout_width="fill_parent"
@@ -125,6 +141,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/left_products"/>
+
                 <TextView
                     android:id="@+id/tv_cpsj"
                     android:layout_width="wrap_content"
@@ -133,7 +150,9 @@
                     android:text="我的服务产品设计"
                     android:textColor="@color/white"
                     android:textSize="@dimen/textsize_18"/>
+
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/wdqd"
                 android:layout_width="fill_parent"
@@ -150,6 +169,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/left_qiangdan"/>
+
                 <TextView
                     android:id="@+id/tv_wdqd"
                     android:layout_width="wrap_content"
@@ -158,7 +178,9 @@
                     android:text="我的抢单"
                     android:textColor="@color/white"
                     android:textSize="@dimen/textsize_18"/>
+
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/wdxq"
                 android:layout_width="fill_parent"
@@ -175,6 +197,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/left_demands"/>
+
                 <TextView
                     android:id="@+id/tv_wdxq"
                     android:layout_width="wrap_content"
@@ -183,7 +206,9 @@
                     android:text="我的需求"
                     android:textColor="@color/white"
                     android:textSize="@dimen/textsize_18"/>
+
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/fbmt"
                 android:layout_width="fill_parent"
@@ -200,6 +225,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/left_media"/>
+
                 <TextView
                     android:id="@+id/tv_fbmt"
                     android:layout_width="wrap_content"
@@ -208,7 +234,9 @@
                     android:text="我发布的媒体"
                     android:textColor="@color/white"
                     android:textSize="@dimen/textsize_18"/>
+
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/wdqb"
                 android:layout_width="fill_parent"
@@ -225,6 +253,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/left_wallet"/>
+
                 <TextView
                     android:id="@+id/tv_wdqb"
                     android:layout_width="wrap_content"
@@ -233,7 +262,9 @@
                     android:text="我的钱包"
                     android:textColor="@color/white"
                     android:textSize="@dimen/textsize_18"/>
+
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/xtxx"
                 android:layout_width="fill_parent"
@@ -250,6 +281,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/left_message"/>
+
                 <TextView
                     android:id="@+id/tv_xtxx"
                     android:layout_width="wrap_content"
@@ -258,7 +290,9 @@
                     android:text="系统消息"
                     android:textColor="@color/white"
                     android:textSize="@dimen/textsize_18"/>
+
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/quit"
                 android:layout_width="fill_parent"
@@ -276,6 +310,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/left_zhux"/>
+
                 <TextView
                     android:id="@+id/tv_quit"
                     android:layout_width="wrap_content"
@@ -284,7 +319,11 @@
                     android:text="注销"
                     android:textColor="@color/white"
                     android:textSize="@dimen/textsize_18"/>
+
             </LinearLayout>
+
         </LinearLayout>
+
     </ScrollView>
+
 </LinearLayout>
