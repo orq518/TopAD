@@ -2,7 +2,12 @@ package com.topad.view.customviews;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.ListView;
+
+import com.topad.bean.AdServiceBean;
+import com.topad.util.LogUtil;
 
 /**
  * ${todo}<下拉刷新的ListView>
@@ -13,6 +18,7 @@ import android.widget.ListView;
  * @data: on 15/7/22 18:17
  */
 public class PTRListView extends ListView {
+	private static final String TAG = "PTRListView";
 
 	public PTRListView(Context context, AttributeSet attrs) {
 		super(context, attrs);

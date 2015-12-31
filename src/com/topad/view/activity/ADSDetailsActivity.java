@@ -169,11 +169,11 @@ public class ADSDetailsActivity extends BaseActivity implements OnClickListener 
         private Context context;
         //图片数组
         private Integer[] imgs = {
-                R.drawable.homepage_icon_manage, R.drawable.homepage_icon_manage, R.drawable.homepage_icon_manage,
-                R.drawable.homepage_icon_manage, R.drawable.homepage_icon_manage, R.drawable.homepage_icon_manage,
-                R.drawable.homepage_icon_manage, R.drawable.homepage_icon_manage, R.drawable.homepage_icon_manage,
-                R.drawable.homepage_icon_manage, R.drawable.homepage_icon_manage, R.drawable.homepage_icon_manage,
-                R.drawable.homepage_icon_manage, R.drawable.homepage_icon_manage, R.drawable.homepage_icon_manage
+                R.drawable.product0, R.drawable.product1, R.drawable.product2,
+                R.drawable.product3, R.drawable.product0, R.drawable.product0,
+                R.drawable.product0, R.drawable.product0, R.drawable.product0,
+                R.drawable.product0, R.drawable.product0, R.drawable.product0,
+                R.drawable.product0, R.drawable.product0, R.drawable.product0
         };
 
         MyAdapter(Context context) {
@@ -199,8 +199,8 @@ public class ADSDetailsActivity extends BaseActivity implements OnClickListener 
                 imageView = new ImageView(context);
                 imageView.setLayoutParams(
                         new GridView.LayoutParams(
-                                (int) (getResources().getDisplayMetrics().density*75),
-                                (int) (getResources().getDisplayMetrics().density*75)));//设置ImageView对象布局
+                                (int) (getResources().getDisplayMetrics().density*115),
+                                (int) (getResources().getDisplayMetrics().density*115)));//设置ImageView对象布局
                 imageView.setAdjustViewBounds(false);//设置边界对齐
                 imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);//设置刻度的类型
                 imageView.setPadding(8, 8, 8, 8);//设置间距
