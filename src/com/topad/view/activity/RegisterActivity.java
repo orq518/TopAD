@@ -327,7 +327,9 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                     postWithLoading(url, rp, false, new HttpCallback() {
                         @Override
                         public <T> void onModel(int respStatusCode, String respErrorMsg, T t) {
-
+                            Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                            startActivity(intent);
+                            finish();
                         }
 
                         @Override
